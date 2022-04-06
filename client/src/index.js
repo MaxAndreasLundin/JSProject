@@ -11,7 +11,8 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <App />
-    <Button variant="contained">Hello World</Button>
+    <Button variant="contained">SPARA</Button>
+    <Button variant="contained">SKAPA PROFIL</Button>
   </React.StrictMode>,
   document.getElementById("root")
 );
