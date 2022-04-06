@@ -18,6 +18,4 @@ root.render(
   document.getElementById("root")
 );
 
-//test
-
 reportWebVitals();
