@@ -14,8 +14,7 @@ root.render(
     <App />
     <Button variant="contained">SPARA</Button>
     <Button variant="contained">SKAPA PROFIL</Button>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
 
 reportWebVitals();
