@@ -1,5 +1,5 @@
 import * as React from "react";
-import "normalize.css";
+import CssBaseline from "@mui/material/CssBaseline";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -11,6 +11,8 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
+    <CssBaseline />
+    <h1>Welcome</h1>
     <App />
     <Button variant="contained">SPARA</Button>
     <Button variant="contained">SKAPA PROFIL</Button>
