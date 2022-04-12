@@ -49,7 +49,7 @@ function RecipeReviewCard(props) {
           </IconButton>
         }
         title={props.title}
-        subheader="September 14, 2016"
+        subheader="Hökarängen, 29 Mars 2022"
       />
       <CardMedia
         component="img"
@@ -80,9 +80,15 @@ function RecipeReviewCard(props) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
+          <Typography paragraph>Om aktiviteten:</Typography>
           <Typography paragraph>
             Kort beskrivning av vad aktiveteten handlar om och vad syftet är med
             aktiviteten.
+          </Typography>
+          <Typography paragraph>Om organisatören:</Typography>
+          <Typography paragraph>
+            Kort beskrivning av vem jag är och vad mina mål är med att vara på
+            Join.
           </Typography>
           <Button variant="contained">Join</Button>
         </CardContent>
