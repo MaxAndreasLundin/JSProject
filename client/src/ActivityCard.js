@@ -48,53 +48,51 @@ function RecipeReviewCard(props) {
       />
 
       <CardContent>
-        <Typography>
-          Passar dig som gillar:
-          <Box
-            sx={{
-              flexDirection: "column",
-              bgcolor: "background.paper",
-              borderRadius: 1,
-              mt: 1,
+        <Typography>Passar dig som gillar:</Typography>
+        <Box
+          sx={{
+            flexDirection: "column",
+            bgcolor: "background.paper",
+            borderRadius: 1,
+            mt: 1,
+          }}
+        >
+          <Button
+            variant="contained"
+            color="info"
+            style={{
+              maxWidth: "105px",
+              maxHeight: "30px",
+              minWidth: "105px",
+              minHeight: "30px",
+              fontSize: 13,
             }}
           >
-            <Button
-              variant="contained"
-              color="info"
-              style={{
-                maxWidth: "105px",
-                maxHeight: "30px",
-                minWidth: "105px",
-                minHeight: "30px",
-              }}
-            >
-              Utomhus
-            </Button>
-          </Box>
-        </Typography>
-        <Typography>
-          <Box
-            sx={{
-              flexDirection: "column",
-              bgcolor: "background.paper",
-              borderRadius: 1,
-              mt: 1,
+            <Typography variant="body2">Utomhus</Typography>
+          </Button>
+        </Box>
+        <Box
+          sx={{
+            flexDirection: "column",
+            bgcolor: "background.paper",
+            borderRadius: 1,
+            mt: 1,
+          }}
+        >
+          <Button
+            variant="contained"
+            color="info"
+            style={{
+              maxWidth: "105px",
+              maxHeight: "30px",
+              minWidth: "105px",
+              minHeight: "30px",
+              fontSize: 13,
             }}
           >
-            <Button
-              variant="contained"
-              color="info"
-              style={{
-                maxWidth: "105px",
-                maxHeight: "30px",
-                minWidth: "105px",
-                minHeight: "30px",
-              }}
-            >
-              Korv
-            </Button>
-          </Box>
-        </Typography>
+            <Typography variant="body2">Korv</Typography>
+          </Button>
+        </Box>
       </CardContent>
       <CardActions disableSpacing>
         <ExpandMore
