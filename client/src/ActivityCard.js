@@ -12,7 +12,8 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { memo } from "react";
 import Button from "@mui/material/Button";
-import { flexbox } from '@mui/system';
+import Box from "@mui/material/Box";
+import { Container } from "@mui/material";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -33,28 +34,53 @@ function RecipeReviewCard(props) {
   };
 
   return (
-    <Card sx={{ maxWidth: 500}}>
+    <Card sx={{ maxWidth: 500 }}>
       <CardHeader
         avatar={
-          <Avatar src='https://wl-brightside.cf.tsp.li/resize/728x/jpg/881/409/62d49f51afa2c42e7b0d0e37e6.jpg'/>
+          <Avatar src="https://wl-brightside.cf.tsp.li/resize/728x/jpg/881/409/62d49f51afa2c42e7b0d0e37e6.jpg" />
         }
         action={
           <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
+            <FavoriteIcon />
+          </IconButton>
         }
-        title = {props.title}
+        title={props.title}
         subheader="Hökarängen, 29 Mars 2022"
       />
-    
+
       <CardContent>
-          <Typography>
-           Ålder:
-           <Button sx={{ alignContent: 'flex-end'}} variant="contained">Alla åldrar</Button>
-          </Typography>
+        <Typography>
+          Passar dig som gillar:
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              bgcolor: "background.paper",
+              borderRadius: 1,
+            }}
+          >
+            <Container maxWidth="sm" backgroundcolor="error">
+              asd
+            </Container>
+            <Button variant="contained">Utomhus</Button>
+          </Box>
+        </Typography>
+        <Typography>
+          Ålder:
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+
+              bgcolor: "background.paper",
+              borderRadius: 1,
+            }}
+          >
+            <Button variant="contained">Alla åldrar</Button>
+          </Box>
+        </Typography>
       </CardContent>
       <CardActions disableSpacing>
-
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
