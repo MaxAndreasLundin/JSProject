@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Korvkort from "./Korvkort";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./Theme";
 import ActivityCard from "./ActivityCard";

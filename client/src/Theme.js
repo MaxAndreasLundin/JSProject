@@ -5,6 +5,12 @@ export const theme = createTheme({
     primary: {
       main: "#FFE99D",
     },
+    secondary: {
+      main: "#EE7B35",
+    },
+    info: {
+      main: "#99CEC8",
+    },
   },
   typography: {
     fontFamily: "Buenos Aires",
