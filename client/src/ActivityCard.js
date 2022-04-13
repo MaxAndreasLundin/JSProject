@@ -66,7 +66,7 @@ function RecipeReviewCard(props) {
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
-        
+
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
