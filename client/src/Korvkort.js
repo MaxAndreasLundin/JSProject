@@ -9,7 +9,6 @@ import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -39,9 +38,10 @@ function RecipeReviewCard(props) {
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
+          <Avatar
+            alt="Girl"
+            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+          />
         }
         action={
           <IconButton aria-label="settings">
@@ -54,7 +54,7 @@ function RecipeReviewCard(props) {
       <CardMedia
         component="img"
         height="194"
-        image="https://images.unsplash.com/photo-1571302703929-6209091a75fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+        image="https://images.unsplash.com/photo-1528746653353-b7e58b661408?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1972&q=80"
         alt="Korv"
       />
       <CardContent>
@@ -63,7 +63,7 @@ function RecipeReviewCard(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="add to favorites" color="secondary">
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share">
@@ -81,15 +81,18 @@ function RecipeReviewCard(props) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Om aktiviteten:</Typography>
-          <Typography paragraph>
+          <Typography variant="body2" color="text.secondary">
             Kort beskrivning av vad aktiveteten handlar om och vad syftet är med
             aktiviteten.
           </Typography>
-          <Typography paragraph>Om organisatören:</Typography>
           <Typography paragraph>
+            <br/>Om organisatören:
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
             Kort beskrivning av vem jag är och vad mina mål är med att vara på
             Join.
           </Typography>
+          <br/>
           <Button variant="contained">Join</Button>
         </CardContent>
       </Collapse>
