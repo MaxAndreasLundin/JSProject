@@ -86,13 +86,13 @@ function RecipeReviewCard(props) {
             aktiviteten.
           </Typography>
           <Typography paragraph>
-            <br></br>Om organisatören:
+            <br/>Om organisatören:
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Kort beskrivning av vem jag är och vad mina mål är med att vara på
             Join.
           </Typography>
-          <br></br>
+          <br/>
           <Button variant="contained">Join</Button>
         </CardContent>
       </Collapse>
