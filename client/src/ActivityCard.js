@@ -16,6 +16,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { memo } from "react";
 import Button from "@mui/material/Button";
+import SimpleContainer from "./SimpleContainer";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -58,9 +59,11 @@ function RecipeReviewCard(props) {
         alt="Korv"
       />
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          Korvgrillning i skogen. Joina!!!
-        </Typography>
+        <SimpleContainer>
+          <Typography variant="body2" color="text.secondary">
+            Korvgrillning i skogen. Joina!!!
+          </Typography>
+        </SimpleContainer>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
