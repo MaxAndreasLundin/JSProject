@@ -39,9 +39,10 @@ function RecipeReviewCard(props) {
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
+          <Avatar
+            alt="Girl"
+            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+          />
         }
         action={
           <IconButton aria-label="settings">
@@ -54,7 +55,7 @@ function RecipeReviewCard(props) {
       <CardMedia
         component="img"
         height="194"
-        image="https://images.unsplash.com/photo-1571302703929-6209091a75fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+        image="https://images.unsplash.com/photo-1528746653353-b7e58b661408?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1972&q=80"
         alt="Korv"
       />
       <CardContent>
