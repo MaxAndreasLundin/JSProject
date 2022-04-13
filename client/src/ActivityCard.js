@@ -90,6 +90,7 @@ function RecipeReviewCard(props) {
                 bgcolor: "background.paper",
                 borderRadius: 1,
                 mt: 1,
+                mb: 1,
               }}
             >
               <Button
@@ -120,14 +121,24 @@ function RecipeReviewCard(props) {
               minWidth: 220,
             }}
           >
-            <ExpandMore
-              expand={expanded}
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="show more"
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "flex-end",
+              }}
             >
-              <ExpandMoreIcon />
-            </ExpandMore>
+              <Typography>Läs mer</Typography>
+              <ExpandMore
+                expand={expanded}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+              >
+                <ExpandMoreIcon />
+              </ExpandMore>
+            </Box>
           </Box>
         </Box>
       </CardContent>
