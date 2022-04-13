@@ -1,17 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Korvkort from "./Korvkort";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#FFE99D",
-    },
-  },
-  typography: {
-    fontFamily: "Buenos Aires",
-  },
-});
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "./Theme";
 
 function App() {
   const [backendData, setBackendData] = useState([{}]);
