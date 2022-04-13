@@ -82,15 +82,18 @@ function RecipeReviewCard(props) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Om aktiviteten:</Typography>
-          <Typography paragraph>
+          <Typography variant="body2" color="text.secondary">
             Kort beskrivning av vad aktiveteten handlar om och vad syftet är med
             aktiviteten.
           </Typography>
-          <Typography paragraph>Om organisatören:</Typography>
           <Typography paragraph>
+            <br></br>Om organisatören:
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
             Kort beskrivning av vem jag är och vad mina mål är med att vara på
             Join.
           </Typography>
+          <br></br>
           <Button variant="contained">Join</Button>
         </CardContent>
       </Collapse>
