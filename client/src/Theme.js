@@ -8,6 +8,9 @@ export const theme = createTheme({
     secondary: {
       main: "#EE7B35",
     },
+    info: {
+      main: "#99CEC8",
+    },
   },
   typography: {
     fontFamily: "Buenos Aires",
