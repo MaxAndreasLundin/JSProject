@@ -47,63 +47,97 @@ function RecipeReviewCard(props) {
         subheader="Hökarängen, 29 Mars 2022"
       />
 
-      <CardContent>
+      <CardContent
+        sx={{
+          pb: 0,
+        }}
+      >
         <Typography>Passar dig som gillar:</Typography>
         <Box
           sx={{
-            flexDirection: "column",
+            display: "flex",
+            flexDirection: "row",
             bgcolor: "background.paper",
             borderRadius: 1,
-            mt: 1,
           }}
         >
-          <Button
-            variant="contained"
-            color="info"
-            style={{
-              maxWidth: "105px",
-              maxHeight: "30px",
-              minWidth: "105px",
-              minHeight: "30px",
-              fontSize: 13,
+          <Box>
+            <Box
+              sx={{
+                flexDirection: "column",
+                bgcolor: "background.paper",
+                borderRadius: 1,
+                mt: 1,
+              }}
+            >
+              <Button
+                variant="contained"
+                color="info"
+                style={{
+                  maxWidth: "105px",
+                  maxHeight: "30px",
+                  minWidth: "105px",
+                  minHeight: "30px",
+                  fontSize: 13,
+                }}
+              >
+                <Typography variant="body2">Utomhus</Typography>
+              </Button>
+            </Box>
+            <Box
+              sx={{
+                flexDirection: "column",
+                bgcolor: "background.paper",
+                borderRadius: 1,
+                mt: 1,
+              }}
+            >
+              <Button
+                variant="contained"
+                color="info"
+                style={{
+                  maxWidth: "105px",
+                  maxHeight: "30px",
+                  minWidth: "105px",
+                  minHeight: "30px",
+                  fontSize: 13,
+                }}
+              >
+                <Typography variant="body2">Korv</Typography>
+              </Button>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              bgcolor: "background.paper",
+              borderRadius: 1,
+              mt: 1,
+              alignItems: "flex-end",
+              justifyContent: "flex-end",
+              maxWidth: 220,
+              minWidth: 220,
             }}
           >
-            <Typography variant="body2">Utomhus</Typography>
-          </Button>
-        </Box>
-        <Box
-          sx={{
-            flexDirection: "column",
-            bgcolor: "background.paper",
-            borderRadius: 1,
-            mt: 1,
-          }}
-        >
-          <Button
-            variant="contained"
-            color="info"
-            style={{
-              maxWidth: "105px",
-              maxHeight: "30px",
-              minWidth: "105px",
-              minHeight: "30px",
-              fontSize: 13,
-            }}
-          >
-            <Typography variant="body2">Korv</Typography>
-          </Button>
+            <ExpandMore
+              expand={expanded}
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+              aria-label="show more"
+            >
+              <ExpandMoreIcon />
+            </ExpandMore>
+          </Box>
         </Box>
       </CardContent>
-      <CardActions disableSpacing>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
+      <CardActions
+        disableSpacing
+        sx={{
+          pb: 0,
+          mb: 0,
+        }}
+      ></CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Om aktiviteten:</Typography>
