@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "./Theme";
+import { theme } from "./components/Theme";
 import ActivityCard from "./components/ActivityCard";
 
 function App() {
