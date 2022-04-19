@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./components/Theme";
 import ActivityCard from "./components/ActivityCard";
+import IndexCard from "./components/IndexCard";
 
 function App() {
   const [backendData, setBackendData] = useState([{}]);
@@ -17,13 +18,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div>
-        {typeof backendData.users === "undefined" ? (
+   
           <div>
             <ActivityCard title="Korvgrillning"></ActivityCard>
+            <IndexCard title="Hitta aktivitet"></IndexCard>
           </div>
-        ) : (
-          backendData.users.map((user, i) => <p key={i}>{user}</p>)
-        )}
+     
       </div>
     </ThemeProvider>
   );
