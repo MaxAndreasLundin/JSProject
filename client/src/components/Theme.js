@@ -13,7 +13,7 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Buenos Aires",
+    fontFamily: "",
     h1: {
       fontFamily: "Quarto",
       fontSize: "2rem",
