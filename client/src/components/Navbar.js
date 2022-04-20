@@ -6,11 +6,11 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import MessageIcon from "@mui/icons-material/Message";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import Logo from "../Vector.svg";
+import Logo from "../assets/Vector.svg";
 
 export default function ButtonAppBar() {
   return (
-    <Box>
+    <Box style={{ width: "100%" }}>
       <AppBar position="static" color="info">
         <Toolbar style={{ width: "100%" }}>
           <Box

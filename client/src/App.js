@@ -4,12 +4,13 @@ import { theme } from "./components/Theme";
 import IndexCard from "./components/IndexCard";
 import Intro from "./components/Intro";
 import { Container, Typography } from "@mui/material";
-import Image from "./kids.png";
+import Image from "./assets/kids.png";
 import { Box } from "@mui/system";
-import Kids1 from "./kids1.png";
-import Pink from "./pink.png";
-import Kids2 from "./kids2.png";
+import Kids1 from "./assets/kids1.png";
+import Pink from "./assets/pink.png";
+import Kids2 from "./assets/kids2.png";
 import Button from "@mui/material/Button";
+import ButtonAppBar from "./components/Navbar";
 
 function App() {
   const [backendData, setBackendData] = useState([{}]);
@@ -37,8 +38,10 @@ function App() {
                 backgroundImage: `url(${Image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+                p: 0,
               }}
             >
+              <ButtonAppBar></ButtonAppBar>
               <Intro></Intro>
               <IndexCard title="Hitta aktivitet"></IndexCard>
               <IndexCard title="Öppet forum"></IndexCard>
