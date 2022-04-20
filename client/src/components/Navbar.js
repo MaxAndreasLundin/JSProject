@@ -31,7 +31,11 @@ export default function ButtonAppBar() {
             </IconButton>
           </Box>
           <Box
-            style={{ display: "flex", flexGrow: 1, justifyContent: "center" }}
+            style={{
+              display: "flex",
+              flexGrow: 0.75,
+              justifyContent: "flex-end",
+            }}
           >
             <IconButton>
               <img src={Logo} />
