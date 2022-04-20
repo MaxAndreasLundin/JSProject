@@ -65,7 +65,7 @@ function RecipeReviewCard(props) {
               fontSize: 13,
             }}
           >
-            <Typography variant="body2">Läs mer</Typography>
+            Läs mer
             <ArrowForwardIcon fontSize="small" />
           </Button>
         </Box>
