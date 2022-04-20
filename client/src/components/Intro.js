@@ -5,7 +5,7 @@ import Container from "@mui/material/Container";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { memo } from "react";
-import Image from "../kids.jpg";
+import Image from "../kids.png";
 
 function Intro() {
   return (

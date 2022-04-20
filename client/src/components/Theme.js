@@ -21,7 +21,7 @@ export const theme = createTheme({
     },
     subtitle1: {
       fontFamily: "Buenos Aires",
-      fontWeight: 600,
+      fontWeight: 400,
       fontSize: "0.8rem",
     },
   },
