@@ -31,4 +31,17 @@ export const theme = createTheme({
       main: "#99CEC8",
     },
   },
+  typography: {
+    fontFamily: "",
+    h1: {
+      fontFamily: "Quarto",
+      fontSize: "2rem",
+      fontWeight: 400,
+    },
+    subtitle1: {
+      fontFamily: "Buenos Aires",
+      fontWeight: 400,
+      fontSize: "0.8rem",
+    },
+  },
 });

@@ -3,6 +3,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./components/Theme";
 import ActivityCard from "./components/ActivityCard";
 import IndexCard from "./components/IndexCard";
+import Intro from "./components/Intro";
 
 function App() {
   const [backendData, setBackendData] = useState([{}]);
@@ -24,6 +25,13 @@ function App() {
           <IndexCard title="Öppet forum"></IndexCard>
           <IndexCard title="Professionel hjälp"></IndexCard>
         </div>
+        {typeof backendData.users === "undefined" ? (
+          <div>
+            <Intro></Intro>
+          </div>
+        ) : (
+          backendData.users.map((user, i) => <p key={i}>{user}</p>)
+        )}
       </div>
     </ThemeProvider>
   );
