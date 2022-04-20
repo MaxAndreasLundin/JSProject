@@ -1,6 +1,25 @@
 import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
+  components: {
+    MuiCardHeader: {
+      styleOverrides: {
+        title: {
+          fontFamily: "Quarto",
+          fontWeight: 400,
+          fontSize: "2rem",
+        },
+      },
+    },
+    MuiCardContent: {
+      styleOverrides: {
+        body1: {
+          fontFamily: "Buenos Aires",
+          fontWeight: 400,
+        },
+      },
+    },
+  },
   palette: {
     primary: {
       main: "#FFE99D",

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./components/Theme";
+import ActivityCard from "./components/ActivityCard";
+import IndexCard from "./components/IndexCard";
 import Intro from "./components/Intro";
 
 function App() {
@@ -17,6 +19,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div>
+        <div>
+          <ActivityCard title="Korvgrillning"></ActivityCard>
+          <IndexCard title="Hitta aktivitet"></IndexCard>
+          <IndexCard title="Öppet forum"></IndexCard>
+          <IndexCard title="Professionel hjälp"></IndexCard>
+        </div>
         {typeof backendData.users === "undefined" ? (
           <div>
             <Intro></Intro>
