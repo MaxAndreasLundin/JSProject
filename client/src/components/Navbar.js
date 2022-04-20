@@ -17,6 +17,7 @@ export default function ButtonAppBar() {
             style={{
               display: "flex",
               flexGrow: 1,
+              flexBasis: 0,
               justifyContent: "flex-start",
             }}
           >
@@ -33,8 +34,9 @@ export default function ButtonAppBar() {
           <Box
             style={{
               display: "flex",
-              flexGrow: 0.75,
-              justifyContent: "flex-end",
+              flexGrow: 1,
+              justifyContent: "center",
+              flexBasis: 0,
             }}
           >
             <IconButton>
@@ -46,6 +48,7 @@ export default function ButtonAppBar() {
               display: "flex",
               flexGrow: 1,
               justifyContent: "flex-end",
+              flexBasis: 0,
             }}
           >
             <IconButton size="large">
