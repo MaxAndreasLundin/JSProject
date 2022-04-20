@@ -29,8 +29,7 @@ function App() {
         {typeof backendData.users === "undefined" ? (
           <div>
             <Container
-              maxWidth="sm"
-              sx={{
+              style={{
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -38,7 +37,7 @@ function App() {
                 backgroundImage: `url(${Image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                p: 0,
+                padding: 0,
               }}
             >
               <ButtonAppBar></ButtonAppBar>
@@ -48,8 +47,7 @@ function App() {
               <IndexCard title="Professionel hjälp"></IndexCard>
             </Container>
             <Container
-              maxWidth="sm"
-              sx={{
+              style={{
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -57,6 +55,7 @@ function App() {
                 backgroundImage: `url(${Pink})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+                padding: 0,
               }}
             >
               <Box>
