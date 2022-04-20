@@ -38,7 +38,7 @@ export default function ButtonAppBar() {
             }}
           >
             <IconButton>
-              <img src={Logo} />
+              <img src={Logo} alt="logo" />
             </IconButton>
           </Box>
           <Box
