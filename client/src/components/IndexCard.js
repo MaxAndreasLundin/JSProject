@@ -7,10 +7,11 @@ import { memo } from "react";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { Typography } from "@mui/material";
 
 function RecipeReviewCard(props) {
   return (
-    <Card sx={{ maxWidth: 350 }}>
+    <Card sx={{ maxWidth: 350, mb: 1, mt: 1, borderRadius: 8 }}>
       <CardHeader
         sx={{
           display: "flex",
@@ -19,26 +20,25 @@ function RecipeReviewCard(props) {
           justifyContent: "center",
           textAlign: "center",
           bgcolor: "background.paper",
-          borderRadius: 1,
           mt: 1,
         }}
         title={props.title}
       />
-
       <CardContent
         sx={{
           pb: 0,
           textAlign: "center",
         }}
       >
-        Här nedan kan du se vilka aktiviteter som våra fina medlemmar och
-        föreningar har satt ihop.
+        <Typography>
+          Här nedan kan du se vilka aktiviteter som våra fina medlemmar och
+          föreningar har satt ihop.
+        </Typography>
         <Box
           sx={{
             display: "flex",
             flexDirection: "row",
             bgcolor: "background.paper",
-            borderRadius: 1,
           }}
         ></Box>
         <Box
@@ -50,6 +50,8 @@ function RecipeReviewCard(props) {
             bgcolor: "background.paper",
             borderRadius: 1,
             mt: 1,
+            mb: 1,
+            mr: 1,
           }}
         >
           <Button
@@ -63,7 +65,7 @@ function RecipeReviewCard(props) {
               fontSize: 13,
             }}
           >
-            Läs mer
+            <Typography variant="body2">Läs mer</Typography>
             <ArrowForwardIcon fontSize="small" />
           </Button>
         </Box>

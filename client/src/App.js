@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./components/Theme";
-import ActivityCard from "./components/ActivityCard";
 import IndexCard from "./components/IndexCard";
 import Intro from "./components/Intro";
+import { Container } from "@mui/material";
+import Image from "./kids.png";
 
 function App() {
   const [backendData, setBackendData] = useState([{}]);
@@ -19,15 +20,25 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div>
-        <div>
-          <ActivityCard title="Korvgrillning"></ActivityCard>
-          <IndexCard title="Hitta aktivitet"></IndexCard>
-          <IndexCard title="Öppet forum"></IndexCard>
-          <IndexCard title="Professionel hjälp"></IndexCard>
-        </div>
         {typeof backendData.users === "undefined" ? (
           <div>
-            <Intro></Intro>
+            <Container
+              maxWidth="sm"
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundImage: `url(${Image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <Intro></Intro>
+              <IndexCard title="Hitta aktivitet"></IndexCard>
+              <IndexCard title="Öppet forum"></IndexCard>
+              <IndexCard title="Professionel hjälp"></IndexCard>
+            </Container>
           </div>
         ) : (
           backendData.users.map((user, i) => <p key={i}>{user}</p>)

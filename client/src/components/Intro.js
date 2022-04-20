@@ -5,7 +5,6 @@ import Container from "@mui/material/Container";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { memo } from "react";
-import Image from "../kids.png";
 
 function Intro() {
   return (
@@ -19,9 +18,7 @@ function Intro() {
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          backgroundImage: `url(${Image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          mb: 8,
         }}
       >
         <Box>
