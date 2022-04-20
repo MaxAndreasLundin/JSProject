@@ -9,18 +9,7 @@ import Typography from "@mui/material/Typography";
 import { memo } from "react";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 function RecipeReviewCard(props) {
   const [expanded, setExpanded] = React.useState(false);
@@ -31,29 +20,28 @@ function RecipeReviewCard(props) {
 
   return (
     <Card sx={{ maxWidth: 350 }}>
-        
       <CardHeader
-       sx={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-        bgcolor: "background.paper",
-        borderRadius: 1,
-        mt: 1,
-
-      }}
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          bgcolor: "background.paper",
+          borderRadius: 1,
+          mt: 1,
+        }}
         title={props.title}
-
-
       />
 
       <CardContent
         sx={{
           pb: 0,
+          textAlign: "center",
         }}
       >
-        <Typography>Här nedan kan du se vilka aktiviteter som våra fina medlemmar och föreningar har satt ihop.</Typography>
+        Här nedan kan du se vilka aktiviteter som våra fina medlemmar och
+        föreningar har satt ihop.
         <Box
           sx={{
             display: "flex",
@@ -61,38 +49,33 @@ function RecipeReviewCard(props) {
             bgcolor: "background.paper",
             borderRadius: 1,
           }}
+        ></Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            bgcolor: "background.paper",
+            borderRadius: 1,
+            mt: 1,
+          }}
         >
-
-
+          <Button
+            variant="contained"
+            color="info"
+            style={{
+              maxWidth: "115px",
+              maxHeight: "30px",
+              minWidth: "105px",
+              minHeight: "30px",
+              fontSize: 13,
+            }}
+          >
+            Läs mer
+            <ArrowForwardIcon fontSize="small" />
+          </Button>
         </Box>
-    
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                bgcolor: "background.paper",
-                borderRadius: 1,
-                mt: 1,
-        
-              }}
-            >
-              <Button
-                variant="contained"
-                color="info"
-                style={{
-                  maxWidth: "115px",
-                  maxHeight: "30px",
-                  minWidth: "105px",
-                  minHeight: "30px",
-                  fontSize: 13,
-                }}
-              >
-                <Typography variant="body2">Läs mer</Typography>
-                <ArrowForwardIcon fontSize="small" />
-              </Button>
-            </Box>
       </CardContent>
       <CardActions
         disableSpacing
@@ -101,7 +84,6 @@ function RecipeReviewCard(props) {
           mb: 0,
         }}
       ></CardActions>
-    
     </Card>
   );
 }

@@ -18,12 +18,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div>
-   
-          <div>
-            <ActivityCard title="Korvgrillning"></ActivityCard>
-            <IndexCard title="Hitta aktivitet"></IndexCard>
-          </div>
-     
+        <div>
+          <ActivityCard title="Korvgrillning"></ActivityCard>
+          <IndexCard title="Hitta aktivitet"></IndexCard>
+          <IndexCard title="Öppet forum"></IndexCard>
+          <IndexCard title="Professionel hjälp"></IndexCard>
+        </div>
       </div>
     </ThemeProvider>
   );
