@@ -6,27 +6,51 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import MessageIcon from "@mui/icons-material/Message";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import Logo from "../Vector.svg";
 
 export default function ButtonAppBar() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box>
       <AppBar position="static" color="info">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
+        <Toolbar style={{ width: "100%" }}>
+          <Box
+            style={{
+              display: "flex",
+              flexGrow: 1,
+              justifyContent: "flex-start",
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-          <IconButton size="large">
-            <MessageIcon />
-          </IconButton>
-          <IconButton size="large">
-            <PersonOutlineIcon />
-          </IconButton>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Box>
+          <Box
+            style={{ display: "flex", flexGrow: 1, justifyContent: "center" }}
+          >
+            <IconButton>
+              <img src={Logo} />
+            </IconButton>
+          </Box>
+          <Box
+            style={{
+              display: "flex",
+              flexGrow: 1,
+              justifyContent: "flex-end",
+            }}
+          >
+            <IconButton size="large">
+              <MessageIcon />
+            </IconButton>
+            <IconButton size="large">
+              <PersonOutlineIcon />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
     </Box>
