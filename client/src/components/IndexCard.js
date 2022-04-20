@@ -21,12 +21,15 @@ function RecipeReviewCard(props) {
           textAlign: "center",
           bgcolor: "background.paper",
           mt: 1,
+          pt: 0,
+          pb: 0,
         }}
         title={props.title}
       />
       <CardContent
         sx={{
           pb: 0,
+          pt: 1,
           textAlign: "center",
         }}
       >
