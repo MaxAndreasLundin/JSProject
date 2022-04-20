@@ -54,7 +54,7 @@ export default function ButtonAppBar() {
             <IconButton size="large">
               <MessageIcon />
             </IconButton>
-            <IconButton size="large">
+            <IconButton size="large" style={{ paddingRight: 0 }}>
               <PersonOutlineIcon />
             </IconButton>
           </Box>
