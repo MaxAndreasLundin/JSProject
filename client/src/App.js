@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./components/Theme";
 import ActivityCard from "./components/ActivityCard";
-
+import MenuAppBar from "./components/Navbar";
 function App() {
   const [backendData, setBackendData] = useState([{}]);
 
@@ -19,6 +19,7 @@ function App() {
       <div>
         {typeof backendData.users === "undefined" ? (
           <div>
+            <MenuAppBar></MenuAppBar>
             <ActivityCard title="Korvgrillning"></ActivityCard>
           </div>
         ) : (
