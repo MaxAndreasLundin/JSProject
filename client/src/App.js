@@ -98,7 +98,7 @@ function App() {
               >
                 <img
                   src={Kids2}
-                  alt="Kids1"
+                  alt="Kids2"
                   style={{ width: "100%", height: "auto" }}
                 />
               </Box>
