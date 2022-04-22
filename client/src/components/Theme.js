@@ -2,13 +2,6 @@ import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
   components: {
-    MuiCard: {
-      styleOverrides: {
-        root: {
-          margin: "5px",
-        },
-      },
-    },
     MuiCardHeader: {
       styleOverrides: {
         title: {
@@ -23,18 +16,6 @@ export const theme = createTheme({
         body1: {
           fontFamily: "Buenos Aires",
           fontWeight: 400,
-        },
-      },
-    },
-    MuiGrid: {
-      styleOverrides: {
-        root: {
-          maxWidth: "80%",
-        },
-        container: {
-          maxWidth: "80%",
-          alignItems: "center",
-          justifyContent: "center",
         },
       },
     },
