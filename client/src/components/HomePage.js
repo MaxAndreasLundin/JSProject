@@ -9,6 +9,8 @@ import Pink from "../assets/pink.png";
 import Kids2 from "../assets/kids2.png";
 import Button from "@mui/material/Button";
 import ButtonAppBar from "./Navbar";
+import IndexCardHomePage from "./IndexCardHomePage";
+import ChildrenHomePage from "./ChildrenHomePage";
 
 function HomePage() {
   return (
@@ -27,9 +29,7 @@ function HomePage() {
       >
         <ButtonAppBar></ButtonAppBar>
         <Intro></Intro>
-        <IndexCard title="Hitta aktivitet"></IndexCard>
-        <IndexCard title="Öppet forum"></IndexCard>
-        <IndexCard title="Professionel hjälp"></IndexCard>
+        <IndexCardHomePage></IndexCardHomePage>
       </Container>
       <Container
         style={{
@@ -57,38 +57,8 @@ function HomePage() {
             Tillsammans mot ensamheten
           </Typography>
         </Box>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            mt: 1,
-            mb: 1,
-          }}
-        >
-          <img
-            src={Kids1}
-            alt="Kids1"
-            style={{ width: "100%", height: "auto" }}
-          />
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            mt: 1,
-            mb: 1,
-          }}
-        >
-          <img
-            src={Kids2}
-            alt="Kids2"
-            style={{ width: "100%", height: "auto" }}
-          />
-        </Box>
+
+        <ChildrenHomePage></ChildrenHomePage>
         <Box
           sx={{
             display: "flex",
