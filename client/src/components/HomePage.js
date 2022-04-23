@@ -1,15 +1,14 @@
 import * as React from "react";
+import IndexCard from "./IndexCard";
 import Intro from "./Intro";
 import { Container, Typography } from "@mui/material";
 import Background from "../assets/kids.png";
 import { Box } from "@mui/system";
+import Kids1 from "../assets/kids1.png";
 import Pink from "../assets/pink.png";
+import Kids2 from "../assets/kids2.png";
 import Button from "@mui/material/Button";
 import ButtonAppBar from "./Navbar";
-import Kids1 from "../assets/kids1.png";
-import Kids2 from "../assets/kids2.png";
-import IndexCard from "./IndexCard";
-import { Grid } from "@mui/material";
 
 function HomePage() {
   return (
@@ -28,17 +27,9 @@ function HomePage() {
       >
         <ButtonAppBar></ButtonAppBar>
         <Intro></Intro>
-        <Grid container>
-          <Grid item xs={12} sm={4}>
-            <IndexCard title="Hitta aktivitet"></IndexCard>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <IndexCard title="Öppet forum"></IndexCard>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <IndexCard title="Professionel hjälp"></IndexCard>
-          </Grid>
-        </Grid>
+        <IndexCard title="Hitta aktivitet"></IndexCard>
+        <IndexCard title="Öppet forum"></IndexCard>
+        <IndexCard title="Professionel hjälp"></IndexCard>
       </Container>
       <Container
         style={{
@@ -66,44 +57,6 @@ function HomePage() {
             Tillsammans mot ensamheten
           </Typography>
         </Box>
-
-        <Grid container>
-          <Grid item xs={12} sm={4} md={5}>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: 1,
-              }}
-            >
-              <img
-                src={Kids1}
-                alt="Kids1"
-                style={{ width: "100%", height: "auto" }}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={4} md={5}>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: 1,
-              }}
-            >
-              <img
-                src={Kids2}
-                alt="Kids2"
-                style={{ width: "100%", height: "auto" }}
-              />
-            </Box>
-          </Grid>
-        </Grid>
-
         <Box
           sx={{
             display: "flex",
@@ -112,10 +65,30 @@ function HomePage() {
             justifyContent: "center",
             mt: 1,
             mb: 1,
-            p: 1.5,
-            textAlign: "center",
           }}
-        ></Box>
+        >
+          <img
+            src={Kids1}
+            alt="Kids1"
+            style={{ width: "100%", height: "auto" }}
+          />
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            mt: 1,
+            mb: 1,
+          }}
+        >
+          <img
+            src={Kids2}
+            alt="Kids2"
+            style={{ width: "100%", height: "auto" }}
+          />
+        </Box>
         <Box
           sx={{
             display: "flex",
@@ -136,7 +109,7 @@ function HomePage() {
           </Typography>
           <Button
             variant="contained"
-            sx={{ width: "50%", fontSize: "0.9rem", mt: "1rem" }}
+            sx={{ width: "100%", fontSize: "0.9rem", mt: "1rem" }}
           >
             JOIN US NOW!
           </Button>
