@@ -15,11 +15,8 @@ function HomePage() {
   return (
     <React.Fragment>
       <Container
+        variant="flex"
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
           backgroundImage: `url(${Background})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -32,11 +29,8 @@ function HomePage() {
         <HelpCard title="Professionel hjälp"></HelpCard>
       </Container>
       <Container
+        variant="flex"
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
           backgroundImage: `url(${Pink})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -59,22 +53,13 @@ function HomePage() {
         </Box>
         <Box
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
             mt: 1,
-            mb: 1,
           }}
         >
           <img src={Kids1} alt="Kids1" sx={{ width: "100%", height: "auto" }} />
         </Box>
         <Box
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
             mt: 1,
             mb: 1,
           }}
@@ -83,10 +68,6 @@ function HomePage() {
         </Box>
         <Box
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
             mt: 1,
             mb: 1,
             p: 1.5,

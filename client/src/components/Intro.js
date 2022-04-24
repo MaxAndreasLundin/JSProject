@@ -10,12 +10,9 @@ function Intro() {
   return (
     <React.Fragment>
       <Container
+        variant="flex"
         maxWidth="sm"
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
           mb: 8,
         }}
       >

@@ -11,6 +11,7 @@ export const theme = createTheme({
         },
       },
     },
+
     MuiCardContent: {
       styleOverrides: {
         body1: {
@@ -19,7 +20,22 @@ export const theme = createTheme({
         },
       },
     },
+
+    MuiContainer: {
+      variants: [
+        {
+          props: { variant: "flex" },
+          style: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          },
+        },
+      ],
+    },
   },
+
   palette: {
     primary: {
       main: "#FFE99D",
@@ -31,6 +47,7 @@ export const theme = createTheme({
       main: "#99CEC8",
     },
   },
+
   typography: {
     fontFamily: "",
     h1: {
