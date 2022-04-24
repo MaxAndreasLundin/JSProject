@@ -1,10 +1,10 @@
 import * as React from "react";
+import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import { Typography } from "@mui/material";
-import Button from "@mui/material/Button";
 import { memo } from "react";
 import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 function Intro() {
   return (
@@ -16,13 +16,13 @@ function Intro() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          textAlign: "center",
           mb: 8,
         }}
       >
         <Box>
           <Typography
             variant="h1"
+            align="center"
             sx={{
               mb: 2,
               mt: 3,
@@ -35,6 +35,7 @@ function Intro() {
         <Box>
           <Typography
             variant="subtitle1"
+            align="center"
             sx={{
               ml: 3,
               mr: 3,

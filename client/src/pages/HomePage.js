@@ -44,11 +44,11 @@ function HomePage() {
         <Box>
           <Typography
             variant="h1"
+            align="center"
             sx={{
               mb: 2,
               mt: 6,
               color: "##3A3A3A",
-              textAlign: "center",
               fontSize: "2.5rem",
             }}
           >
@@ -88,10 +88,9 @@ function HomePage() {
             mt: 1,
             mb: 1,
             p: 1.5,
-            textAlign: "center",
           }}
         >
-          <Typography>
+          <Typography align="center">
             Vi tror på att dela med sig av sina erfarenheter och känslor,
             föräldrar emellan. Och tillsammans kan vi mötas och skapa nya
             sociala sammanhang och kontakter, inte bara för våra barn utan även
