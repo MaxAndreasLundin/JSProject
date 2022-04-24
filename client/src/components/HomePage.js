@@ -8,7 +8,6 @@ import Kids1 from "../assets/kids1.png";
 import Pink from "../assets/pink.png";
 import Kids2 from "../assets/kids2.png";
 import Button from "@mui/material/Button";
-import ButtonAppBar from "./Navbar";
 
 function HomePage() {
   return (
