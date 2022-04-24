@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import MessageIcon from "@mui/icons-material/Message";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import Logo from "../assets/Vector.svg";
+import Logo from "../assets/Logotype.svg";
 import { memo } from "react";
 
 function Navbar() {
