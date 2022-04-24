@@ -1,17 +1,25 @@
 import * as React from "react";
 import { memo } from "react";
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 function RecipeReviewCard(props) {
   return (
-    <Card sx={{ maxWidth: 350, mb: 1, mt: 1, borderRadius: 3 }}>
+    <Card
+      sx={{
+        maxWidth: 350,
+        minHeight: 193,
+        mb: 1,
+        mt: 1,
+        borderRadius: 3,
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <CardHeader
         variant="flex"
         sx={{
@@ -25,41 +33,36 @@ function RecipeReviewCard(props) {
         sx={{
           pt: 1,
           textAlign: "center",
+          "&:last-child": { pb: 1 },
         }}
       >
         <Typography children={props.children}></Typography>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-          }}
-        ></Box>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "flex-end",
-            borderRadius: 1,
-            mt: 1,
-            mb: 1,
-            mr: 1,
+      </CardContent>
+      <Container
+        variant="flex"
+        sx={{
+          justifyContent: "flex-end",
+          alignItems: "flex-end",
+          flexGrow: 1,
+          pr: 2,
+          pb: 2,
+        }}
+      >
+        <Button
+          variant="contained"
+          color="info"
+          style={{
+            maxWidth: "115px",
+            maxHeight: "30px",
+            minWidth: "105px",
+            minHeight: "30px",
+            fontSize: 13,
           }}
         >
-          <Button
-            variant="contained"
-            color="info"
-            style={{
-              maxWidth: "115px",
-              maxHeight: "30px",
-              minWidth: "105px",
-              minHeight: "30px",
-              fontSize: 13,
-            }}
-          >
-            Läs mer
-            <ArrowForwardIcon fontSize="small" />
-          </Button>
-        </Box>
-      </CardContent>
+          Läs mer
+          <ArrowForwardIcon fontSize="small" />
+        </Button>
+      </Container>
     </Card>
   );
 }
