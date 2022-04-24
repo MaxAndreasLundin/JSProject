@@ -13,7 +13,7 @@ function HomePage() {
   return (
     <div>
       <Container
-        style={{
+        sx={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -21,7 +21,7 @@ function HomePage() {
           backgroundImage: `url(${Background})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          padding: 0,
+          p: 0,
         }}
       >
         <Intro></Intro>
@@ -30,7 +30,7 @@ function HomePage() {
         <IndexCard title="Professionel hjälp"></IndexCard>
       </Container>
       <Container
-        style={{
+        sx={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -38,7 +38,7 @@ function HomePage() {
           backgroundImage: `url(${Pink})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          padding: 0,
+          p: 0,
         }}
       >
         <Box>
