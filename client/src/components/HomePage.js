@@ -81,11 +81,7 @@ function HomePage() {
             mb: 1,
           }}
         >
-          <img
-            src={Kids2}
-            alt="Kids2"
-            style={{ width: "100%", height: "auto" }}
-          />
+          <img src={Kids2} alt="Kids2" sx={{ width: "100%", height: "auto" }} />
         </Box>
         <Box
           sx={{
