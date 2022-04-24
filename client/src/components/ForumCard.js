@@ -11,7 +11,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 function RecipeReviewCard(props) {
   return (
-    <Card sx={{ maxWidth: 350, mb: 1, mt: 1, borderRadius: 8 }}>
+    <Card sx={{ maxWidth: 350, mb: 1, mt: 1, borderRadius: 3 }}>
       <CardHeader
         sx={{
           display: "flex",
