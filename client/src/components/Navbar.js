@@ -10,9 +10,9 @@ import Logo from "../assets/Vector.svg";
 
 export default function ButtonAppBar() {
   return (
-    <Box style={{ width: "100%" }}>
+    <Box>
       <AppBar position="static" color="info">
-        <Toolbar style={{ width: "100%" }}>
+        <Toolbar>
           <Box
             style={{
               display: "flex",

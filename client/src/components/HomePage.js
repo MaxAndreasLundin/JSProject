@@ -25,7 +25,6 @@ function HomePage() {
           padding: 0,
         }}
       >
-        <ButtonAppBar></ButtonAppBar>
         <Intro></Intro>
         <IndexCard title="Hitta aktivitet"></IndexCard>
         <IndexCard title="Öppet forum"></IndexCard>
