@@ -11,8 +11,9 @@ import Button from "@mui/material/Button";
 
 function HomePage() {
   return (
-    <div>
+    <React.Fragment>
       <Container
+        maxWidth="lg"
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -65,11 +66,7 @@ function HomePage() {
             mb: 1,
           }}
         >
-          <img
-            src={Kids1}
-            alt="Kids1"
-            style={{ width: "100%", height: "auto" }}
-          />
+          <img src={Kids1} alt="Kids1" sx={{ width: "100%", height: "auto" }} />
         </Box>
         <Box
           sx={{
@@ -109,7 +106,7 @@ function HomePage() {
           </Button>
         </Box>
       </Container>
-    </div>
+    </React.Fragment>
   );
 }
 export default HomePage;
