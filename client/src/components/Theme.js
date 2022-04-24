@@ -10,15 +10,19 @@ export const theme = createTheme({
           fontSize: "2rem",
         },
       },
-    },
-
-    MuiCardContent: {
-      styleOverrides: {
-        body1: {
-          fontFamily: "Buenos Aires",
-          fontWeight: 400,
+      variants: [
+        {
+          props: { variant: "flex" },
+          style: {
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            bgcolor: "background.paper",
+          },
         },
-      },
+      ],
     },
 
     MuiContainer: {

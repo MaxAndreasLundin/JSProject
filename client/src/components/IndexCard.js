@@ -13,13 +13,8 @@ function RecipeReviewCard(props) {
   return (
     <Card sx={{ maxWidth: 350, mb: 1, mt: 1, borderRadius: 3 }}>
       <CardHeader
+        variant="flex"
         sx={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          textAlign: "center",
-          bgcolor: "background.paper",
           mt: 1,
           pt: 0,
           pb: 0,
@@ -28,29 +23,21 @@ function RecipeReviewCard(props) {
       />
       <CardContent
         sx={{
-          pb: 0,
           pt: 1,
           textAlign: "center",
         }}
       >
-        <Typography>
-          Här nedan kan du se vilka aktiviteter som våra fina medlemmar och
-          föreningar har satt ihop.
-        </Typography>
+        <Typography children={props.children}></Typography>
         <Box
           sx={{
             display: "flex",
             flexDirection: "row",
-            bgcolor: "background.paper",
           }}
         ></Box>
         <Box
           sx={{
             display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
             justifyContent: "flex-end",
-            bgcolor: "background.paper",
             borderRadius: 1,
             mt: 1,
             mb: 1,
@@ -73,13 +60,6 @@ function RecipeReviewCard(props) {
           </Button>
         </Box>
       </CardContent>
-      <CardActions
-        disableSpacing
-        sx={{
-          pb: 0,
-          mb: 0,
-        }}
-      ></CardActions>
     </Card>
   );
 }
