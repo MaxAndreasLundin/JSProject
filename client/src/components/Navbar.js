@@ -15,7 +15,7 @@ export default function Navbar() {
       <AppBar position="static" color="info">
         <Toolbar>
           <Box
-            style={{
+            sx={{
               display: "flex",
               flexGrow: 1,
               flexBasis: 0,
@@ -33,7 +33,7 @@ export default function Navbar() {
             </IconButton>
           </Box>
           <Box
-            style={{
+            sx={{
               display: "flex",
               flexGrow: 1,
               justifyContent: "center",
@@ -45,7 +45,7 @@ export default function Navbar() {
             </IconButton>
           </Box>
           <Box
-            style={{
+            sx={{
               display: "flex",
               flexGrow: 1,
               justifyContent: "flex-end",
