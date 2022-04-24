@@ -1,4 +1,6 @@
 import * as React from "react";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "./components/Theme";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createRoot } from "react-dom/client";
 import "./styles/index.css";
@@ -10,8 +12,10 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <CssBaseline />
-    <App />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
 

@@ -11,9 +11,9 @@ import Button from "@mui/material/Button";
 
 function HomePage() {
   return (
-    <div>
+    <React.Fragment>
       <Container
-        style={{
+        sx={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -21,7 +21,7 @@ function HomePage() {
           backgroundImage: `url(${Background})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          padding: 0,
+          p: 0,
         }}
       >
         <Intro></Intro>
@@ -30,7 +30,7 @@ function HomePage() {
         <IndexCard title="Professionel hjälp"></IndexCard>
       </Container>
       <Container
-        style={{
+        sx={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -38,7 +38,7 @@ function HomePage() {
           backgroundImage: `url(${Pink})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          padding: 0,
+          p: 0,
         }}
       >
         <Box>
@@ -65,11 +65,7 @@ function HomePage() {
             mb: 1,
           }}
         >
-          <img
-            src={Kids1}
-            alt="Kids1"
-            style={{ width: "100%", height: "auto" }}
-          />
+          <img src={Kids1} alt="Kids1" sx={{ width: "100%", height: "auto" }} />
         </Box>
         <Box
           sx={{
@@ -81,11 +77,7 @@ function HomePage() {
             mb: 1,
           }}
         >
-          <img
-            src={Kids2}
-            alt="Kids2"
-            style={{ width: "100%", height: "auto" }}
-          />
+          <img src={Kids2} alt="Kids2" sx={{ width: "100%", height: "auto" }} />
         </Box>
         <Box
           sx={{
@@ -113,7 +105,7 @@ function HomePage() {
           </Button>
         </Box>
       </Container>
-    </div>
+    </React.Fragment>
   );
 }
 export default HomePage;
