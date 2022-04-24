@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -6,10 +7,10 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import MessageIcon from "@mui/icons-material/Message";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import Logo from "../assets/Vector.svg";
-import { Link } from "react-router-dom";
+import Logo from "../assets/Logotype.svg";
+import { memo } from "react";
 
-export default function Navbar() {
+function Navbar() {
   return (
     <Box>
       <AppBar position="static" color="info">
@@ -64,3 +65,5 @@ export default function Navbar() {
     </Box>
   );
 }
+
+export default memo(Navbar);

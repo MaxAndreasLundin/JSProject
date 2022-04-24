@@ -34,8 +34,8 @@ function RecipeReviewCard(props) {
         }}
       >
         <Typography>
-          Här nedan kan du se vilka aktiviteter som våra fina medlemmar och
-          föreningar har satt ihop.
+          Det finns flera stödföreningar där du kan få stöd och hjälp via. Här
+          har vi samlat några!
         </Typography>
         <Box
           sx={{

@@ -1,9 +1,11 @@
 import * as React from "react";
-import IndexCard from "./IndexCard";
-import Intro from "./Intro";
-import { Container, Typography } from "@mui/material";
-import Background from "../assets/kids.png";
 import { Box } from "@mui/system";
+import { Container, Typography } from "@mui/material";
+import IndexCard from "../components/IndexCard";
+import ForumCard from "../components/ForumCard";
+import HelpCard from "../components/HelpCard";
+import Intro from "../components/Intro";
+import Background from "../assets/kids.png";
 import Kids1 from "../assets/kids1.png";
 import Pink from "../assets/pink.png";
 import Kids2 from "../assets/kids2.png";
@@ -26,8 +28,8 @@ function HomePage() {
       >
         <Intro></Intro>
         <IndexCard title="Hitta aktivitet"></IndexCard>
-        <IndexCard title="Öppet forum"></IndexCard>
-        <IndexCard title="Professionel hjälp"></IndexCard>
+        <ForumCard title="Öppet forum"></ForumCard>
+        <HelpCard title="Professionel hjälp"></HelpCard>
       </Container>
       <Container
         sx={{
@@ -44,11 +46,11 @@ function HomePage() {
         <Box>
           <Typography
             variant="h1"
+            align="center"
             sx={{
               mb: 2,
               mt: 6,
               color: "##3A3A3A",
-              textAlign: "center",
               fontSize: "2.5rem",
             }}
           >
@@ -88,10 +90,9 @@ function HomePage() {
             mt: 1,
             mb: 1,
             p: 1.5,
-            textAlign: "center",
           }}
         >
-          <Typography>
+          <Typography align="center">
             Vi tror på att dela med sig av sina erfarenheter och känslor,
             föräldrar emellan. Och tillsammans kan vi mötas och skapa nya
             sociala sammanhang och kontakter, inte bara för våra barn utan även

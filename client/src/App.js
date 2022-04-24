@@ -1,7 +1,7 @@
 import React from "react";
-import HomePage from "./components/HomePage";
-import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import Navbar from "./components/Navbar";
 import ActivityCard from "./components/ActivityCard";
 
 function App() {
