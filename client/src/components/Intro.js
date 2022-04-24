@@ -5,6 +5,7 @@ import Container from "@mui/material/Container";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { memo } from "react";
+import { Link } from "react-router-dom";
 
 function Intro() {
   return (
@@ -53,6 +54,8 @@ function Intro() {
             <Button
               variant="contained"
               sx={{ mr: 1, width: "9rem", fontSize: "0.9rem" }}
+              component={Link}
+              to="/activities"
             >
               SKAPA PROFIL
             </Button>

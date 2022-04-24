@@ -7,12 +7,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MessageIcon from "@mui/icons-material/Message";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import Logo from "../assets/Vector.svg";
+import { Link } from "react-router-dom";
 
-export default function ButtonAppBar() {
+export default function Navbar() {
   return (
-    <Box style={{ width: "100%" }}>
+    <Box>
       <AppBar position="static" color="info">
-        <Toolbar style={{ width: "100%" }}>
+        <Toolbar>
           <Box
             style={{
               display: "flex",
@@ -39,7 +40,7 @@ export default function ButtonAppBar() {
               flexBasis: 0,
             }}
           >
-            <IconButton>
+            <IconButton component={Link} to="/">
               <img src={Logo} alt="logo" />
             </IconButton>
           </Box>
