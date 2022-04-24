@@ -2,6 +2,8 @@ import * as React from "react";
 import { Box } from "@mui/system";
 import { Container, Typography } from "@mui/material";
 import IndexCard from "../components/IndexCard";
+import ForumCard from "../components/ForumCard";
+import HelpCard from "../components/HelpCard";
 import Intro from "../components/Intro";
 import Background from "../assets/kids.png";
 import Kids1 from "../assets/kids1.png";
@@ -26,8 +28,8 @@ function HomePage() {
       >
         <Intro></Intro>
         <IndexCard title="Hitta aktivitet"></IndexCard>
-        <IndexCard title="Öppet forum"></IndexCard>
-        <IndexCard title="Professionel hjälp"></IndexCard>
+        <ForumCard title="Öppet forum"></ForumCard>
+        <HelpCard title="Professionel hjälp"></HelpCard>
       </Container>
       <Container
         sx={{
