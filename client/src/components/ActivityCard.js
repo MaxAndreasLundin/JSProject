@@ -25,7 +25,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-function RecipeReviewCard(props) {
+function ActivityCard(props) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -93,7 +93,6 @@ function RecipeReviewCard(props) {
                 mb: 1,
               }}
             >
-              
               <Button
                 variant="contained"
                 color="info"
@@ -122,7 +121,6 @@ function RecipeReviewCard(props) {
               minWidth: 220,
             }}
           >
-  
             <Box
               sx={{
                 display: "flex",
@@ -174,4 +172,4 @@ function RecipeReviewCard(props) {
   );
 }
 
-export default memo(RecipeReviewCard);
+export default memo(ActivityCard);
