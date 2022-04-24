@@ -13,7 +13,6 @@ function HomePage() {
   return (
     <React.Fragment>
       <Container
-        maxWidth="lg"
         sx={{
           display: "flex",
           flexDirection: "column",
