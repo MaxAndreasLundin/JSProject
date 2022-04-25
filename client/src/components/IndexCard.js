@@ -51,7 +51,7 @@ function RecipeReviewCard(props) {
         <Button
           variant="contained"
           color="info"
-          style={{
+          sx={{
             maxWidth: "115px",
             maxHeight: "30px",
             minWidth: "105px",
