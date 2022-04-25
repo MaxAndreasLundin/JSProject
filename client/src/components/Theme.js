@@ -2,6 +2,31 @@ import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
   components: {
+    MuiPaper: {
+      styleOverrides: {
+        fontFamily: "Buenos Aires",
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        input: {
+          marginLeft: 5,
+        },
+        root: {
+          backgroundColor: "white",
+          marginTop: 3,
+          marginBottom: 10,
+        },
+      },
+    },
+
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          padding: 0,
+        },
+      },
+    },
     MuiCardHeader: {
       styleOverrides: {
         title: {
