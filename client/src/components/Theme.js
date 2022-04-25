@@ -30,10 +30,13 @@ export const theme = createTheme({
     info: {
       main: "#99CEC8",
     },
+    error: {
+      main: "#FBEEED",
+    }
   },
   typography: {
     fontFamily: "",
-    h1: {
+    h1:  {
       fontFamily: "Quarto",
       fontSize: "2rem",
       fontWeight: 400,

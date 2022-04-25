@@ -1,20 +1,22 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { memo } from "react";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import Container from '@mui/material/Container';
+import OutdoorGrillIcon from '@mui/icons-material/OutdoorGrill';
+import ForestIcon from '@mui/icons-material/Forest';
+import PeopleIcon from '@mui/icons-material/People';
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import Chip from '@mui/material/Chip';
 
 
 const ExpandMore = styled((props) => {
@@ -36,135 +38,71 @@ function ActivityCard1(props) {
   };
 
   return (
-    <Card sx={{ maxWidth: 356 }}>
-      <CardContent
-        sx={{
-          pb: 0,
-        }}
-      >
-         <Avatar src="https://mamadisrupt.com/wp-content/uploads/2019/11/jessica-rockowitz-jbiInQGY8og-unsplash-WEB.jpg"
-          fontSize="large"/>
-          <IconButton>
-            <InfoOutlinedIcon fontSize="small"/>
-          </IconButton>
-         
-          <IconButton aria-label="add to favorites" color="secondary">
-            <FavoriteIcon />
-          </IconButton>
+    <Card className="card" sx={{
+      maxWidth: 500
+    }} >
+    <CardContent
+    >
+      <Box display="flex" justifyContent="space-between">
+            <Box>
+              <Avatar src="https://mamadisrupt.com/wp-content/uploads/2019/11/jessica-rockowitz-jbiInQGY8og-unsplash-WEB-542x427.jpg"
+                sx={{
+                  width: 100,
+                  height: 100,
+                }}
+              />
+              <Typography sx={{
+                textAlign: "center",
+                padding: 1,
+              }}>Malin</Typography>
+            </Box>
 
-        <Typography>
-        Passar Bäst:
-        </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            bgcolor: "background.paper",
-            borderRadius: 1,
-          }}
-        >
-          <Box>
-            <Box
-              sx={{
-                flexDirection: "row",
-                bgcolor: "background.paper",
-                borderRadius: 1,
-                mt: 1,
-              }}
-            >
-              <Button
-                variant="contained"
-                color="info"
-                style={{
-                  maxWidth: "63px",
-                  maxHeight: "17px",
-                  minWidth: "63px",
-                  minHeight: "17px",
-                  fontSize: 11,
-                }}
-              >
-                <Typography variant="body2">Utomhus</Typography>
-              </Button>
+            <Box>
+              <Typography variant="h5">Korvgrillning</Typography>
+              <Typography>Var: Hökarängen</Typography>
+              <Typography>När: 29 Mars 2022 </Typography>
+              <Typography>Tid: 12:00</Typography>
             </Box>
-            <Box
-              sx={{
-                flexDirection: "row",
-                bgcolor: "background.paper",
-                borderRadius: 1,
-                mt: 1,
-                mb: 1,
-              }}
-            >
-              
-              <Button
-                variant="contained"
-                color="info"
-                style={{
-                  maxWidth: "40px",
-                  maxHeight: "17px",
-                  minWidth: "40px",
-                  minHeight: "17px",
-                  fontSize: 11,
-                }}
-              >
-                <Typography variant="body2">Korv</Typography>
-              </Button>
+            <Box>
+              <IconButton aria-label="add to favorites">
+                  <FavoriteBorderIcon fontSize="large"/>
+                </IconButton>
             </Box>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              bgcolor: "background.paper",
-              borderRadius: 1,
-              mt: 1,
-              alignItems: "flex-end",
-              justifyContent: "flex-end",
-              maxWidth: 220,
-              minWidth: 220,
-            }}
-          >
+      </Box>
+      <br />
+      <Button variant="contained">Joina!</Button>
+      <Box>
+          <ExpandMore 
+                      expand={expanded}
+                      onClick={handleExpandClick}
+                      aria-expanded={expanded}
+                      aria-label="show more"
+                    >
+                      
+                      <ExpandMoreIcon />
+                    </ExpandMore>
+      </Box>   
   
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "flex-end",
-              }}
-            >
-              <Typography>Läs mer & joina!</Typography>
-              <ExpandMore
-                expand={expanded}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label="show more"
-              >
-                <ExpandMoreIcon />
-              </ExpandMore>
-            </Box>
-          </Box>
+</CardContent>
+  
+    <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <CardContent>
+      <Box>
+        <Chip color="info" icon={<OutdoorGrillIcon />} label="Korv" />
+          <Chip color="info" icon={<ForestIcon />} label="Utomhus" />
+       <Chip color="error" icon={<PeopleIcon />} label="Alla åldrar" />
+      </Box>
+        <Box>
+        <Typography>Om aktiviteten:</Typography>
+        <Typography color="text.secondary">
+          Kort beskrivning av vad aktiveteten handlar om och vad syftet är med
+          aktiviteten.Kort beskrivning av vad aktiveteten handlar om och vad syftet är med
+          aktiviteten.
+        </Typography>
         </Box>
       </CardContent>
-      <CardActions
-        disableSpacing
-        sx={{
-          pb: 0,
-          mb: 0,
-        }}
-      ></CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Om aktiviteten:</Typography>
-          <Typography variant="body2" color="text.secondary">
-            Kort beskrivning av vad aktiveteten handlar om och vad syftet är med
-            aktiviteten.
-          </Typography>
-          <br />
-          <Button variant="contained">Joina</Button>
-        </CardContent>
-      </Collapse>
-    </Card>
+    </Collapse>
+  </Card>
   );
 }
 
