@@ -46,5 +46,10 @@ export const theme = createTheme({
       fontWeight: 400,
       fontSize: "0.8rem",
     },
+    h5:{
+      fontFamily: "Quarto",
+      fontSize: "2rem",
+      fontWeight: 400,
+    },
   },
 });

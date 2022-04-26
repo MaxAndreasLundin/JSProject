@@ -2,7 +2,6 @@ import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
@@ -67,20 +66,16 @@ function ActivityCard1(props) {
               <Typography>Tid: 12:00</Typography>
             </Box>
 
-            <Box sx={{flexDirection:"column"}}>
-              <IconButton aria-label="add to favorites">
+            <Box>
+            <IconButton aria-label="add to favorites">
                   <FavoriteBorderIcon fontSize="large"/>
                 </IconButton>
-              
-              <Button variant="contained" >Joina!</Button>
             </Box>
       </Box>
-      <br />
-      
-      
-  
-</CardContent>
-    <Box>
+            <Box display="flex" justifyContent="flex-end">
+            <Button variant="contained" sx={{px:7}}>Joina!</Button>
+            </Box>
+            <Box display="flex" justifyContent="center">
           <ExpandMore 
                       expand={expanded}
                       onClick={handleExpandClick}
@@ -88,25 +83,28 @@ function ActivityCard1(props) {
                       aria-label="show more"
                     >
                       
-                      <ExpandMoreIcon display="flex" justifyContent="center"/>
+                      <ExpandMoreIcon />
                     </ExpandMore>
-      </Box>   
+      </Box> 
+</CardContent>
+      
   
     <Collapse in={expanded} timeout="auto" unmountOnExit>
       <CardContent>
-      <Box display="flex" justifyContent="space-between">
-        <Box>
+      <Box display="flex" flexDirection="row">
+        <Box sx={{maxWidth:280}}>
         <Typography>Om aktiviteten:</Typography>
-        <Typography color="text.secondary">
+        <Typography color="text.secondary" sx={{mr:4}}>
           Kort beskrivning av vad aktiveteten handlar om och vad syftet är med
           aktiviteten.Kort beskrivning av vad aktiveteten handlar om och vad syftet är med
           aktiviteten.
         </Typography>
+        
         </Box>
-        <Box>
-        <Chip color="info" label="Korv" />
-          <Chip color="info" label="Utomhus" />
-       <Chip color="error" label="Alla åldrar" />
+        <Box display="flex" flexDirection="row" flexWrap="wrap" justifyContent="flex-start" sx={{mr: 1, my: 10.5, mt: 0}}>
+        <Chip color="info" label="Korv" sx={{mr:1}}/>
+          <Chip color="info" label="Utomhus" sx={{mr:1}}/>
+       <Chip color="error" label="Alla åldrar" sx={{mr:1}}/>
       </Box>
         </Box>
       </CardContent>
