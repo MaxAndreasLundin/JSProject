@@ -11,9 +11,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { memo } from "react";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import OutdoorGrillIcon from '@mui/icons-material/OutdoorGrill';
-import ForestIcon from '@mui/icons-material/Forest';
-import PeopleIcon from '@mui/icons-material/People';
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Chip from '@mui/material/Chip';
@@ -37,6 +34,10 @@ function ActivityCard1(props) {
     setExpanded(!expanded);
   };
 
+  const clickAble = () => {
+
+  };
+
   return (
     <Card className="card" sx={{
       maxWidth: 500
@@ -50,7 +51,9 @@ function ActivityCard1(props) {
                   width: 100,
                   height: 100,
                 }}
+                onClick={clickAble}
               />
+              
               <Typography sx={{
                 textAlign: "center",
                 padding: 1,
@@ -63,15 +66,21 @@ function ActivityCard1(props) {
               <Typography>När: 29 Mars 2022 </Typography>
               <Typography>Tid: 12:00</Typography>
             </Box>
-            <Box>
+
+            <Box sx={{flexDirection:"column"}}>
               <IconButton aria-label="add to favorites">
                   <FavoriteBorderIcon fontSize="large"/>
                 </IconButton>
+              
+              <Button variant="contained" >Joina!</Button>
             </Box>
       </Box>
       <br />
-      <Button variant="contained">Joina!</Button>
-      <Box>
+      
+      
+  
+</CardContent>
+    <Box>
           <ExpandMore 
                       expand={expanded}
                       onClick={handleExpandClick}
@@ -79,19 +88,13 @@ function ActivityCard1(props) {
                       aria-label="show more"
                     >
                       
-                      <ExpandMoreIcon />
+                      <ExpandMoreIcon display="flex" justifyContent="center"/>
                     </ExpandMore>
       </Box>   
   
-</CardContent>
-  
     <Collapse in={expanded} timeout="auto" unmountOnExit>
       <CardContent>
-      <Box>
-        <Chip color="info" icon={<OutdoorGrillIcon />} label="Korv" />
-          <Chip color="info" icon={<ForestIcon />} label="Utomhus" />
-       <Chip color="error" icon={<PeopleIcon />} label="Alla åldrar" />
-      </Box>
+      <Box display="flex" justifyContent="space-between">
         <Box>
         <Typography>Om aktiviteten:</Typography>
         <Typography color="text.secondary">
@@ -99,6 +102,12 @@ function ActivityCard1(props) {
           aktiviteten.Kort beskrivning av vad aktiveteten handlar om och vad syftet är med
           aktiviteten.
         </Typography>
+        </Box>
+        <Box>
+        <Chip color="info" label="Korv" />
+          <Chip color="info" label="Utomhus" />
+       <Chip color="error" label="Alla åldrar" />
+      </Box>
         </Box>
       </CardContent>
     </Collapse>
