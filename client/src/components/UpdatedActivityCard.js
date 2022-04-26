@@ -75,17 +75,7 @@ function ActivityCard1(props) {
             <Box display="flex" justifyContent="flex-end">
             <Button variant="contained" sx={{px:7}}>Joina!</Button>
             </Box>
-            <Box display="flex" justifyContent="center">
-          <ExpandMore 
-                      expand={expanded}
-                      onClick={handleExpandClick}
-                      aria-expanded={expanded}
-                      aria-label="show more"
-                    >
-                      
-                      <ExpandMoreIcon />
-                    </ExpandMore>
-      </Box> 
+            
 </CardContent>
       
   
@@ -109,6 +99,17 @@ function ActivityCard1(props) {
         </Box>
       </CardContent>
     </Collapse>
+    <Box display="flex" justifyContent="center">
+          <ExpandMore 
+                      expand={expanded}
+                      onClick={handleExpandClick}
+                      aria-expanded={expanded}
+                      aria-label="show more"
+                    >
+                      
+                      <ExpandMoreIcon />
+                    </ExpandMore>
+      </Box> 
   </Card>
   );
 }
