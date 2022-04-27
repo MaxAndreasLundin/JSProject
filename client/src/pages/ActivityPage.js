@@ -3,10 +3,9 @@ import { Box } from "@mui/system";
 import { Container, Typography } from "@mui/material";
 import Background from "../assets/kids2Filter.png";
 import Pink from "../assets/pink.png";
-import ActivityCard from "../components/ActivityCard";
 import Footer from "../components/Footer";
 import { light } from "@mui/material/styles/createPalette";
-/* import ActivityCard from "../components/UpdatedActivityCard" */
+import ActivityCard from "../components/UpdatedActivityCard"
 
 function ActivityPage(){
     return(
@@ -48,7 +47,7 @@ function ActivityPage(){
                         fontSize: '14px',
                         fontWeight: 'regular'
                         }}
-                    >Här nedan kan du se vilka aktiviteter som våra fina medlemmar eller föreningar har satt ihop. <br />
+                    >Här nedan kan du se vilka aktiviteter som våra fina medlemmar eller föreningar har satt ihop. <br /> <br />
                     Klicka dig igenom och delta eller spara de aktiviteter du tycker verkar intressant till nästa gång.
                     Alla medlemmar och organisatörer är verifierade med Bank-ID.
                     </Typography>
