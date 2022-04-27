@@ -72,7 +72,8 @@ function ActivityCard(props) {
 
   return (
     <Card className="card" sx={{
-      maxWidth: 500
+      maxWidth: 500,
+      mt: '10px'
     }} >
     <CardContent
     >

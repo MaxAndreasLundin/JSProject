@@ -27,7 +27,7 @@ function ActivityPage(){
                     variant="h1"
                     align="left"
                     sx={{
-                    ml: -11,
+                    ml: -14,
                     mb: 2,
                     mt: 3,
                     color: "#FFFFFF",
