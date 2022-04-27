@@ -166,6 +166,7 @@ export default function CreateActivity() {
               </Grid>
               <Grid item xs={3} sm={2} md={3}>
                 <Checkbox
+                  color="info"
                   sx={{
                     marginTop: -1,
                   }}
