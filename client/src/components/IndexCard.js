@@ -59,6 +59,8 @@ function RecipeReviewCard(props) {
             minHeight: "30px",
             fontSize: 13,
           }}
+          component={Link}
+          to="/ActivityPage"
         >
           Läs mer
           <ArrowForwardIcon fontSize="small" />

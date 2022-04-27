@@ -1,10 +1,12 @@
 import React from "react";
 import { Box } from "@mui/system";
 import { Container, Typography } from "@mui/material";
-import Background from "../assets/kids2.png";
+import Background from "../assets/kids2Filter.png";
 import Pink from "../assets/pink.png";
 import ActivityCard from "../components/ActivityCard";
 import Footer from "../components/Footer";
+import { light } from "@mui/material/styles/createPalette";
+/* import ActivityCard from "../components/UpdatedActivityCard" */
 
 function ActivityPage(){
     return(
@@ -24,25 +26,29 @@ function ActivityPage(){
                 <Box>
                     <Typography
                     variant="h1"
-                    align="center"
+                    align="left"
                     sx={{
+                    ml: -11,
                     mb: 2,
                     mt: 3,
                     color: "#FFFFFF",
+                    fontSize: '16px'
                     }}
-                    ><h1>Joina en aktivitet</h1></Typography>
+                    ><h1>Joina en aktivitet!</h1></Typography>
                 </Box>
                 <Box>
                     <Typography
                         variant="subtitle1"
-                        align="center"
+                        align="left"
                         sx={{
                         ml: 3,
                         mr: 3,
                         mb: 2,
                         color: "#FFFFFF",
+                        fontSize: '14px',
+                        fontWeight: 'regular'
                         }}
-                    >Här nedan kan du se vilka aktiviteter som våra fina medlemmar eller föreningar har satt ihop.
+                    >Här nedan kan du se vilka aktiviteter som våra fina medlemmar eller föreningar har satt ihop. <br />
                     Klicka dig igenom och delta eller spara de aktiviteter du tycker verkar intressant till nästa gång.
                     Alla medlemmar och organisatörer är verifierade med Bank-ID.
                     </Typography>

@@ -14,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/activities" element={<ActivityCard />} />
+            <Route path="/ActivityPage" element={<ActivityPage />} />
           </Routes>
         </div>
       </div>
