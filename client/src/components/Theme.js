@@ -10,16 +10,36 @@ export const theme = createTheme({
           fontSize: "2rem",
         },
       },
-    },
-    MuiCardContent: {
-      styleOverrides: {
-        body1: {
-          fontFamily: "Buenos Aires",
-          fontWeight: 400,
+      variants: [
+        {
+          props: { variant: "flex" },
+          style: {
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            bgcolor: "background.paper",
+          },
         },
-      },
+      ],
+    },
+
+    MuiContainer: {
+      variants: [
+        {
+          props: { variant: "flex" },
+          style: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          },
+        },
+      ],
     },
   },
+
   palette: {
     primary: {
       main: "#FFE99D",
@@ -31,6 +51,7 @@ export const theme = createTheme({
       main: "#99CEC8",
     },
   },
+
   typography: {
     fontFamily: "",
     h1: {

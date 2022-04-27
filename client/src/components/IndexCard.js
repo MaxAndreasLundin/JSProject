@@ -1,26 +1,29 @@
 import * as React from "react";
 import { memo } from "react";
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Link } from "react-router-dom";
 
 function RecipeReviewCard(props) {
   return (
-    <Card sx={{ maxWidth: 350, mb: 1, mt: 1, borderRadius: 8 }}>
+    <Card
+      sx={{
+        maxWidth: 350,
+        minHeight: 193,
+        mb: 1,
+        mt: 1,
+        borderRadius: 3,
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <CardHeader
+        variant="flex"
         sx={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          textAlign: "center",
-          bgcolor: "background.paper",
           mt: 1,
           pt: 0,
           pb: 0,
@@ -29,60 +32,38 @@ function RecipeReviewCard(props) {
       />
       <CardContent
         sx={{
-          pb: 0,
           pt: 1,
           textAlign: "center",
+          "&:last-child": { pb: 1 },
         }}
       >
-        <Typography>
-          Här nedan kan du se vilka aktiviteter som våra fina medlemmar och
-          föreningar har satt ihop.
-        </Typography>
-        <Box
+        <Typography children={props.children}></Typography>
+      </CardContent>
+      <Container
+        variant="flex"
+        sx={{
+          justifyContent: "flex-end",
+          alignItems: "flex-end",
+          flexGrow: 1,
+          pr: 2,
+          pb: 2,
+        }}
+      >
+        <Button
+          variant="contained"
+          color="info"
           sx={{
-            display: "flex",
-            flexDirection: "row",
-            bgcolor: "background.paper",
-          }}
-        ></Box>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "flex-end",
-            bgcolor: "background.paper",
-            borderRadius: 1,
-            mt: 1,
-            mb: 1,
-            mr: 1,
+            maxWidth: "115px",
+            maxHeight: "30px",
+            minWidth: "105px",
+            minHeight: "30px",
+            fontSize: 13,
           }}
         >
-          <Button
-            variant="contained"
-            color="info"
-            style={{
-              maxWidth: "115px",
-              maxHeight: "30px",
-              minWidth: "105px",
-              minHeight: "30px",
-              fontSize: 13,
-            }}
-            component={Link}
-            to="/ActivityPage"
-          >
-            Läs mer
-            <ArrowForwardIcon fontSize="small" />
-          </Button>
-        </Box>
-      </CardContent>
-      <CardActions
-        disableSpacing
-        sx={{
-          pb: 0,
-          mb: 0,
-        }}
-      ></CardActions>
+          Läs mer
+          <ArrowForwardIcon fontSize="small" />
+        </Button>
+      </Container>
     </Card>
   );
 }

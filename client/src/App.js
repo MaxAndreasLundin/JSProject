@@ -12,9 +12,8 @@ function App() {
         <Navbar></Navbar>
         <div>
           <Routes>
-            <Route path="/" element={<HomePage />}></Route>
-            <Route path="/activities" element={<ActivityCard />}></Route>
-            <Route path="/ActivityPage" element={<ActivityPage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/activities" element={<ActivityCard />} />
           </Routes>
         </div>
       </div>

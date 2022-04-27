@@ -2,8 +2,6 @@ import * as React from "react";
 import { Box } from "@mui/system";
 import { Container, Typography } from "@mui/material";
 import IndexCard from "../components/IndexCard";
-import ForumCard from "../components/ForumCard";
-import HelpCard from "../components/HelpCard";
 import Intro from "../components/Intro";
 import Background from "../assets/kids.png";
 import Kids1 from "../assets/kids1.png";
@@ -15,11 +13,8 @@ function HomePage() {
   return (
     <React.Fragment>
       <Container
+        variant="flex"
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
           backgroundImage: `url(${Background})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -27,16 +22,24 @@ function HomePage() {
         }}
       >
         <Intro></Intro>
-        <IndexCard title="Hitta aktivitet"></IndexCard>
-        <ForumCard title="Öppet forum"></ForumCard>
-        <HelpCard title="Professionel hjälp"></HelpCard>
+        <IndexCard
+          title="Hitta aktivitet"
+          children="Här kan du se vilka aktiviteter som våra fina medlemmar eller föreningar har satt ihop. "
+        ></IndexCard>
+        <IndexCard
+          title="Öppet forum"
+          children="Dela med dig av tidigare erfarenheter och läs andras historier.
+          Tillsammans är vi starka. PS. Du kan vara helt anonym i forumet."
+        ></IndexCard>
+        <IndexCard
+          title="Professionel hjälp"
+          children="Det finns flera stödföreningar där du kan få stöd och hjälp via.
+          Här har vi samlat några!"
+        ></IndexCard>
       </Container>
       <Container
+        variant="flex"
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
           backgroundImage: `url(${Pink})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -59,22 +62,13 @@ function HomePage() {
         </Box>
         <Box
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
             mt: 1,
-            mb: 1,
           }}
         >
           <img src={Kids1} alt="Kids1" sx={{ width: "100%", height: "auto" }} />
         </Box>
         <Box
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
             mt: 1,
             mb: 1,
           }}
@@ -83,10 +77,6 @@ function HomePage() {
         </Box>
         <Box
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
             mt: 1,
             mb: 1,
             p: 1.5,
