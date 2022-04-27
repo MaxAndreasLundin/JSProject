@@ -10,8 +10,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { memo } from "react";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import CheckIcon from '@mui/icons-material/Check';
 import Chip from '@mui/material/Chip';
 
 
@@ -26,16 +27,48 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-function ActivityCard1(props) {
+const BootstrapButton = styled(Button)({
+  boxShadow: 1,
+  textTransform: 'none',
+  fontSize: 16,
+  lineHeight: 1.5,
+  backgroundColor: '#FFE99D',
+  fontFamily: [
+    'Buenos Aires'
+  ].join(','),
+  '&:hover': {
+    backgroundColor: '#FFE99D',
+    boxShadow: 1,
+  },
+  '&:active': {
+    boxShadow: 'none',
+    backgroundColor: '#FFE99D',
+    transform: 'translateY(4px)'
+  },
+  '&:focus': {
+    boxShadow: 1,
+  },
+});
+
+function ActivityCard(props) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  const clickAble = () => {
+  const [isActive, setIsActive] = React.useState(false);
 
+  const handleToggle = () => {
+    setIsActive(!isActive);
   };
+
+  const [buttonText, setButtonText] = React.useState(false);
+
+  const handleClick = () => {
+
+    setButtonText(!buttonText)
+    };
 
   return (
     <Card className="card" sx={{
@@ -45,13 +78,14 @@ function ActivityCard1(props) {
     >
       <Box display="flex" justifyContent="space-between">
             <Box>
-              <Avatar src="https://mamadisrupt.com/wp-content/uploads/2019/11/jessica-rockowitz-jbiInQGY8og-unsplash-WEB-542x427.jpg"
+            <IconButton>
+            <Avatar src="https://mamadisrupt.com/wp-content/uploads/2019/11/jessica-rockowitz-jbiInQGY8og-unsplash-WEB-542x427.jpg"
                 sx={{
                   width: 100,
                   height: 100,
                 }}
-                onClick={clickAble}
               />
+            </IconButton>
               
               <Typography sx={{
                 textAlign: "center",
@@ -67,13 +101,17 @@ function ActivityCard1(props) {
             </Box>
 
             <Box>
-            <IconButton aria-label="add to favorites">
-                  <FavoriteBorderIcon fontSize="large"/>
-                </IconButton>
+            <IconButton aria-label="add to favorites" onClick={handleToggle}>
+              {!isActive && <FavoriteBorderIcon fontSize="large" />}
+              {isActive && <FavoriteIcon fontSize="large" color="secondary" />}
+            </IconButton>
             </Box>
       </Box>
             <Box display="flex" justifyContent="flex-end">
-            <Button variant="contained" sx={{px:7}}>Joina!</Button>
+            <BootstrapButton variant="contained" disableRipple onClick={handleClick} sx={{width:160, height:35}}>
+            {buttonText && <Typography>Joina!</Typography>}
+            {!buttonText && <Typography >Du har joinat! <CheckIcon fontSize="small" /></Typography>}
+      </BootstrapButton>
             </Box>
             
 </CardContent>
@@ -83,7 +121,7 @@ function ActivityCard1(props) {
       <CardContent>
       <Box display="flex" flexDirection="row">
         <Box sx={{maxWidth:280}}>
-        <Typography>Om aktiviteten:</Typography>
+        <Typography>Om aktiviteten</Typography>
         <Typography color="text.secondary" sx={{mr:4}}>
           Kort beskrivning av vad aktiveteten handlar om och vad syftet är med
           aktiviteten.Kort beskrivning av vad aktiveteten handlar om och vad syftet är med
@@ -100,7 +138,7 @@ function ActivityCard1(props) {
       </CardContent>
     </Collapse>
     <Box display="flex" justifyContent="center">
-          <ExpandMore 
+          <ExpandMore sx={{ marginLeft: 0  }} 
                       expand={expanded}
                       onClick={handleExpandClick}
                       aria-expanded={expanded}
@@ -114,4 +152,4 @@ function ActivityCard1(props) {
   );
 }
 
-export default memo(ActivityCard1);
+export default memo(ActivityCard);
