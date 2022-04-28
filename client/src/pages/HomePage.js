@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import { Container, Typography } from "@mui/material";
 import IndexCard from "../components/IndexCard";
 import Intro from "../components/Intro";
-import Background from "../assets/kids.png";
+import Background from "../assets/newbackground.png";
 import Kids1 from "../assets/kids1.png";
 import Pink from "../assets/pink.png";
 import Kids2 from "../assets/kids2.png";
@@ -30,12 +30,12 @@ function HomePage() {
           title="Öppet forum"
           children="Dela med dig av tidigare erfarenheter och läs andras historier.
           Tillsammans är vi starka. PS. Du kan vara helt anonym i forumet."
-        ></IndexCard>
+        ></IndexCard>{" "}
         <IndexCard
           title="Professionel hjälp"
           children="Det finns flera stödföreningar där du kan få stöd och hjälp via.
           Här har vi samlat några!"
-        ></IndexCard>
+        ></IndexCard>{" "}
       </Container>
       <Container
         variant="flex"
