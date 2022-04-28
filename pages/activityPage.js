@@ -1,7 +1,6 @@
 import React from "react";
 import { Box } from "@mui/system";
 import { Container, Typography } from "@mui/material";
-import Background from "../assets/kids2Filter.png";
 import ActivityCard from "../components/UpdatedActivityCard";
 
 function ActivityPage() {
@@ -10,7 +9,7 @@ function ActivityPage() {
       <Container
         variant="flex"
         sx={{
-          backgroundImage: `url(${Background})`,
+          backgroundImage: `url(/pictures/kids2Filter.png)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

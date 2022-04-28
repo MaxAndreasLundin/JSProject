@@ -6,7 +6,7 @@ import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { Link } from "next/link";
+import Link from "../src/Link";
 
 function RecipeReviewCard(props) {
   return (
@@ -52,6 +52,9 @@ function RecipeReviewCard(props) {
         <Button
           variant="contained"
           color="info"
+          component={Link}
+          noLinkStyle
+          href="/activityPage"
           sx={{
             maxWidth: "115px",
             maxHeight: "30px",
