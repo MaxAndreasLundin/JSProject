@@ -74,7 +74,7 @@ function ActivityCard(props) {
       onClick={handleExpandClick}
       className="card"
       sx={{
-        maxWidth: 500,
+        maxWidth: 395,
         minWidth: 0,
         m: 1,
       }}
