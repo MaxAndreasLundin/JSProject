@@ -6,6 +6,7 @@ import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { Link } from "react-router-dom";
 
 function RecipeReviewCard(props) {
   return (
@@ -58,6 +59,8 @@ function RecipeReviewCard(props) {
             minHeight: "30px",
             fontSize: 13,
           }}
+          component={Link}
+          to="/ActivityPage"
         >
           Läs mer
           <ArrowForwardIcon fontSize="small" />
