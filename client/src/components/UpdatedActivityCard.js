@@ -74,6 +74,7 @@ function ActivityCard(props) {
       className="card"
       sx={{
         maxWidth: 500,
+        m: 1,
       }}
     >
       <CardContent sx={{ maxHeight: 150 }}>
@@ -141,7 +142,9 @@ function ActivityCard(props) {
         <CardContent>
           <Box display="flex" flexDirection="row">
             <Box sx={{ maxWidth: 280 }}>
-              <Typography variant="subtitle1" sx={{ fontSize: 18 }}>Om aktiviteten</Typography>
+              <Typography variant="subtitle1" sx={{ fontSize: 18 }}>
+                Om aktiviteten
+              </Typography>
               <Typography color="text.secondary" sx={{ mr: 4 }}>
                 Kort beskrivning av vad aktiveteten handlar om och vad syftet är
                 med aktiviteten.Kort beskrivning av vad aktiveteten handlar om
