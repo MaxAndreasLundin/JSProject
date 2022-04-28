@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material/styles";
-import { red } from "@mui/material/colors";
 
 const theme = createTheme({
   components: {
@@ -66,21 +65,22 @@ const theme = createTheme({
     },
   },
 
-  primary: {
-    main: "#FFE99D",
-  },
-  secondary: {
-    main: "#EE7B35",
-  },
-  info: {
-    main: "#99CEC8",
-  },
-  error: {
-    main: "#FBEEED",
+  palette: {
+    primary: {
+      main: "#FFE99D",
+    },
+    secondary: {
+      main: "#EE7B35",
+    },
+    info: {
+      main: "#99CEC8",
+    },
+    error: {
+      main: "#FBEEED",
+    },
   },
 
   typography: {
-    fontFamily: "",
     h1: {
       fontFamily: "Quarto",
       fontSize: "2rem",
