@@ -63,26 +63,29 @@ function ActivityCard(props) {
     setIsActive(!isActive);
   };
 
-  const [buttonText, setButtonText] = React.useState(false);
+  const [buttonText, setButtonText] = React.useState(true);
 
   const handleClick = () => {
-
     setButtonText(!buttonText)
     };
 
   return (
-    <Card className="card" sx={{
+    <Card
+    onClick={handleExpandClick}
+    className="card"
+    sx={{
       maxWidth: 500
-    }} >
-    <CardContent
+    }}
+  >
+    <CardContent sx={{maxHeight: 150}}
     >
       <Box display="flex" justifyContent="space-between">
             <Box>
             <IconButton>
             <Avatar src="https://mamadisrupt.com/wp-content/uploads/2019/11/jessica-rockowitz-jbiInQGY8og-unsplash-WEB-542x427.jpg"
                 sx={{
-                  width: 100,
-                  height: 100,
+                  width: 80,
+                  height: 80,
                 }}
               />
             </IconButton>
@@ -108,9 +111,10 @@ function ActivityCard(props) {
             </Box>
       </Box>
             <Box display="flex" justifyContent="flex-end">
-            <BootstrapButton variant="contained" disableRipple onClick={handleClick} sx={{width:160, height:35}}>
+            <BootstrapButton variant="contained" disableRipple onClick={handleClick} sx={{width:160, height:35, borderRadius: 2.5, 
+            }}>
             {buttonText && <Typography>Joina!</Typography>}
-            {!buttonText && <Typography >Du har joinat! <CheckIcon fontSize="small" /></Typography>}
+            {!buttonText && <Typography >Du joinar! <CheckIcon fontSize="small" /></Typography>}
       </BootstrapButton>
             </Box>
             
