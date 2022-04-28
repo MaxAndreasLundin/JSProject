@@ -17,7 +17,7 @@ function HomePage() {
         sx={{
           backgroundImage: `url(${Background})`,
           backgroundSize: "cover",
-          backgroundPosition: "20%20%",
+          backgroundPosition: "center",
           p: 0,
         }}
       >
@@ -90,7 +90,7 @@ function HomePage() {
           </Typography>
           <Button
             variant="contained"
-            sx={{ width: "50%", fontSize: "0.9rem", mt: "1rem", ml: "25%" }}
+            sx={{ width: "100%", fontSize: "0.9rem", mt: "1rem" }}
           >
             JOIN US NOW!
           </Button>
