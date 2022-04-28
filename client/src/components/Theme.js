@@ -68,21 +68,23 @@ export const theme = createTheme({
   palette: {
     primary: {
       main: "#FFE99D",
+      dark: "#F5D668",
     },
     secondary: {
       main: "#EE7B35",
     },
     info: {
       main: "#99CEC8",
+      dark: "#52A399",
     },
     error: {
       main: "#FBEEED",
-    }
+    },
   },
 
   typography: {
     fontFamily: "",
-    h1:  {
+    h1: {
       fontFamily: "Quarto",
       fontSize: "2rem",
       fontWeight: 400,
@@ -92,7 +94,7 @@ export const theme = createTheme({
       fontWeight: 400,
       fontSize: "0.8rem",
     },
-    h5:{
+    h5: {
       fontFamily: "Quarto",
       fontSize: "2rem",
       fontWeight: 600,
