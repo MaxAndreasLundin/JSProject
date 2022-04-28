@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Box } from "@mui/system";
 import { Container, Typography } from "@mui/material";
-import IndexCard from "../components/IndexCard";
+import IndexCard from "../components/IndexCards";
 import Intro from "../components/Intro";
-import Background from "../assets/newbackground.png";
+import Background from "../public/pictures/newbackground.png";
 import Kids1 from "../assets/kids1.png";
 import Pink from "../assets/pink.png";
 import Kids2 from "../assets/kids2.png";
