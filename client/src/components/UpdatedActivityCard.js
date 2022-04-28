@@ -59,15 +59,17 @@ function ActivityCard(props) {
 
   const [isActive, setIsActive] = React.useState(false);
 
-  const handleToggle = () => {
+  const handleToggle = (e) => {
+    if (e && e.stopPropagation) e.stopPropagation();
     setIsActive(!isActive);
   };
 
   const [buttonText, setButtonText] = React.useState(true);
 
-  const handleClick = () => {
-    setButtonText(!buttonText)
-    };
+  const handleClick = (e) => {
+    if (e && e.stopPropagation) e.stopPropagation();
+    setButtonText(!buttonText);
+  };
 
   return (
     <Card
@@ -79,48 +81,49 @@ function ActivityCard(props) {
   >
     <CardContent sx={{maxHeight: 150}}
     >
+    
       <Box display="flex" justifyContent="space-between">
             <Box>
             <IconButton>
             <Avatar src="https://mamadisrupt.com/wp-content/uploads/2019/11/jessica-rockowitz-jbiInQGY8og-unsplash-WEB-542x427.jpg"
                 sx={{
-                  width: 80,
-                  height: 80,
+                  width: 60,
+                  height: 60,
+                  mr: 1
                 }}
               />
             </IconButton>
               
               <Typography sx={{
                 textAlign: "center",
-                padding: 1,
+                mr: 1, 
               }}>Malin</Typography>
             </Box>
 
-            <Box>
+            <Box >
               <Typography variant="h5">Korvgrillning</Typography>
               <Typography>Var: Hökarängen</Typography>
               <Typography>När: 29 Mars 2022 </Typography>
               <Typography>Tid: 12:00</Typography>
             </Box>
 
-            <Box>
-            <IconButton aria-label="add to favorites" onClick={handleToggle}>
+            <Box display="flex" flexDirection="column" justifyContent="space-between">
+            <IconButton aria-label="add to favorites" onClick={handleToggle} sx={{marginLeft: 14}}>
               {!isActive && <FavoriteBorderIcon fontSize="large" />}
               {isActive && <FavoriteIcon fontSize="large" color="secondary" />}
             </IconButton>
-            </Box>
-      </Box>
-            <Box display="flex" justifyContent="flex-end">
-            <BootstrapButton variant="contained" disableRipple onClick={handleClick} sx={{width:160, height:35, borderRadius: 2.5, 
+
+            <BootstrapButton variant="contained" disableRipple onClick={handleClick} justifyContent="flexEnd" sx={{width:160, height:35, borderRadius: 2.5, 
             }}>
             {buttonText && <Typography>Joina!</Typography>}
             {!buttonText && <Typography >Du joinar! <CheckIcon fontSize="small" /></Typography>}
       </BootstrapButton>
             </Box>
+      </Box>
             
-</CardContent>
+            
+      </CardContent>
       
-  
     <Collapse in={expanded} timeout="auto" unmountOnExit>
       <CardContent>
       <Box display="flex" flexDirection="row">
@@ -131,8 +134,8 @@ function ActivityCard(props) {
           aktiviteten.Kort beskrivning av vad aktiveteten handlar om och vad syftet är med
           aktiviteten.
         </Typography>
-        
         </Box>
+
         <Box display="flex" flexDirection="row" flexWrap="wrap" justifyContent="flex-start" sx={{mr: 1, my: 10.5, mt: 0}}>
         <Chip color="info" label="Korv" sx={{mr:1}}/>
           <Chip color="info" label="Utomhus" sx={{mr:1}}/>
@@ -141,6 +144,7 @@ function ActivityCard(props) {
         </Box>
       </CardContent>
     </Collapse>
+
     <Box display="flex" justifyContent="center">
           <ExpandMore sx={{ marginLeft: 0  }} 
                       expand={expanded}
