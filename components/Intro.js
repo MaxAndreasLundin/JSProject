@@ -58,7 +58,6 @@ function Intro() {
             <Button
               variant="contained"
               component={Link}
-              noLinkStyle
               href="/"
               sx={{ ml: 1, width: "9rem", fontSize: "0.9rem" }}
             >

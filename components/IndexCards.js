@@ -53,7 +53,6 @@ function RecipeReviewCard(props) {
           variant="contained"
           color="info"
           component={Link}
-          noLinkStyle
           href="/activityPage"
           sx={{
             maxWidth: "115px",

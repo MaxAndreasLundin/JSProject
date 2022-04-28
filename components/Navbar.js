@@ -40,7 +40,7 @@ function Navbar() {
               flexBasis: 0,
             }}
           >
-            <IconButton component={Link} noLinkStyle href="/">
+            <IconButton component={Link} href="/">
               <img src="/pictures/logoSmall.png" />
             </IconButton>
           </Box>
