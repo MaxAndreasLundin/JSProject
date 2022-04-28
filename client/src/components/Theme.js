@@ -49,7 +49,7 @@ export const theme = createTheme({
     h5:{
       fontFamily: "Quarto",
       fontSize: "2rem",
-      fontWeight: 600,
+      fontWeight: 400,
     },
   },
 });
