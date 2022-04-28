@@ -30,12 +30,12 @@ function HomePage() {
           title="Öppet forum"
           children="Dela med dig av tidigare erfarenheter och läs andras historier.
           Tillsammans är vi starka. PS. Du kan vara helt anonym i forumet."
-        ></IndexCard>{" "}
+        ></IndexCard>
         <IndexCard
           title="Professionel hjälp"
           children="Det finns flera stödföreningar där du kan få stöd och hjälp via.
           Här har vi samlat några!"
-        ></IndexCard>{" "}
+        ></IndexCard>
       </Container>
       <Container
         variant="flex"
