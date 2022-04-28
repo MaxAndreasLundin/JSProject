@@ -3,7 +3,6 @@ import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { memo } from "react";
-import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 
 function Intro() {
