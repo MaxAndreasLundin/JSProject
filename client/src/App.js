@@ -1,26 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "./components/Theme";
-import HomePage from "./components/HomePage";
-import UpdatedActivityCard from "./components/UpdatedActivityCard";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import Navbar from "./components/Navbar";
+import ActivityPage from "./pages/ActivityPage";
 
 function App() {
-  const [backendData, setBackendData] = useState([{}]);
-
-  useEffect(() => {
-    fetch("/api")
-      .then((response) => response.json())
-      .then((data) => {
-        setBackendData(data);
-      });
-  }, []);
-
   return (
-    <ThemeProvider theme={theme}>
+    <Router>
       <div>
-        <UpdatedActivityCard></UpdatedActivityCard>
+        <Navbar></Navbar>
+        <div>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/ActivityPage" element={<ActivityPage />} />
+          </Routes>
+        </div>
       </div>
-    </ThemeProvider>
+    </Router>
   );
 }
 export default App;

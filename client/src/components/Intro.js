@@ -1,29 +1,24 @@
 import * as React from "react";
-import CssBaseline from "@mui/material/CssBaseline";
+import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import { Typography } from "@mui/material";
-import Button from "@mui/material/Button";
 import { memo } from "react";
+import Button from "@mui/material/Button";
 
 function Intro() {
   return (
     <React.Fragment>
-      <CssBaseline />
       <Container
+        variant="flex"
         maxWidth="sm"
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          textAlign: "center",
           mb: 8,
         }}
       >
         <Box>
           <Typography
             variant="h1"
+            align="center"
             sx={{
               mb: 2,
               mt: 3,
@@ -36,6 +31,7 @@ function Intro() {
         <Box>
           <Typography
             variant="subtitle1"
+            align="center"
             sx={{
               ml: 3,
               mr: 3,
@@ -60,7 +56,6 @@ function Intro() {
           <Box>
             <Button
               variant="contained"
-              color="info"
               sx={{ ml: 1, width: "9rem", fontSize: "0.9rem" }}
             >
               LOGGA IN

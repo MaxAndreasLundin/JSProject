@@ -2,6 +2,31 @@ import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
   components: {
+    MuiPaper: {
+      styleOverrides: {
+        fontFamily: "Buenos Aires",
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        input: {
+          marginLeft: 5,
+        },
+        root: {
+          backgroundColor: "white",
+          marginTop: 3,
+          marginBottom: 10,
+        },
+      },
+    },
+
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          padding: 0,
+        },
+      },
+    },
     MuiCardHeader: {
       styleOverrides: {
         title: {
@@ -10,16 +35,36 @@ export const theme = createTheme({
           fontSize: "2rem",
         },
       },
-    },
-    MuiCardContent: {
-      styleOverrides: {
-        body1: {
-          fontFamily: "Buenos Aires",
-          fontWeight: 400,
+      variants: [
+        {
+          props: { variant: "flex" },
+          style: {
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            bgcolor: "background.paper",
+          },
         },
-      },
+      ],
+    },
+
+    MuiContainer: {
+      variants: [
+        {
+          props: { variant: "flex" },
+          style: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          },
+        },
+      ],
     },
   },
+
   palette: {
     primary: {
       main: "#FFE99D",
@@ -34,6 +79,7 @@ export const theme = createTheme({
       main: "#FBEEED",
     }
   },
+
   typography: {
     fontFamily: "",
     h1:  {
@@ -49,7 +95,7 @@ export const theme = createTheme({
     h5:{
       fontFamily: "Quarto",
       fontSize: "2rem",
-      fontWeight: 400,
+      fontWeight: 600,
     },
   },
 });

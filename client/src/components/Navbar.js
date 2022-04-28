@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -6,15 +7,16 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import MessageIcon from "@mui/icons-material/Message";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import Logo from "../assets/Vector.svg";
+import Logo from "../assets/Logotype.svg";
+import { memo } from "react";
 
-export default function ButtonAppBar() {
+function Navbar() {
   return (
-    <Box style={{ width: "100%" }}>
+    <Box>
       <AppBar position="static" color="info">
-        <Toolbar style={{ width: "100%" }}>
+        <Toolbar>
           <Box
-            style={{
+            sx={{
               display: "flex",
               flexGrow: 1,
               flexBasis: 0,
@@ -32,19 +34,19 @@ export default function ButtonAppBar() {
             </IconButton>
           </Box>
           <Box
-            style={{
+            sx={{
               display: "flex",
               flexGrow: 1,
               justifyContent: "center",
               flexBasis: 0,
             }}
           >
-            <IconButton>
+            <IconButton component={Link} to="/">
               <img src={Logo} alt="logo" />
             </IconButton>
           </Box>
           <Box
-            style={{
+            sx={{
               display: "flex",
               flexGrow: 1,
               justifyContent: "flex-end",
@@ -63,3 +65,5 @@ export default function ButtonAppBar() {
     </Box>
   );
 }
+
+export default memo(Navbar);

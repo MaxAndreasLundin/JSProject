@@ -1,56 +1,59 @@
 import * as React from "react";
-import IndexCard from "./IndexCard";
-import Intro from "./Intro";
-import { Container, Typography } from "@mui/material";
-import Background from "../assets/kids.png";
 import { Box } from "@mui/system";
+import { Container, Typography } from "@mui/material";
+import IndexCard from "../components/IndexCard";
+import Intro from "../components/Intro";
+import Background from "../assets/newbackground.png";
 import Kids1 from "../assets/kids1.png";
 import Pink from "../assets/pink.png";
 import Kids2 from "../assets/kids2.png";
 import Button from "@mui/material/Button";
-import ButtonAppBar from "./Navbar";
 
 function HomePage() {
   return (
-    <div>
+    <React.Fragment>
       <Container
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
+        variant="flex"
+        sx={{
           backgroundImage: `url(${Background})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          padding: 0,
+          p: 0,
         }}
       >
-        <ButtonAppBar></ButtonAppBar>
         <Intro></Intro>
-        <IndexCard title="Hitta aktivitet"></IndexCard>
-        <IndexCard title="Öppet forum"></IndexCard>
-        <IndexCard title="Professionel hjälp"></IndexCard>
+        <IndexCard
+          title="Hitta aktivitet"
+          children="Här kan du se vilka aktiviteter som våra fina medlemmar eller föreningar har satt ihop. "
+        ></IndexCard>
+        <IndexCard
+          title="Öppet forum"
+          children="Dela med dig av tidigare erfarenheter och läs andras historier.
+          Tillsammans är vi starka. PS. Du kan vara helt anonym i forumet."
+        ></IndexCard>{" "}
+        <IndexCard
+          title="Professionel hjälp"
+          children="Det finns flera stödföreningar där du kan få stöd och hjälp via.
+          Här har vi samlat några!"
+        ></IndexCard>{" "}
       </Container>
       <Container
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
+        variant="flex"
+        sx={{
           backgroundImage: `url(${Pink})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          padding: 0,
+          p: 0,
         }}
       >
         <Box>
           <Typography
             variant="h1"
+            align="center"
             sx={{
               mb: 2,
               mt: 6,
               color: "##3A3A3A",
-              textAlign: "center",
               fontSize: "2.5rem",
             }}
           >
@@ -59,49 +62,27 @@ function HomePage() {
         </Box>
         <Box
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
+            mt: 1,
+          }}
+        >
+          <img src={Kids1} alt="Kids1" sx={{ width: "100%", height: "auto" }} />
+        </Box>
+        <Box
+          sx={{
             mt: 1,
             mb: 1,
           }}
         >
-          <img
-            src={Kids1}
-            alt="Kids1"
-            style={{ width: "100%", height: "auto" }}
-          />
+          <img src={Kids2} alt="Kids2" sx={{ width: "100%", height: "auto" }} />
         </Box>
         <Box
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            mt: 1,
-            mb: 1,
-          }}
-        >
-          <img
-            src={Kids2}
-            alt="Kids2"
-            style={{ width: "100%", height: "auto" }}
-          />
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
             mt: 1,
             mb: 1,
             p: 1.5,
-            textAlign: "center",
           }}
         >
-          <Typography>
+          <Typography align="center">
             Vi tror på att dela med sig av sina erfarenheter och känslor,
             föräldrar emellan. Och tillsammans kan vi mötas och skapa nya
             sociala sammanhang och kontakter, inte bara för våra barn utan även
@@ -115,7 +96,7 @@ function HomePage() {
           </Button>
         </Box>
       </Container>
-    </div>
+    </React.Fragment>
   );
 }
 export default HomePage;
