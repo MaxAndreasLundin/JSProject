@@ -77,12 +77,15 @@ export const theme = createTheme({
     },
     error: {
       main: "#FBEEED",
+    },
+    warning: {
+      main: "#3A3A3A",
     }
   },
 
   typography: {
     fontFamily: "",
-    h1:  {
+    h1: {
       fontFamily: "Quarto",
       fontSize: "2rem",
       fontWeight: 400,
@@ -92,10 +95,16 @@ export const theme = createTheme({
       fontWeight: 400,
       fontSize: "0.8rem",
     },
-    h5:{
+    subtitle2: {
+      fontFamily: "Roboto",
+      fontWeight: 400,
+      fontSize: "0.9rem",
+      lineHeight: 1.2
+    },
+    h5: {
       fontFamily: "Quarto",
-      fontSize: "2rem",
-      fontWeight: 600,
+      fontSize: "1.5rem",
+      fontWeight: 400,
     },
   },
 });
