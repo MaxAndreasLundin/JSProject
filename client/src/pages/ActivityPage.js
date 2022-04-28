@@ -13,10 +13,9 @@ function ActivityPage() {
           backgroundImage: `url(${Background})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          alignItems: "flex-start",
         }}
       >
-        <Box sx={{ mb: 6, ml: 1, mr: 1 }}>
+        <Box sx={{ mb: 6, ml: 1, mr: 1, maxWidth: 375 }}>
           <Typography
             variant="h1"
             sx={{
