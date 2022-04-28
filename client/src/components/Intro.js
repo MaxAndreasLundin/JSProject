@@ -60,6 +60,8 @@ function Intro() {
             <Button
               variant="contained"
               sx={{ ml: 1, width: "9rem", fontSize: "0.9rem" }}
+              component={Link}
+              to="/activities"
             >
               LOGGA IN
             </Button>

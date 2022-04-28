@@ -84,8 +84,9 @@ function ActivityCard(props) {
           </Box>
         </Box>
         <Box display="flex" justifyContent="flex-end">
-          <Button variant="contained" sx={{ px: 7 }}>
-            Joina!
+          <Button variant="contained" sx={{ px: 7 }} onClick={handleToggle}>
+            {!isActive && <Typography>Joina!</Typography>}
+            {isActive && <p>Du har joinat!</p>}
           </Button>
         </Box>
       </CardContent>
@@ -122,7 +123,7 @@ function ActivityCard(props) {
           aria-expanded={expanded}
           aria-label="show more"
         >
-          <ExpandMoreIcon sx={{ marginLeft: -60 }} />
+          <ExpandMoreIcon sx={{ marginLeft: "-50%" }} />
         </ExpandMore>
       </Box>
     </Card>

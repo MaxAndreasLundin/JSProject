@@ -11,8 +11,8 @@ function RecipeReviewCard(props) {
   return (
     <Card
       sx={{
-        maxWidth: 500,
-        minHeight: [133, 133, 193],
+        maxWidth: 350,
+        minHeight: 193,
         mb: 1,
         mt: 1,
         borderRadius: 3,

@@ -23,53 +23,20 @@ function HomePage() {
         }}
       >
         <Intro></Intro>
-        <Grid container spacing={4}>
-          <Grid
-            item
-            xs={12}
-            md={4}
-            sx={{
-              marginLeft: ["-5%", "10%", "1%"],
-              marginRight: ["0", "0", "-1%"],
-              paddingLeft: 0,
-            }}
-          >
-            <IndexCard
-              title="Hitta aktivitet"
-              children="Här kan du se vilka aktiviteter som våra fina medlemmar eller föreningar har satt ihop. "
-            ></IndexCard>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={4}
-            sx={{
-              marginLeft: ["0%", "10%", "1%"],
-              marginRight: ["0", "0", "-1%"],
-            }}
-          >
-            <IndexCard
-              title="Öppet forum"
-              children="Dela med dig av tidigare erfarenheter och läs andras historier.
+        <IndexCard
+          title="Hitta aktivitet"
+          children="Här kan du se vilka aktiviteter som våra fina medlemmar eller föreningar har satt ihop. "
+        ></IndexCard>
+        <IndexCard
+          title="Öppet forum"
+          children="Dela med dig av tidigare erfarenheter och läs andras historier.
           Tillsammans är vi starka. PS. Du kan vara helt anonym i forumet."
-            ></IndexCard>{" "}
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={4}
-            sx={{
-              marginLeft: ["0%", "10%", "1%"],
-              marginRight: ["0", "0", "-1%"],
-            }}
-          >
-            <IndexCard
-              title="Professionel hjälp"
-              children="Det finns flera stödföreningar där du kan få stöd och hjälp via.
+        ></IndexCard>{" "}
+        <IndexCard
+          title="Professionel hjälp"
+          children="Det finns flera stödföreningar där du kan få stöd och hjälp via.
           Här har vi samlat några!"
-            ></IndexCard>{" "}
-          </Grid>
-        </Grid>
+        ></IndexCard>{" "}
       </Container>
       <Container
         variant="flex"
