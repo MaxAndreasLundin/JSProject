@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@mui/system";
 import { Container, Typography } from "@mui/material";
-import ActivityCard from "../components/UpdatedActivityCard";
+import ActivityCard from "../components/ActivityCard";
 
 function ActivityPage() {
   return (
