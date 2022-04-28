@@ -50,8 +50,6 @@ function Intro() {
             <Button
               variant="contained"
               sx={{ mr: 1, width: "9rem", fontSize: "0.9rem" }}
-              component={Link}
-              to="/activities"
             >
               SKAPA PROFIL
             </Button>
@@ -60,8 +58,6 @@ function Intro() {
             <Button
               variant="contained"
               sx={{ ml: 1, width: "9rem", fontSize: "0.9rem" }}
-              component={Link}
-              to="/activities"
             >
               LOGGA IN
             </Button>
