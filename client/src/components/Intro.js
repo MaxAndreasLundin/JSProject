@@ -59,8 +59,9 @@ function Intro() {
           <Box>
             <Button
               variant="contained"
-              color="info"
               sx={{ ml: 1, width: "9rem", fontSize: "0.9rem" }}
+              component={Link}
+              to="/activities"
             >
               LOGGA IN
             </Button>
