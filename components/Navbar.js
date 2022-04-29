@@ -8,6 +8,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MessageIcon from "@mui/icons-material/Message";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import { memo } from "react";
+import Image from "next/image";
 
 function Navbar() {
   return (
@@ -41,7 +42,12 @@ function Navbar() {
             }}
           >
             <IconButton component={Link} href="/">
-              <img src="/pictures/logoSmall.png" />
+              <Image
+                src="/pictures/logoSmall.png"
+                alt="heartlogo"
+                width={27}
+                height={32}
+              />
             </IconButton>
           </Box>
           <Box

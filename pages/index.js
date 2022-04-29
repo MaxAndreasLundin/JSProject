@@ -4,6 +4,7 @@ import { Container, Typography } from "@mui/material";
 import IndexCard from "../components/IndexCards";
 import Intro from "../components/Intro";
 import Button from "@mui/material/Button";
+import Image from "next/image";
 
 export default function Index() {
   return (
@@ -56,12 +57,15 @@ export default function Index() {
         </Box>
         <Box
           sx={{
+            display: "flex",
             mt: 1,
           }}
         >
-          <img
+          <Image
             src="/pictures/kids1.png"
-            sx={{ width: "100%", height: "auto" }}
+            alt="kids1"
+            width={344}
+            height={248}
           />
         </Box>
         <Box
@@ -70,10 +74,11 @@ export default function Index() {
             mb: 1,
           }}
         >
-          <img
+          <Image
             src="/pictures/kids2.png"
             alt="Kids2"
-            sx={{ width: "100%", height: "auto" }}
+            width={344}
+            height={248}
           />
         </Box>
         <Box
