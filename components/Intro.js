@@ -57,6 +57,7 @@ function Intro() {
           <Box>
             <Button
               variant="contained"
+              color="info"
               component={Link}
               href="/"
               sx={{ ml: 1, width: "9rem", fontSize: "0.9rem" }}
