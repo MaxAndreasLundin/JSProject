@@ -108,6 +108,7 @@ const theme = createTheme({
       fontFamily: "Roboto",
       fontWeight: 400,
       fontSize: "12px",
+      color: "#3A3A3A",
     },
   },
 });
