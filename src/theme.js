@@ -20,13 +20,7 @@ const theme = createTheme({
       },
     },
 
-    MuiOutlinedInput: {
-      styleOverrides: {
-        input: {
-          padding: 0,
-        },
-      },
-    },
+    MuiOutlinedInput: {},
     MuiCardHeader: {
       styleOverrides: {
         title: {
@@ -104,6 +98,16 @@ const theme = createTheme({
       fontFamily: "Quarto",
       fontSize: "2rem",
       fontWeight: 600,
+    },
+    signupHeader: {
+      fontFamily: "Buenos Aires",
+      fontWeight: 400,
+      fontSize: "26px",
+    },
+    pswrdInfo: {
+      fontFamily: "Roboto",
+      fontWeight: 400,
+      fontSize: "12px",
     },
   },
 });

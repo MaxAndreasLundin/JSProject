@@ -50,6 +50,8 @@ function Intro() {
             <Button
               variant="contained"
               sx={{ mr: 1, width: "9rem", fontSize: "0.9rem" }}
+              component={Link}
+              href="/createUser"
             >
               SKAPA PROFIL
             </Button>
