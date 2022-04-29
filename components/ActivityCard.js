@@ -122,7 +122,7 @@ function ActivityCard(props) {
               {isActive && <FavoriteIcon fontSize="large" color="secondary" />}
             </IconButton>
 
-            <BootstrapButton
+            <Button
               variant="contained"
               disableRipple
               onClick={handleClick}
@@ -137,7 +137,7 @@ function ActivityCard(props) {
                   <CheckIcon fontSize="small" sx={{ verticalAlign: "top" }} />
                 </Typography>
               )}
-            </BootstrapButton>
+            </Button>
           </Box>
         </Box>
       </CardContent>
