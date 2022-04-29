@@ -37,7 +37,7 @@ function RecipeReviewCard(props) {
           "&:last-child": { pb: 1 },
         }}
       >
-        <Typography children={props.children}></Typography>
+        <Typography>{props.children}</Typography>
       </CardContent>
       <Container
         variant="flex"

@@ -18,20 +18,18 @@ export default function Index() {
         }}
       >
         <Intro></Intro>
-        <IndexCard
-          title="Hitta aktivitet"
-          children="Här kan du se vilka aktiviteter som våra fina medlemmar eller föreningar har satt ihop. "
-        ></IndexCard>
-        <IndexCard
-          title="Öppet forum"
-          children="Dela med dig av tidigare erfarenheter och läs andras historier.
-          Tillsammans är vi starka. PS. Du kan vara helt anonym i forumet."
-        ></IndexCard>
-        <IndexCard
-          title="Professionel hjälp"
-          children="Det finns flera stödföreningar där du kan få stöd och hjälp via.
-          Här har vi samlat några!"
-        ></IndexCard>
+        <IndexCard title="Hitta aktivitet">
+          Här kan du se vilka aktiviteter som våra fina medlemmar eller
+          föreningar har satt ihop.
+        </IndexCard>
+        <IndexCard title="Öppet forum">
+          Dela med dig av tidigare erfarenheter och läs andras historier.
+          Tillsammans är vi starka. PS. Du kan vara helt anonym i forumet.
+        </IndexCard>
+        <IndexCard title="Professionel hjälp">
+          Det finns flera stödföreningar där du kan få stöd och hjälp via. Här
+          har vi samlat några!
+        </IndexCard>
       </Container>
       <Container
         variant="flex"
