@@ -26,28 +26,6 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const BootstrapButton = styled(Button)({
-  boxShadow: 1,
-  textTransform: "none",
-  fontSize: 16,
-  padding: 2,
-  lineHeight: 1.5,
-  backgroundColor: "#FFE99D",
-  fontFamily: ["Buenos Aires"].join(","),
-  "&:hover": {
-    backgroundColor: "#FFE99D",
-    boxShadow: 1,
-  },
-  "&:active": {
-    boxShadow: "none",
-    backgroundColor: "#FFE99D",
-    transform: "translateY(4px)",
-  },
-  "&:focus": {
-    boxShadow: 1,
-  },
-});
-
 function ActivityCard(props) {
   const [expanded, setExpanded] = React.useState(false);
 
@@ -74,8 +52,8 @@ function ActivityCard(props) {
       onClick={handleExpandClick}
       className="card"
       sx={{
-        maxWidth: 500,
-        minWidth: 0,
+        maxWidth: 355,
+        minWidth: 355,
         m: 1,
       }}
     >
@@ -87,6 +65,8 @@ function ActivityCard(props) {
               sx={{
                 width: 55,
                 height: 55,
+                flexGrow: 1,
+                flexBasis: 0,
               }}
             />
 
@@ -100,18 +80,32 @@ function ActivityCard(props) {
             </Typography>
           </Box>
 
-          <Box display="flex" flexDirection="column" sx={{ ml: 6 }}>
-            <Typography variant="h5">Korvgrillning</Typography>
+          <Box
+            sx={{
+              ml: 3,
+              display: "flex",
+              justifyContent: "flex-start",
+              flexDirection: "column",
+              flexGrow: 2,
+              flexBasis: 0,
+            }}
+          >
+            <Typography variant="h5" sx={{ fontSize: 20 }}>
+              {props.children}
+            </Typography>
             <Typography variant="subtitle1">Var: Hökarängen</Typography>
             <Typography variant="subtitle1">När: 29 Mars 2022 </Typography>
             <Typography variant="subtitle1">Tid: 12:00</Typography>
           </Box>
 
           <Box
-            display="flex"
-            flexDirection="column"
-            justifyContent="space-between"
-            flexWrap="wrap"
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              flexDirection: "column",
+              flexGrow: 1,
+              flexBasis: 0,
+            }}
           >
             <IconButton
               aria-label="add to favorites"
@@ -127,6 +121,7 @@ function ActivityCard(props) {
               disableRipple
               onClick={handleClick}
               justifyContent="flexEnd"
+              sx={{ maxHeight: 24, textTransform: "none", pl: 0, pr: 0 }}
             >
               {buttonText && (
                 <Typography sx={{ fontSize: 14 }}>Joina!</Typography>
@@ -145,8 +140,15 @@ function ActivityCard(props) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Box display="flex" sx={{ mt: 2 }}>
-            <Box sx={{ maxWidth: "60%" }}>
-              <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                flexGrow: 2,
+                flexBasis: 0,
+              }}
+            >
+              <Typography variant="subtitle2" sx={{ fontWeight: 600, mb: 1 }}>
                 Om aktiviteten
               </Typography>
               <Typography
@@ -159,37 +161,39 @@ function ActivityCard(props) {
                 och vad syftet är med aktiviteten.
               </Typography>
             </Box>
-            <Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                flexWrap: "wrap",
+                flexGrow: 1,
+                flexBasis: 0,
+              }}
+            >
               <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
                 Passar bäst:
               </Typography>
-              <Box
-                display="flex"
-                flexDirection="row"
-                flexWrap="wrap"
-                justifyContent="flex-start"
-                sx={{ mr: 1, mt: 0 }}
-              >
-                <Chip
-                  color="info"
-                  label="Korv"
-                  size="small"
-                  variant="subtitle1"
-                  sx={{ m: 0.5, fontWeight: 400, fontFamily: "Buenos Aires" }}
-                />
-                <Chip
-                  color="info"
-                  label="Utomhus"
-                  size="small"
-                  sx={{ m: 0.5, fontWeight: 400, fontFamily: "Buenos Aires" }}
-                />
-                <Chip
-                  color="error"
-                  label="Alla åldrar"
-                  size="small"
-                  sx={{ m: 0.5, fontWeight: 400, fontFamily: "Buenos Aires" }}
-                />
-              </Box>
+              <Chip
+                variant="activityCard"
+                color="info"
+                label="Korv"
+                size="small"
+                sx={{ mr: 0.5, mt: 0.5 }}
+              />
+              <Chip
+                variant="activityCard"
+                color="info"
+                label="Utomhus"
+                size="small"
+                sx={{ mr: 0.5, mt: 0.5 }}
+              />
+              <Chip
+                variant="activityCard"
+                color="error"
+                label="Alla åldrar"
+                size="small"
+                sx={{ mr: 0.5, mt: 0.5 }}
+              />
             </Box>
           </Box>
         </CardContent>

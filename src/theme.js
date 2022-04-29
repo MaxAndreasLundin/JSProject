@@ -63,6 +63,18 @@ const theme = createTheme({
         },
       ],
     },
+    MuiChip: {
+      variants: [
+        {
+          props: { variant: "activityCard" },
+          style: {
+            fontWeight: 500,
+            fontFamily: "Buenos Aires",
+            fontSize: 10,
+          },
+        },
+      ],
+    },
   },
 
   palette: {

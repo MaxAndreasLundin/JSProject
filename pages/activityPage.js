@@ -45,9 +45,9 @@ function ActivityPage() {
           backgroundColor: "#FBEEED",
         }}
       >
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
+        <ActivityCard>Korvgrillning</ActivityCard>
+        <ActivityCard>Spela Xbox</ActivityCard>
+        <ActivityCard>Brännboll</ActivityCard>
       </Container>
     </React.Fragment>
   );
