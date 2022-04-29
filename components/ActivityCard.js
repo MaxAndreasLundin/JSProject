@@ -30,6 +30,7 @@ const BootstrapButton = styled(Button)({
   boxShadow: 1,
   textTransform: "none",
   fontSize: 16,
+  padding: 2,
   lineHeight: 1.5,
   backgroundColor: "#FFE99D",
   fontFamily: ["Buenos Aires"].join(","),
@@ -74,47 +75,48 @@ function ActivityCard(props) {
       className="card"
       sx={{
         maxWidth: 500,
+        minWidth: 0,
         m: 1,
       }}
     >
-      <CardContent sx={{ maxHeight: 150 }}>
+      <CardContent sx={{ maxHeight: 105 }}>
         <Box display="flex" justifyContent="space-between">
-          <Box>
+          <Box sx={{ ml: 1 }}>
             <Avatar
               src="https://mamadisrupt.com/wp-content/uploads/2019/11/jessica-rockowitz-jbiInQGY8og-unsplash-WEB-542x427.jpg"
               sx={{
-                width: 60,
-                height: 60,
-                mr: 1,
+                width: 55,
+                height: 55,
               }}
             />
 
             <Typography
+              variant="subtitle1"
               sx={{
                 textAlign: "center",
-                mr: 1,
               }}
             >
               Malin
             </Typography>
           </Box>
 
-          <Box>
+          <Box display="flex" flexDirection="column" sx={{ ml: 6 }}>
             <Typography variant="h5">Korvgrillning</Typography>
-            <Typography>Var: Hökarängen</Typography>
-            <Typography>När: 29 Mars 2022 </Typography>
-            <Typography>Tid: 12:00</Typography>
+            <Typography variant="subtitle1">Var: Hökarängen</Typography>
+            <Typography variant="subtitle1">När: 29 Mars 2022 </Typography>
+            <Typography variant="subtitle1">Tid: 12:00</Typography>
           </Box>
 
           <Box
             display="flex"
             flexDirection="column"
             justifyContent="space-between"
+            flexWrap="wrap"
           >
             <IconButton
               aria-label="add to favorites"
               onClick={handleToggle}
-              sx={{ marginLeft: 14 }}
+              sx={{ marginLeft: 6, mt: -1 }}
             >
               {!isActive && <FavoriteBorderIcon fontSize="large" />}
               {isActive && <FavoriteIcon fontSize="large" color="secondary" />}
@@ -125,12 +127,14 @@ function ActivityCard(props) {
               disableRipple
               onClick={handleClick}
               justifyContent="flexEnd"
-              sx={{ width: 160, height: 35, borderRadius: 2.5 }}
             >
-              {buttonText && <Typography>Joina!</Typography>}
+              {buttonText && (
+                <Typography sx={{ fontSize: 14 }}>Joina!</Typography>
+              )}
               {!buttonText && (
-                <Typography>
-                  Du joinar! <CheckIcon fontSize="small" />
+                <Typography sx={{ fontSize: 14 }}>
+                  Du joinar!{" "}
+                  <CheckIcon fontSize="small" sx={{ verticalAlign: "top" }} />
                 </Typography>
               )}
             </BootstrapButton>
@@ -140,19 +144,23 @@ function ActivityCard(props) {
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Box display="flex" flexDirection="row">
-            <Box sx={{ maxWidth: 280 }}>
-              <Typography variant="subtitle1" sx={{ fontSize: 18 }}>
+          <Box display="flex" sx={{ mt: 2 }}>
+            <Box sx={{ maxWidth: "60%" }}>
+              <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
                 Om aktiviteten
               </Typography>
-              <Typography color="text.secondary" sx={{ mr: 4 }}>
+              <Typography
+                color="text.warning"
+                variant="subtitle2"
+                sx={{ mr: 4, mb: -3 }}
+              >
                 Kort beskrivning av vad aktiveteten handlar om och vad syftet är
-                med aktiviteten.Kort beskrivning av vad aktiveteten handlar om
+                med aktiviteten. Kort beskrivning av vad aktiveteten handlar om
                 och vad syftet är med aktiviteten.
               </Typography>
             </Box>
             <Box>
-              <Typography variant="subtitle1" sx={{ fontSize: 18 }}>
+              <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
                 Passar bäst:
               </Typography>
               <Box
@@ -160,11 +168,27 @@ function ActivityCard(props) {
                 flexDirection="row"
                 flexWrap="wrap"
                 justifyContent="flex-start"
-                sx={{ mr: 1, my: 10.5, mt: 0 }}
+                sx={{ mr: 1, mt: 0 }}
               >
-                <Chip color="info" label="Korv" sx={{ m: 0.5 }} />
-                <Chip color="info" label="Utomhus" sx={{ m: 0.5 }} />
-                <Chip color="error" label="Alla åldrar" sx={{ m: 0.5 }} />
+                <Chip
+                  color="info"
+                  label="Korv"
+                  size="small"
+                  variant="subtitle1"
+                  sx={{ m: 0.5, fontWeight: 400, fontFamily: "Buenos Aires" }}
+                />
+                <Chip
+                  color="info"
+                  label="Utomhus"
+                  size="small"
+                  sx={{ m: 0.5, fontWeight: 400, fontFamily: "Buenos Aires" }}
+                />
+                <Chip
+                  color="error"
+                  label="Alla åldrar"
+                  size="small"
+                  sx={{ m: 0.5, fontWeight: 400, fontFamily: "Buenos Aires" }}
+                />
               </Box>
             </Box>
           </Box>
