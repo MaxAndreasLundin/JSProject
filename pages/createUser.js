@@ -8,9 +8,18 @@ import {
   FormControlLabel,
   Button,
   Box,
+  IconButton,
 } from "@mui/material";
 
 export default function CreateUser() {
+  const [formValues, setFormValues] = {
+    showPassword: false,
+    password: "",
+    passwordConf: "",
+    passwordError: false,
+  };
+  const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+
   return (
     <Grid container width="90%" margin="auto" direction="column" spacing={2}>
       <Grid container justifyContent="center">
@@ -42,14 +51,15 @@ export default function CreateUser() {
           label="Lösenord*"
           variant="outlined"
           color="info"
+          helperText="Incorrect entry."
         />
-
         <TextField
           fullWidth
           id="outlined-basic"
           label="Upprepa lösenord*"
           variant="outlined"
           color="info"
+          type="passowrd"
         />
         <Typography variant="pswrdInfo">
           Använd minst åtta tecken och en kombination av bokstäver, siffror och
