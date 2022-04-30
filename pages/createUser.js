@@ -1,127 +1,58 @@
 import * as React from "react";
+import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
+import Input from "@mui/material/Input";
+import FilledInput from "@mui/material/FilledInput";
+import { Typography } from "@mui/material";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import InputAdornment from "@mui/material/InputAdornment";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
-import {
-  Grid,
-  Typography,
-  Checkbox,
-  FormGroup,
-  FormControlLabel,
-  Button,
-  Box,
-  IconButton,
-} from "@mui/material";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 export default function CreateUser() {
-  const [values, setValues] = {
+  const [values, setValues] = React.useState({
     showPassword: false,
     password: "",
     passwordConf: "",
     passwordError: false,
+    name: "",
+    email: "",
+  });
+
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
   };
-  const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+
+  const handleClickShowPassword = () => {
+    setValues({
+      ...values,
+      showPassword: !values.showPassword,
+    });
+  };
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
 
   return (
-    <Grid container width="90%" margin="auto" direction="column" spacing={2}>
-      <Grid container justifyContent="center">
-        <Typography variant="signupHeader" textAlign="center">
-          Skapa konto
-        </Typography>
-      </Grid>
-
+    <Grid
+      container
+      direction="column"
+      justifyContent="space-between"
+      alignItems="center"
+      width="90%"
+      margin="auto"
+    >
       <Grid item>
-        <TextField
-          fullWidth
-          label="För- och efternamn"
-          variant="outlined"
-          color="info"
-        />
-
-        <TextField
-          fullWidth
-          label="Mailadress"
-          variant="outlined"
-          color="info"
-        />
+        <Typography variant="signupHeader">Skapa Konto</Typography>
       </Grid>
 
-      <Grid item>
-        <TextField
-          fullWidth
-          id="outlined-basic"
-          label="Lösenord*"
-          variant="outlined"
-          color="info"
-          helperText="Incorrect entry."
-        />
-        <TextField
-          fullWidth
-          id="outlined-basic"
-          label="Upprepa lösenord*"
-          variant="outlined"
-          color="info"
-          type="passowrd"
-        />
-        <Typography variant="pswrdInfo">
-          Använd minst åtta tecken och en kombination av bokstäver, siffror och
-          symboler
-        </Typography>
-      </Grid>
-
-      <Grid item>
-        <FormGroup>
-          <FormControlLabel
-            value="true"
-            control={<Checkbox color="info" />}
-            label={
-              <Typography variant="pswrdInfo">
-                Jag tillåter att Join skickar påminnelser om aktiviteter och
-                liknande till min mail
-              </Typography>
-            }
-            labelPlacement="end"
-          />
-          <FormControlLabel
-            value="true"
-            control={<Checkbox color="info" />}
-            label={
-              <Typography variant="pswrdInfo">
-                Jag godkänner Joins användarvillkor
-              </Typography>
-            }
-            labelPlacement="end"
-          />
-        </FormGroup>
-      </Grid>
-
-      <Grid item>
-        <Button variant="contained" sx={{ width: "100%", fontSize: "0.9rem" }}>
-          <Typography variant="signupHeader">SKAPA KONTO</Typography>
-        </Button>
-      </Grid>
-
-      <Grid item>
-        <Grid
-          container
-          sx={{
-            flexDirection: "column",
-
-            alignContent: "center",
-          }}
-        >
-          <Box>
-            <Typography variant="pswrdInfo">Har du redan ett konto?</Typography>
-          </Box>
-          <Box>
-            <Button
-              variant="contained"
-              sx={{ width: "100%", fontSize: "0.9rem" }}
-              color="info"
-            >
-              <Typography variant="subtitle1">Logga in</Typography>
-            </Button>
-          </Box>
-        </Grid>
-      </Grid>
+      <FormControl fullWidth>
+        <OutlinedInput fullWidth></OutlinedInput>
+      </FormControl>
     </Grid>
   );
 }
