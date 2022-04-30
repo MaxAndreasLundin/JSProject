@@ -6,86 +6,110 @@ import {
   Checkbox,
   FormGroup,
   FormControlLabel,
+  Button,
+  Box,
 } from "@mui/material";
 
 export default function CreateUser() {
   return (
-    <Grid container width="90%" margin="auto" spacing={2}>
+    <Grid container width="90%" margin="auto" direction="column" spacing={2}>
       <Grid container justifyContent="center">
         <Typography variant="signupHeader" textAlign="center">
           Skapa konto
         </Typography>
       </Grid>
 
-      <Grid container>
-        <Grid item sx={{ p: 0 }}>
-          <TextField
-            fullWidth
-            id="outlined-basic"
-            label="För- och efternamn"
-            variant="outlined"
-            color="info"
-          />
+      <Grid item>
+        <TextField
+          fullWidth
+          label="För- och efternamn"
+          variant="outlined"
+          color="info"
+        />
 
-          <TextField
-            fullWidth
-            id="outlined-basic"
-            label="Mailadress"
-            variant="outlined"
-            color="info"
-          />
-        </Grid>
+        <TextField
+          fullWidth
+          label="Mailadress"
+          variant="outlined"
+          color="info"
+        />
       </Grid>
 
-      <Grid container>
-        <Grid item>
-          <TextField
-            fullWidth
-            id="outlined-basic"
-            label="Lösenord*"
-            variant="outlined"
-            color="info"
-          />
+      <Grid item>
+        <TextField
+          fullWidth
+          id="outlined-basic"
+          label="Lösenord*"
+          variant="outlined"
+          color="info"
+        />
 
-          <TextField
-            fullWidth
-            id="outlined-basic"
-            label="Upprepa lösenord*"
-            variant="outlined"
-            color="info"
-          />
-          <Typography variant="pswrdInfo">
-            Använd minst åtta tecken och en kombination av bokstäver, siffror
-            och symboler
-          </Typography>
-        </Grid>
+        <TextField
+          fullWidth
+          id="outlined-basic"
+          label="Upprepa lösenord*"
+          variant="outlined"
+          color="info"
+        />
+        <Typography variant="pswrdInfo">
+          Använd minst åtta tecken och en kombination av bokstäver, siffror och
+          symboler
+        </Typography>
       </Grid>
 
-      <Grid container>
-        <Grid item>
-          <FormGroup>
-            <FormControlLabel
-              value="true"
-              control={<Checkbox color="info" />}
-              label={
-                <Typography variant="pswrdInfo">
-                  Jag tillåter att Join skickar påminnelser om aktiviteter och
-                  liknande till min mail
-                </Typography>
-              }
-              labelPlacement="end"
-            />
-            <FormControlLabel
-              value="true"
-              control={<Checkbox color="info" />}
-              label={
-                <Typography variant="pswrdInfo">
-                  Jag godkänner Joins användarvillkor
-                </Typography>
-              }
-              labelPlacement="end"
-            />
-          </FormGroup>
+      <Grid item>
+        <FormGroup>
+          <FormControlLabel
+            value="true"
+            control={<Checkbox color="info" />}
+            label={
+              <Typography variant="pswrdInfo">
+                Jag tillåter att Join skickar påminnelser om aktiviteter och
+                liknande till min mail
+              </Typography>
+            }
+            labelPlacement="end"
+          />
+          <FormControlLabel
+            value="true"
+            control={<Checkbox color="info" />}
+            label={
+              <Typography variant="pswrdInfo">
+                Jag godkänner Joins användarvillkor
+              </Typography>
+            }
+            labelPlacement="end"
+          />
+        </FormGroup>
+      </Grid>
+
+      <Grid item>
+        <Button variant="contained" sx={{ width: "100%", fontSize: "0.9rem" }}>
+          <Typography variant="signupHeader">SKAPA KONTO</Typography>
+        </Button>
+      </Grid>
+
+      <Grid item>
+        <Grid
+          container
+          sx={{
+            flexDirection: "column",
+
+            alignContent: "center",
+          }}
+        >
+          <Box>
+            <Typography variant="pswrdInfo">Har du redan ett konto?</Typography>
+          </Box>
+          <Box>
+            <Button
+              variant="contained"
+              sx={{ width: "100%", fontSize: "0.9rem" }}
+              color="info"
+            >
+              <Typography variant="subtitle1">Logga in</Typography>
+            </Button>
+          </Box>
         </Grid>
       </Grid>
     </Grid>

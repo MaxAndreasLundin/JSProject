@@ -20,7 +20,7 @@ const theme = createTheme({
       },
     },
 
-    MuiOutlinedInput: {},
+    MuiGridItem: {},
     MuiCardHeader: {
       styleOverrides: {
         title: {
