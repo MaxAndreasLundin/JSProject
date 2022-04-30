@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 
 export default function CreateUser() {
-  const [formValues, setFormValues] = {
+  const [values, setValues] = {
     showPassword: false,
     password: "",
     passwordConf: "",
