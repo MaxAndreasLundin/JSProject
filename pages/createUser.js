@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Input from "@mui/material/Input";
 import FilledInput from "@mui/material/FilledInput";
-import { Typography } from "@mui/material";
+import { Typography, Box, Container, FormGroup } from "@mui/material";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -38,21 +38,60 @@ export default function CreateUser() {
   };
 
   return (
-    <Grid
-      container
-      direction="column"
-      justifyContent="space-between"
-      alignItems="center"
-      width="90%"
-      margin="auto"
-    >
-      <Grid item>
-        <Typography variant="signupHeader">Skapa Konto</Typography>
-      </Grid>
+    <form>
+      <Container variant="flex" maxWidth="90%">
+        <Box>
+          <Typography variant="signupHeader">Skapa Konto</Typography>
+        </Box>
 
-      <FormControl fullWidth>
-        <OutlinedInput fullWidth></OutlinedInput>
-      </FormControl>
-    </Grid>
+        <FormControl fullWidth>
+          <InputLabel color="info">Lösenord*</InputLabel>
+          <OutlinedInput
+            fullWidth
+            required
+            color="info"
+            label="Lösenord"
+            type={values.showPassword ? "text" : "password"}
+            value={values.password}
+            onChange={handleChange("password")}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+          <FormControl fullWidth>
+            <InputLabel color="info">Upprepa lösenord*</InputLabel>
+            <OutlinedInput
+              fullWidth
+              color="info"
+              label="Upprepa lösenord"
+              type={values.showPassword ? "text" : "password"}
+              value={values.passwordConf}
+              onChange={handleChange("passwordConf")}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
+          </FormControl>
+        </FormControl>
+      </Container>
+    </form>
   );
 }
