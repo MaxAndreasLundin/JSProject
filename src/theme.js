@@ -4,7 +4,7 @@ const theme = createTheme({
   components: {
     MuiPaper: {
       styleOverrides: {
-        fontFamily: "Buenos Aires",
+        fontFamily: "Poppins",
       },
     },
     MuiInputBase: {
@@ -30,7 +30,7 @@ const theme = createTheme({
     MuiCardHeader: {
       styleOverrides: {
         title: {
-          fontFamily: "Quarto",
+          fontFamily: "Merriweather",
           fontWeight: 400,
           fontSize: "2rem",
         },
@@ -69,7 +69,7 @@ const theme = createTheme({
           props: { variant: "activityCard" },
           style: {
             fontWeight: 500,
-            fontFamily: "Buenos Aires",
+            fontFamily: "Poppins",
             fontSize: 10,
           },
         },
@@ -99,13 +99,13 @@ const theme = createTheme({
 
   typography: {
     h1: {
-      fontFamily: "Quarto",
+      fontFamily: "Merriweather",
       fontSize: "2rem",
-      fontWeight: 400,
+      fontWeight: 700,
     },
     subtitle1: {
-      fontFamily: "Buenos Aires",
-      fontWeight: 400,
+      fontFamily: "Poppins",
+      fontWeight: 500,
       fontSize: "0.8rem",
     },
     subtitle2: {
@@ -115,7 +115,7 @@ const theme = createTheme({
       lineHeight: 1.2,
     },
     h5: {
-      fontFamily: "Quarto",
+      fontFamily: "Merriweather",
       fontSize: "2rem",
       fontWeight: 600,
     },
