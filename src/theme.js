@@ -75,6 +75,9 @@ const theme = createTheme({
     warning: {
       main: "#3A3A3A",
     },
+    success: {
+      main: "#FF0202",
+    },
   },
 
   typography: {

@@ -1,8 +1,9 @@
 import * as React from "react";
-import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import Checkbox from "@mui/material/Checkbox";
-import { Typography, Box, FormControlLabel, RadioGroup } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import { Box, FormControlLabel, RadioGroup, Button } from "@mui/material";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -12,22 +13,41 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 export default function CreateUser() {
   const [values, setValues] = React.useState({
-    showPassword: false,
     password: "",
     passwordConf: "",
-    passwordError: false,
     name: "",
     email: "",
   });
+
+  const [props, setProps] = React.useState({
+    passwordError: false,
+    showPassword: false,
+  });
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    setProps({
+      ...props,
+      passwordError: true,
+    });
+
+    if (values.password == values.passwordConf) {
+      setProps({
+        ...props,
+        passwordError: false,
+      });
+    }
+    console.log(values);
+  };
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
   const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
+    setProps({
+      ...props,
+      showPassword: !props.showPassword,
     });
   };
   const handleMouseDownPassword = (event) => {
@@ -35,21 +55,13 @@ export default function CreateUser() {
   };
 
   return (
-    <form>
-      <Grid
-        container
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        maxWidth="90%"
-        margin="auto"
-        spacing={2}
-      >
-        <Grid item>
+    <form onSubmit={handleSubmit}>
+      <Container variant="flex">
+        <Box item>
           <Typography variant="signupHeader">Skapa Konto</Typography>
-        </Grid>
+        </Box>
 
-        <Grid item sx={{ width: 1 }}>
+        <Box item sx={{ width: 1 }}>
           <FormControl fullWidth>
             <InputLabel color="info">För- och efternamn</InputLabel>
             <OutlinedInput
@@ -60,24 +72,27 @@ export default function CreateUser() {
             />
           </FormControl>
           <FormControl fullWidth>
-            <InputLabel color="info">För- och efternamn</InputLabel>
-            <OutlinedInput
-              color="info"
-              label="För- och efternamn"
-              value={values.name}
-              onChange={handleChange("name")}
-            />
-          </FormControl>
-        </Grid>
-
-        <Grid item sx={{ width: 1 }}>
-          <FormControl fullWidth>
-            <InputLabel color="info">Lösenord*</InputLabel>
+            <InputLabel color="info">Mailadress*</InputLabel>
             <OutlinedInput
               required
               color="info"
+              label="Mailadress"
+              value={values.email}
+              onChange={handleChange("email")}
+            />
+          </FormControl>
+        </Box>
+
+        <Box item sx={{ width: 1 }}>
+          <FormControl fullWidth>
+            <InputLabel color={props.passwordError ? "success" : "info"}>
+              Lösenord*
+            </InputLabel>
+            <OutlinedInput
+              required
+              color={props.passwordError ? "success" : "info"}
               label="Lösenord"
-              type={values.showPassword ? "text" : "password"}
+              type={props.showPassword ? "text" : "password"}
               value={values.password}
               onChange={handleChange("password")}
               endAdornment={
@@ -88,18 +103,21 @@ export default function CreateUser() {
                     onMouseDown={handleMouseDownPassword}
                     edge="end"
                   >
-                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                    {props.showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
               }
             />
           </FormControl>
           <FormControl fullWidth>
-            <InputLabel color="info">Upprepa lösenord*</InputLabel>
+            <InputLabel color={props.passwordError ? "success" : "info"}>
+              Upprepa lösenord*
+            </InputLabel>
             <OutlinedInput
-              color="info"
+              required
+              color={props.passwordError ? "success" : "info"}
               label="Upprepa lösenord"
-              type={values.showPassword ? "text" : "password"}
+              type={props.showPassword ? "text" : "password"}
               value={values.passwordConf}
               onChange={handleChange("passwordConf")}
               endAdornment={
@@ -110,7 +128,7 @@ export default function CreateUser() {
                     onMouseDown={handleMouseDownPassword}
                     edge="end"
                   >
-                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                    {props.showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
               }
@@ -120,8 +138,8 @@ export default function CreateUser() {
             Använd minst åtta tecken och en kombination av bokstäver, siffror
             och symboler
           </Typography>
-        </Grid>
-        <Grid item>
+        </Box>
+        <Box>
           <RadioGroup>
             <FormControlLabel
               control={<Checkbox color="info" />}
@@ -141,8 +159,23 @@ export default function CreateUser() {
               }
             />
           </RadioGroup>
-        </Grid>
-      </Grid>
+
+          <Button fullWidth variant="contained">
+            <Typography variant="signupHeader">SKAPA KONTO</Typography>
+          </Button>
+          <input type="submit" />
+        </Box>
+
+        <Box>
+          <Box>
+            <Typography variant="pswrdInfo">Har du redan ett konto?</Typography>
+          </Box>
+
+          <Button variant="contained" color="info">
+            LOGGA IN
+          </Button>
+        </Box>
+      </Container>
     </form>
   );
 }
