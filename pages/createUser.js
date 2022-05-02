@@ -2,7 +2,7 @@ import * as React from "react";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Checkbox from "@mui/material/Checkbox";
-import { Typography, Box, FormControlLabel } from "@mui/material";
+import { Typography, Box, FormControlLabel, RadioGroup } from "@mui/material";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -45,7 +45,7 @@ export default function CreateUser() {
         margin="auto"
         spacing={2}
       >
-        <Grid>
+        <Grid item>
           <Typography variant="signupHeader">Skapa Konto</Typography>
         </Grid>
 
@@ -121,24 +121,26 @@ export default function CreateUser() {
             och symboler
           </Typography>
         </Grid>
-        <Grid item alignItems="flex-start">
-          <FormControlLabel
-            control={<Checkbox color="info" />}
-            label={
-              <Typography variant="pswrdInfo">
-                Jag tillåter att Join skickar påminnelser om aktiviteter och
-                liknande till min mail
-              </Typography>
-            }
-          />
-          <FormControlLabel
-            control={<Checkbox color="info" />}
-            label={
-              <Typography variant="pswrdInfo">
-                Jag godkänner Joins användarvillkor
-              </Typography>
-            }
-          />
+        <Grid item>
+          <RadioGroup>
+            <FormControlLabel
+              control={<Checkbox color="info" />}
+              label={
+                <Typography variant="pswrdInfo">
+                  Jag tillåter att Join skickar påminnelser om aktiviteter och
+                  liknande till min mail
+                </Typography>
+              }
+            />
+            <FormControlLabel
+              control={<Checkbox color="info" />}
+              label={
+                <Typography variant="pswrdInfo">
+                  Jag godkänner Joins användarvillkor
+                </Typography>
+              }
+            />
+          </RadioGroup>
         </Grid>
       </Grid>
     </form>
