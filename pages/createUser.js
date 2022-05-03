@@ -124,12 +124,22 @@ export default function CreateUser() {
 
         <Grid item sx={{ width: 1 }}>
           <FormControl fullWidth>
-            <InputLabel color={props.passwordMatchError ? "success" : "info"}>
+            <InputLabel
+              color={
+                props.passwordMatchError || props.passwordReqError
+                  ? "success"
+                  : "info"
+              }
+            >
               Lösenord*
             </InputLabel>
             <OutlinedInput
               required
-              color={props.passwordMatchError ? "success" : "info"}
+              color={
+                props.passwordMatchError || props.passwordReqError
+                  ? "success"
+                  : "info"
+              }
               label="Lösenord"
               type={props.showPassword ? "text" : "password"}
               value={values.password}
@@ -150,12 +160,22 @@ export default function CreateUser() {
           </FormControl>
 
           <FormControl fullWidth>
-            <InputLabel color={props.passwordMatchError ? "success" : "info"}>
+            <InputLabel
+              color={
+                props.passwordMatchError || props.passwordReqError
+                  ? "success"
+                  : "info"
+              }
+            >
               Upprepa lösenord*
             </InputLabel>
             <OutlinedInput
               required
-              color={props.passwordMatchError ? "success" : "info"}
+              color={
+                props.passwordMatchError || props.passwordReqError
+                  ? "success"
+                  : "info"
+              }
               label="Upprepa lösenord"
               type={props.showPassword ? "text" : "password"}
               value={values.passwordConf}
