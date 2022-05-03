@@ -1,5 +1,5 @@
 import * as React from "react";
-import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Checkbox from "@mui/material/Checkbox";
 import Typography from "@mui/material/Typography";
@@ -20,23 +20,46 @@ export default function CreateUser() {
   });
 
   const [props, setProps] = React.useState({
-    passwordError: false,
+    passwordMatchError: false,
+    passwordReqError: false,
     showPassword: false,
   });
-  const handleSubmit = (event) => {
-    event.preventDefault();
 
+  const pswordMatchValidator = () => {
     setProps({
       ...props,
-      passwordError: true,
+      passwordMatchError: true,
     });
-
     if (values.password == values.passwordConf) {
       setProps({
         ...props,
-        passwordError: false,
+        passwordMatchError: false,
       });
     }
+  };
+
+  const pswordReqValidator = () => {
+    setProps({
+      ...props,
+      passwordReqError: true,
+    });
+
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(
+      values.password
+    );
+
+    if (regex) {
+      setProps({
+        ...props,
+        passwordMatchError: false,
+      });
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    pswordMatchValidator();
     console.log(values);
   };
 
@@ -56,12 +79,20 @@ export default function CreateUser() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Container variant="flex">
-        <Box item>
+      <Grid
+        container
+        direction="column"
+        justifyContent="space-between"
+        alignItems="center"
+        maxWidth="90%"
+        margin="auto"
+        spacing={2}
+      >
+        <Grid item>
           <Typography variant="signupHeader">Skapa Konto</Typography>
-        </Box>
+        </Grid>
 
-        <Box item sx={{ width: 1 }}>
+        <Grid item sx={{ width: 1 }}>
           <FormControl fullWidth>
             <InputLabel color="info">För- och efternamn</InputLabel>
             <OutlinedInput
@@ -71,6 +102,7 @@ export default function CreateUser() {
               onChange={handleChange("name")}
             />
           </FormControl>
+
           <FormControl fullWidth>
             <InputLabel color="info">Mailadress*</InputLabel>
             <OutlinedInput
@@ -81,16 +113,16 @@ export default function CreateUser() {
               onChange={handleChange("email")}
             />
           </FormControl>
-        </Box>
+        </Grid>
 
-        <Box item sx={{ width: 1 }}>
+        <Grid item sx={{ width: 1 }}>
           <FormControl fullWidth>
-            <InputLabel color={props.passwordError ? "success" : "info"}>
+            <InputLabel color={props.passwordMatchError ? "success" : "info"}>
               Lösenord*
             </InputLabel>
             <OutlinedInput
               required
-              color={props.passwordError ? "success" : "info"}
+              color={props.passwordMatchError ? "success" : "info"}
               label="Lösenord"
               type={props.showPassword ? "text" : "password"}
               value={values.password}
@@ -109,13 +141,14 @@ export default function CreateUser() {
               }
             />
           </FormControl>
+
           <FormControl fullWidth>
-            <InputLabel color={props.passwordError ? "success" : "info"}>
+            <InputLabel color={props.passwordMatchError ? "success" : "info"}>
               Upprepa lösenord*
             </InputLabel>
             <OutlinedInput
               required
-              color={props.passwordError ? "success" : "info"}
+              color={props.passwordMatchError ? "success" : "info"}
               label="Upprepa lösenord"
               type={props.showPassword ? "text" : "password"}
               value={values.passwordConf}
@@ -134,12 +167,13 @@ export default function CreateUser() {
               }
             />
           </FormControl>
+
           <Typography variant="pswrdInfo">
             Använd minst åtta tecken och en kombination av bokstäver, siffror
             och symboler
           </Typography>
-        </Box>
-        <Box>
+        </Grid>
+        <Grid item sx={{ width: 1 }}>
           <RadioGroup>
             <FormControlLabel
               control={<Checkbox color="info" />}
@@ -160,22 +194,23 @@ export default function CreateUser() {
             />
           </RadioGroup>
 
-          <Button fullWidth variant="contained">
+          <Button fullWidth variant="contained" disabled={false}>
             <Typography variant="signupHeader">SKAPA KONTO</Typography>
           </Button>
           <input type="submit" />
-        </Box>
+        </Grid>
 
-        <Box>
+        <Grid item>
           <Box>
             <Typography variant="pswrdInfo">Har du redan ett konto?</Typography>
           </Box>
-
-          <Button variant="contained" color="info">
-            LOGGA IN
-          </Button>
-        </Box>
-      </Container>
+          <Box>
+            <Button variant="contained" color="info" size="">
+              LOGGA IN
+            </Button>
+          </Box>
+        </Grid>
+      </Grid>
     </form>
   );
 }
