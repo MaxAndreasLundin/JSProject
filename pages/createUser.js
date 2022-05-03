@@ -23,7 +23,11 @@ export default function CreateUser() {
     passwordMatchError: false,
     passwordReqError: false,
     showPassword: false,
+    acceptedTerms: false,
   });
+
+  const regex =
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
   const pswordMatchValidator = () => {
     setProps({
@@ -43,24 +47,26 @@ export default function CreateUser() {
       ...props,
       passwordReqError: true,
     });
-
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(
-      values.password
-    );
-
-    if (regex) {
+    if (regex.test(values.password)) {
       setProps({
         ...props,
-        passwordMatchError: false,
+        passwordReqError: false,
       });
     }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     pswordMatchValidator();
+    pswordReqValidator();
     console.log(values);
+    console.log(
+      "password match error:",
+      props.passwordMatchError,
+      "password req error:",
+      props.passwordReqError
+    );
+    console.log(regex.test(values.password));
   };
 
   const handleChange = (prop) => (event) => {
@@ -73,6 +79,7 @@ export default function CreateUser() {
       showPassword: !props.showPassword,
     });
   };
+
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
