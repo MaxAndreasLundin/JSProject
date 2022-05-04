@@ -14,6 +14,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CheckIcon from "@mui/icons-material/Check";
 import Chip from "@mui/material/Chip";
+import fetch from "isomorphic-unfetch";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -26,7 +27,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-function ActivityCard(props) {
+function ActivityCard({ cards }) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -213,5 +214,12 @@ function ActivityCard(props) {
     </Card>
   );
 }
+
+ActivityCard.getInitialProps = async () => {
+  const res = await fetch("http://localhost:3000/api/cards");
+  const { data } = await res.json;
+
+  return { cards: data };
+};
 
 export default memo(ActivityCard);
