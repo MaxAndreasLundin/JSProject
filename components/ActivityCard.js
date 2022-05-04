@@ -61,7 +61,7 @@ function ActivityCard(props) {
         <Box display="flex" justifyContent="space-between">
           <Box sx={{ ml: 1 }}>
             <Avatar
-              src="https://mamadisrupt.com/wp-content/uploads/2019/11/jessica-rockowitz-jbiInQGY8og-unsplash-WEB-542x427.jpg"
+              src={props.avatar}
               sx={{
                 width: 55,
                 height: 55,
@@ -76,7 +76,7 @@ function ActivityCard(props) {
                 textAlign: "center",
               }}
             >
-              Malin
+              {props.name}
             </Typography>
           </Box>
 

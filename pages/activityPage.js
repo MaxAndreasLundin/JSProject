@@ -56,6 +56,8 @@ function ActivityPage({ cards }) {
                   place={card.place}
                   date={card.date}
                   time={card.time}
+                  name={card.name}
+                  avatar={card.avatar}
                 ></ActivityCard>
               </div>
             );

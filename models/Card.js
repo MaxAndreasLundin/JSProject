@@ -28,6 +28,16 @@ const CardSchema = new mongoose.Schema({
     required: true,
     maxlength: [6, "Max amount of characters is 6"],
   },
+  name: {
+    type: String,
+    required: true,
+    maxlength: [10, "Max amount of characters is 6"],
+  },
+  avatar: {
+    type: String,
+    required: true,
+    maxlength: [200, "Max amount of characters is 200"],
+  },
 });
 
 module.exports = mongoose.models.Card || mongoose.model("Card", CardSchema);
