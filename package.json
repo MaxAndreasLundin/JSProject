@@ -16,6 +16,7 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "isomorphic-unfetch": "^3.1.0",
     "mongoose": "^6.3.2",
     "next": "latest",
     "prop-types": "latest",
