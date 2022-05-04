@@ -53,6 +53,9 @@ function ActivityPage({ cards }) {
                 <ActivityCard
                   title={card.title}
                   content={card.description}
+                  place={card.place}
+                  date={card.date}
+                  time={card.time}
                 ></ActivityCard>
               </div>
             );

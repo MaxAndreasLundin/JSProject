@@ -93,9 +93,9 @@ function ActivityCard(props) {
             <Typography variant="h5" sx={{ fontSize: 20 }}>
               {props.title}
             </Typography>
-            <Typography variant="subtitle1">Var: Hökarängen</Typography>
-            <Typography variant="subtitle1">När: 29 Mars 2022 </Typography>
-            <Typography variant="subtitle1">Tid: 12:00</Typography>
+            <Typography variant="subtitle1">Var: {props.place}</Typography>
+            <Typography variant="subtitle1">När: {props.date} </Typography>
+            <Typography variant="subtitle1">Tid: {props.time}</Typography>
           </Box>
 
           <Box
