@@ -17,66 +17,80 @@ export default function CreateUser() {
     passwordConf: "",
     name: "",
     email: "",
+    showPassword: false,
   });
 
-  const [props, setProps] = React.useState({
+  const [acceptTnC, setAcceptTnC] = React.useState(false);
+
+  const [errors, setErrors] = React.useState({
     passwordMatchError: false,
     passwordReqError: false,
-    showPassword: false,
-    acceptedTerms: false,
+    filledInputsError: false,
   });
 
-  const regex =
-    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-
-  const pswordMatchValidator = () => {
-    setProps({
-      ...props,
-      passwordMatchError: true,
+  const handleCheckBox = (event) => {
+    setAcceptTnC(event.target.checked);
+    setErrors({
+      ...errors,
+      filledInputsError: inputMissingChecker(),
     });
-    if (values.password == values.passwordConf) {
-      setProps({
-        ...props,
-        passwordMatchError: false,
-      });
-    }
   };
 
-  const pswordReqValidator = () => {
-    setProps({
-      ...props,
-      passwordReqError: true,
-    });
-    if (regex.test(values.password)) {
-      setProps({
-        ...props,
-        passwordReqError: false,
-      });
+  const inputMissingChecker = () => {
+    if (values.name.lenght === 0) {
+      return true;
     }
+
+    if (values.email.lenght === 0) {
+      return true;
+    }
+
+    if (values.password.lenght === 0) {
+      return true;
+    }
+
+    if (values.passwordConf.lenght === 0) {
+      return true;
+    }
+
+    if (acceptTnC === false) {
+      return true;
+    }
+
+    return false;
+  };
+
+  const passwordValidator = () => {
+    const regex =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+
+    setErrors({
+      ...errors,
+      passwordMatchError: values.password !== values.passwordConf,
+      passwordReqError: !regex.test(values.password),
+    });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    pswordMatchValidator();
-    pswordReqValidator();
-    console.log(values);
-    console.log(
-      "password match error:",
-      props.passwordMatchError,
-      "password req error:",
-      props.passwordReqError
-    );
-    console.log(regex.test(values.password));
+    passwordValidator();
+
+    console.log(errors.filledInputsError);
   };
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
+    setErrors({
+      ...errors,
+      filledInputsError: inputMissingChecker(),
+    });
+    console.log(values);
   };
 
   const handleClickShowPassword = () => {
-    setProps({
-      ...props,
-      showPassword: !props.showPassword,
+    setValues({
+      ...values,
+      showPassword: !values.showPassword,
     });
   };
 
@@ -101,7 +115,7 @@ export default function CreateUser() {
 
         <Grid item sx={{ width: 1 }}>
           <FormControl fullWidth>
-            <InputLabel color="info">För- och efternamn</InputLabel>
+            <InputLabel color="info">För- och efternamn*</InputLabel>
             <OutlinedInput
               color="info"
               label="För- och efternamn"
@@ -113,7 +127,6 @@ export default function CreateUser() {
           <FormControl fullWidth>
             <InputLabel color="info">Mailadress*</InputLabel>
             <OutlinedInput
-              required
               color="info"
               label="Mailadress"
               value={values.email}
@@ -126,7 +139,7 @@ export default function CreateUser() {
           <FormControl fullWidth>
             <InputLabel
               color={
-                props.passwordMatchError || props.passwordReqError
+                errors.passwordMatchError || errors.passwordReqError
                   ? "success"
                   : "info"
               }
@@ -134,14 +147,13 @@ export default function CreateUser() {
               Lösenord*
             </InputLabel>
             <OutlinedInput
-              required
               color={
-                props.passwordMatchError || props.passwordReqError
+                errors.passwordMatchError || errors.passwordReqError
                   ? "success"
                   : "info"
               }
               label="Lösenord"
-              type={props.showPassword ? "text" : "password"}
+              type={values.showPassword ? "text" : "password"}
               value={values.password}
               onChange={handleChange("password")}
               endAdornment={
@@ -152,7 +164,7 @@ export default function CreateUser() {
                     onMouseDown={handleMouseDownPassword}
                     edge="end"
                   >
-                    {props.showPassword ? <VisibilityOff /> : <Visibility />}
+                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
               }
@@ -162,7 +174,7 @@ export default function CreateUser() {
           <FormControl fullWidth>
             <InputLabel
               color={
-                props.passwordMatchError || props.passwordReqError
+                errors.passwordMatchError || errors.passwordReqError
                   ? "success"
                   : "info"
               }
@@ -170,14 +182,13 @@ export default function CreateUser() {
               Upprepa lösenord*
             </InputLabel>
             <OutlinedInput
-              required
               color={
-                props.passwordMatchError || props.passwordReqError
+                errors.passwordMatchError || errors.passwordReqError
                   ? "success"
                   : "info"
               }
               label="Upprepa lösenord"
-              type={props.showPassword ? "text" : "password"}
+              type={values.showPassword ? "text" : "password"}
               value={values.passwordConf}
               onChange={handleChange("passwordConf")}
               endAdornment={
@@ -188,13 +199,17 @@ export default function CreateUser() {
                     onMouseDown={handleMouseDownPassword}
                     edge="end"
                   >
-                    {props.showPassword ? <VisibilityOff /> : <Visibility />}
+                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
               }
             />
           </FormControl>
-
+          <Box>
+            <Typography variant="pswrdInfo">
+              {errors.passwordMatchError ? "Lösenorden matchar inte" : ""}{" "}
+            </Typography>
+          </Box>
           <Typography variant="pswrdInfo">
             Använd minst åtta tecken och en kombination av bokstäver, siffror
             och symboler
@@ -212,7 +227,13 @@ export default function CreateUser() {
               }
             />
             <FormControlLabel
-              control={<Checkbox color="info" />}
+              control={
+                <Checkbox
+                  color="info"
+                  checked={acceptTnC}
+                  onChange={handleCheckBox}
+                />
+              }
               label={
                 <Typography variant="pswrdInfo">
                   Jag godkänner Joins användarvillkor
@@ -221,10 +242,14 @@ export default function CreateUser() {
             />
           </RadioGroup>
 
-          <Button fullWidth variant="contained" disabled={false}>
+          <Button
+            fullWidth
+            variant="contained"
+            type="submit"
+            disabled={errors.filledInputsError}
+          >
             <Typography variant="signupHeader">SKAPA KONTO</Typography>
           </Button>
-          <input type="submit" />
         </Grid>
 
         <Grid item>
