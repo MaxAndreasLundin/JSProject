@@ -2,8 +2,9 @@ import React from "react";
 import { Box } from "@mui/system";
 import { Container, Typography } from "@mui/material";
 import ActivityCard from "../components/ActivityCard";
+import fetch from "isomorphic-unfetch";
 
-function ActivityPage() {
+function ActivityPage({ cards }) {
   return (
     <React.Fragment>
       <Container
@@ -45,12 +46,28 @@ function ActivityPage() {
           backgroundColor: "#FBEEED",
         }}
       >
-        <ActivityCard>Korvgrillning</ActivityCard>
-        <ActivityCard>Spela Xbox</ActivityCard>
-        <ActivityCard>Brännboll</ActivityCard>
+        <div>
+          {cards.map((card) => {
+            return (
+              <div key={card._id}>
+                <ActivityCard
+                  title={card.title}
+                  content={card.description}
+                ></ActivityCard>
+              </div>
+            );
+          })}
+        </div>
       </Container>
     </React.Fragment>
   );
 }
+
+ActivityPage.getInitialProps = async () => {
+  const res = await fetch("http://localhost:3000/api/cards");
+  const { data } = await res.json();
+
+  return { cards: data };
+};
 
 export default ActivityPage;

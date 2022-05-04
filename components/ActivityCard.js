@@ -14,7 +14,6 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CheckIcon from "@mui/icons-material/Check";
 import Chip from "@mui/material/Chip";
-import fetch from "isomorphic-unfetch";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -27,7 +26,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-function ActivityCard({ cards }) {
+function ActivityCard(props) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -92,7 +91,7 @@ function ActivityCard({ cards }) {
             }}
           >
             <Typography variant="h5" sx={{ fontSize: 20 }}>
-              {props.children}
+              {props.title}
             </Typography>
             <Typography variant="subtitle1">Var: Hökarängen</Typography>
             <Typography variant="subtitle1">När: 29 Mars 2022 </Typography>
@@ -157,9 +156,7 @@ function ActivityCard({ cards }) {
                 variant="subtitle2"
                 sx={{ mr: 4, mb: -3 }}
               >
-                Kort beskrivning av vad aktiveteten handlar om och vad syftet är
-                med aktiviteten. Kort beskrivning av vad aktiveteten handlar om
-                och vad syftet är med aktiviteten.
+                {props.content}
               </Typography>
             </Box>
             <Box
@@ -214,12 +211,5 @@ function ActivityCard({ cards }) {
     </Card>
   );
 }
-
-ActivityCard.getInitialProps = async () => {
-  const res = await fetch("http://localhost:3000/api/cards");
-  const { data } = await res.json;
-
-  return { cards: data };
-};
 
 export default memo(ActivityCard);
