@@ -58,17 +58,31 @@ const theme = createTheme({
         },
       ],
     },
+    MuiChip: {
+      variants: [
+        {
+          props: { variant: "activityCard" },
+          style: {
+            fontWeight: 500,
+            fontFamily: "Poppins",
+            fontSize: 10,
+          },
+        },
+      ],
+    },
   },
 
   palette: {
     primary: {
       main: "#FFE99D",
+      dark: "#F5D668",
     },
     secondary: {
       main: "#EE7B35",
     },
     info: {
       main: "#99CEC8",
+      dark: "#52A399",
     },
     error: {
       main: "#FBEEED",

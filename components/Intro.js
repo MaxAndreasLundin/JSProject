@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { memo } from "react";
 import Button from "@mui/material/Button";
-import Link from "../src/Link";
 
 function Intro() {
   return (
@@ -61,8 +60,6 @@ function Intro() {
             <Button
               variant="contained"
               color="info"
-              component={Link}
-              href="/"
               sx={{ ml: 1, width: "9rem", fontSize: "0.9rem" }}
             >
               LOGGA IN
