@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { memo } from "react";
 import Button from "@mui/material/Button";
+import Link from "../src/Link";
 
 function Intro() {
   return (
