@@ -25,7 +25,7 @@ function Intro() {
               color: "#FFFFFF",
             }}
           >
-            Tänk dig ett samhälle där alla är kompisar
+            Välkommen till Join
           </Typography>
         </Box>
         <Box>
