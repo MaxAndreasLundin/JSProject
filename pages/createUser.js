@@ -2,9 +2,7 @@ import * as React from "react";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Checkbox from "@mui/material/Checkbox";
-
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
-
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import Typography from "@mui/material/Typography";
 import { Box, FormControlLabel, RadioGroup, Button } from "@mui/material";
@@ -280,7 +278,9 @@ export default function CreateUser() {
 
         <Grid item>
           <Box sx={{ marginTop: 1 }}>
-            <Typography variant="pswrdInfo">Har du redan ett konto?</Typography>
+            <Typography variant="pswrdInfo" sx={{ marginLeft: -1.5 }}>
+              Har du redan ett konto?
+            </Typography>
           </Box>
           <Box>
             <Button variant="contained" color="info" size="">
