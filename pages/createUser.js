@@ -2,6 +2,10 @@ import * as React from "react";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Checkbox from "@mui/material/Checkbox";
+
+import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
+
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import Typography from "@mui/material/Typography";
 import { Box, FormControlLabel, RadioGroup, Button } from "@mui/material";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -106,7 +110,8 @@ export default function CreateUser() {
         justifyContent="space-between"
         alignItems="center"
         maxWidth="90%"
-        margin="auto"
+        marginTop="auto"
+        marginLeft="4%"
         spacing={2}
       >
         <Grid item>
@@ -115,22 +120,28 @@ export default function CreateUser() {
 
         <Grid item sx={{ width: 1 }}>
           <FormControl fullWidth>
-            <InputLabel color="info">För- och efternamn*</InputLabel>
+            <InputLabel color="info" sx={{ pl: 2, pt: 0.5 }}>
+              För- och efternamn*
+            </InputLabel>
             <OutlinedInput
               color="info"
               label="För- och efternamn"
               value={values.name}
               onChange={handleChange("name")}
+              sx={{ borderRadius: "29px" }}
             />
           </FormControl>
 
           <FormControl fullWidth>
-            <InputLabel color="info">Mailadress*</InputLabel>
+            <InputLabel color="info" sx={{ pl: 2, pt: 0.5 }}>
+              Mailadress*
+            </InputLabel>
             <OutlinedInput
               color="info"
               label="Mailadress"
               value={values.email}
               onChange={handleChange("email")}
+              sx={{ borderRadius: "29px" }}
             />
           </FormControl>
         </Grid>
@@ -138,6 +149,7 @@ export default function CreateUser() {
         <Grid item sx={{ width: 1 }}>
           <FormControl fullWidth>
             <InputLabel
+              sx={{ pl: 2, pt: 0.5 }}
               color={
                 errors.passwordMatchError || errors.passwordReqError
                   ? "success"
@@ -152,6 +164,7 @@ export default function CreateUser() {
                   ? "success"
                   : "info"
               }
+              sx={{ borderRadius: "29px" }}
               label="Lösenord"
               type={values.showPassword ? "text" : "password"}
               value={values.password}
@@ -159,6 +172,7 @@ export default function CreateUser() {
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
+                    sx={{ pr: 2 }}
                     aria-label="toggle password visibility"
                     onClick={handleClickShowPassword}
                     onMouseDown={handleMouseDownPassword}
@@ -173,6 +187,7 @@ export default function CreateUser() {
 
           <FormControl fullWidth>
             <InputLabel
+              sx={{ pl: 2, pt: 0.5 }}
               color={
                 errors.passwordMatchError || errors.passwordReqError
                   ? "success"
@@ -182,6 +197,7 @@ export default function CreateUser() {
               Upprepa lösenord*
             </InputLabel>
             <OutlinedInput
+              sx={{ borderRadius: "29px" }}
               color={
                 errors.passwordMatchError || errors.passwordReqError
                   ? "success"
@@ -194,6 +210,7 @@ export default function CreateUser() {
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
+                    sx={{ pr: 2 }}
                     aria-label="toggle password visibility"
                     onClick={handleClickShowPassword}
                     onMouseDown={handleMouseDownPassword}
@@ -216,9 +233,15 @@ export default function CreateUser() {
           </Typography>
         </Grid>
         <Grid item sx={{ width: 1 }}>
-          <RadioGroup>
+          <RadioGroup sx={{ marginTop: 2.5, ml: 2 }}>
             <FormControlLabel
-              control={<Checkbox color="info" />}
+              control={
+                <Checkbox
+                  icon={<RadioButtonUncheckedIcon />}
+                  checkedIcon={<CheckCircleOutlineIcon />}
+                  color="warning"
+                />
+              }
               label={
                 <Typography variant="pswrdInfo">
                   Jag tillåter att Join skickar påminnelser om aktiviteter och
@@ -226,10 +249,13 @@ export default function CreateUser() {
                 </Typography>
               }
             />
+
             <FormControlLabel
               control={
                 <Checkbox
-                  color="info"
+                  icon={<RadioButtonUncheckedIcon />}
+                  checkedIcon={<CheckCircleOutlineIcon />}
+                  color="warning"
                   checked={acceptTnC}
                   onChange={handleCheckBox}
                 />
@@ -253,7 +279,7 @@ export default function CreateUser() {
         </Grid>
 
         <Grid item>
-          <Box>
+          <Box sx={{ marginTop: 1 }}>
             <Typography variant="pswrdInfo">Har du redan ett konto?</Typography>
           </Box>
           <Box>
