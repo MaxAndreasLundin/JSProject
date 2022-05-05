@@ -270,7 +270,7 @@ export default function CreateUser() {
             fullWidth
             variant="contained"
             type="submit"
-            disabled={errors.filledInputsError}
+            disabled={!errors.filledInputsError}
             sx={{ mt: 1 }}
           >
             <Typography variant="signupHeader">SKAPA KONTO</Typography>
