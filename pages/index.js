@@ -12,7 +12,7 @@ export default function Index() {
       <Container
         variant="flex"
         sx={{
-          backgroundImage: `url(/pictures/newbackground.png)`,
+          backgroundImage: `url(/pictures/twokids.png)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           p: 0,

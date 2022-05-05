@@ -21,12 +21,12 @@ function Intro() {
             variant="h1"
             align="center"
             sx={{
-              mb: 2,
-              mt: 3,
+              mb: 4,
+              mt: 5,
               color: "#FFFFFF",
             }}
           >
-            Tänk dig ett samhälle där alla är kompisar
+            Välkommen till Join
           </Typography>
         </Box>
         <Box>
@@ -40,9 +40,10 @@ function Intro() {
               color: "#FFFFFF",
             }}
           >
-            Vi har nog alla känt oss ensamma eller utanför någon gång, eller
-            hur? Den känslan går oftast över ganska snabbt, men för många barn
-            så är ensamheten ett ständigt tillstånd och en del av deras vardag.
+            Tänk dig ett samhälle där alla är kompisar. Vi har nog alla känt oss
+            ensamma eller utanför någon gång, eller hur? Den känslan går oftast
+            över ganska snabbt, men för många barn så är ensamheten ett ständigt
+            tillstånd och en del av deras vardag.
           </Typography>
         </Box>
         <Box sx={{ display: "flex", flexDirection: "row" }}>
