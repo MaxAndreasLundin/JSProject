@@ -2,13 +2,13 @@ import db from "../../utils/db";
 
 export default async (req, res) => {
   try {
-    const entries = await db.collection("activities").get();
+    const cards = await db.collection("activities").get();
 
-    const entriesData = entries.docs.map((entry) => ({
-      id: entry.id,
-      ...entry.data(),
+    const cardsData = cards.docs.map((card) => ({
+      id: card.id,
+      ...card.data(),
     }));
-    res.status(200).json({ entriesData });
+    res.status(200).json({ cardsData });
   } catch (e) {
     res.status(400).end();
   }

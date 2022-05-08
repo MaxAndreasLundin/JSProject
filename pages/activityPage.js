@@ -2,9 +2,9 @@ import React from "react";
 import { Box } from "@mui/system";
 import { Container, Typography } from "@mui/material";
 import ActivityCard from "../components/ActivityCard";
-import fetch from "isomorphic-unfetch";
 
 function ActivityPage({ cards }) {
+  console.log(data.cardsData[0].Title);
   return (
     <React.Fragment>
       <Container
@@ -72,7 +72,11 @@ ActivityPage.getInitialProps = async () => {
   const res = await fetch("/api/activities");
   const { data } = await res.json();
 
-  return { cards: data };
+  return {
+    props: {
+      cards: data,
+    },
+  };
 };
 
 export default ActivityPage;
