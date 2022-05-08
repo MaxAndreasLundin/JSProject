@@ -368,4 +368,4 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-databas/serviceAccountKey.json
+utils/db/serviceAccountKey.json

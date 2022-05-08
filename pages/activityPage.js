@@ -3,80 +3,122 @@ import { Box } from "@mui/system";
 import { Container, Typography } from "@mui/material";
 import ActivityCard from "../components/ActivityCard";
 
-function ActivityPage({ cards }) {
-  console.log(data.cardsData[0].Title);
-  return (
-    <React.Fragment>
-      <Container
-        variant="flex"
-        sx={{
-          backgroundImage: `url(/pictures/kids2Filter.png)`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <Box sx={{ mb: 6, ml: 1, mr: 1, maxWidth: 375 }}>
-          <Typography
-            variant="h1"
-            sx={{
-              color: "#FFFFFF",
-              fontSize: "16px",
-            }}
-          >
-            <h1>Joina en aktivitet!</h1>
-          </Typography>
-          <Typography
-            variant="subtitle1"
-            sx={{
-              color: "#FFFFFF",
-              fontSize: "14px",
-            }}
-          >
-            Här nedan kan du se vilka aktiviteter som våra fina medlemmar eller
-            föreningar har satt ihop. <br /> <br />
-            Klicka dig igenom och delta eller spara de aktiviteter du tycker
-            verkar intressant till nästa gång. Alla medlemmar och organisatörer
-            är verifierade med Bank-ID.
-          </Typography>
-        </Box>
-      </Container>
-      <Container
-        variant="flex"
-        sx={{
-          backgroundColor: "#FBEEED",
-        }}
-      >
-        <div>
-          {cards.map((card) => {
-            return (
-              <div key={card._id}>
-                <ActivityCard
-                  title={card.title}
-                  content={card.description}
-                  place={card.place}
-                  date={card.date}
-                  time={card.time}
-                  name={card.name}
-                  // avatar={card.avatar}
-                ></ActivityCard>
-              </div>
-            );
-          })}
-        </div>
-      </Container>
-    </React.Fragment>
-  );
-}
+import { useRouter } from "next/router";
+import db from "../utils/db";
 
-ActivityPage.getInitialProps = async () => {
-  const res = await fetch("/api/activities");
-  const { data } = await res.json();
+// export async function getServerSideProps() {
+//   // Fetch data from external API
+//   const res = await fetch("http://localhost:3000/api/activities");
+//   const data = await res.json();
+//   // Pass data to the page via props
+//   return {
+//     props: {
+//       activities: data,
+//     },
+//   };
+// }
 
-  return {
-    props: {
-      cards: data,
-    },
-  };
+export const getStaticProps = async (context) => {
+  // const { slug } = context.params;
+  const res = await db.collection("activities").get();
+  const activity = res.docs.map((activity) => activity.data());
+  if (activity.length) {
+    return {
+      props: {
+        activity: activity[0],
+      },
+    };
+  } else {
+    return {
+      props: {},
+    };
+  }
 };
+function ActivityPage(props) {
+  //const showActivity = (props) => {
+  const { activity } = props;
+  const router = useRouter();
+  if (router.isFallback) {
+    return (
+      <React.Fragment>
+        <div>loading</div>;
+      </React.Fragment>
+    );
+  } else {
+    if (activity) {
+      return (
+        <React.Fragment>
+          <div key={activity._id}>
+            <ActivityCard
+              title={activity.title}
+              content={activity.description}
+              place={activity.place}
+              date={activity.date}
+              time={activity.time}
+              name={activity.name}
+              avatar={activity.avatar}
+            ></ActivityCard>
+          </div>
+        </React.Fragment>
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <div>not found</div>;
+        </React.Fragment>
+      );
+    }
+  }
 
+  // return (
+  //   <React.Fragment>
+  //     <Container
+  //       variant="flex"
+  //       sx={{
+  //         backgroundImage: `url(/pictures/kids2Filter.png)`,
+  //         backgroundSize: "cover",
+  //         backgroundPosition: "center",
+  //       }}
+  //     >
+  //       <Box sx={{ mb: 6, ml: 1, mr: 1, maxWidth: 375 }}>
+  //         <Typography
+  //           variant="h1"
+  //           sx={{
+  //             color: "#FFFFFF",
+  //             fontSize: "16px",
+  //           }}
+  //         >
+  //           <h1>Joina en aktivitet!</h1>
+  //         </Typography>
+  //         <Typography
+  //           variant="subtitle1"
+  //           sx={{
+  //             color: "#FFFFFF",
+  //             fontSize: "14px",
+  //           }}
+  //         >
+  //           Här nedan kan du se vilka aktiviteter som våra fina medlemmar eller
+  //           föreningar har satt ihop. <br /> <br />
+  //           Klicka dig igenom och delta eller spara de aktiviteter du tycker
+  //           verkar intressant till nästa gång. Alla medlemmar och organisatörer
+  //           är verifierade med Bank-ID.
+  //         </Typography>
+  //       </Box>
+  //     </Container>
+  //     <Container
+  //       variant="flex"
+  //       sx={{
+  //         backgroundColor: "#FBEEED",
+  //       }}
+  //     >
+  //       <ActivityCard>Korvgrillning</ActivityCard>
+  //       <ActivityCard>Spela Xbox</ActivityCard>
+  //       <ActivityCard>Brännboll</ActivityCard>
+  //       <ActivityCard>{props.title.title1}</ActivityCard>
+  //       <ActivityCard>{props.title.title2}</ActivityCard>
+  //       <ActivityCard>{props.title.title3}</ActivityCard>
+  //     </Container>
+  //   </React.Fragment>
+  // );
+}
 export default ActivityPage;

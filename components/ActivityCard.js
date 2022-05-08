@@ -61,7 +61,7 @@ function ActivityCard(props) {
         <Box display="flex" justifyContent="space-between">
           <Box sx={{ ml: 1 }}>
             <Avatar
-              src="https://mamadisrupt.com/wp-content/uploads/2019/11/jessica-rockowitz-jbiInQGY8og-unsplash-WEB-542x427.jpg"
+              src={props.avatar}
               sx={{
                 width: 55,
                 height: 55,
@@ -76,7 +76,7 @@ function ActivityCard(props) {
                 textAlign: "center",
               }}
             >
-              Malin
+              {props.name}
             </Typography>
           </Box>
 
@@ -91,11 +91,11 @@ function ActivityCard(props) {
             }}
           >
             <Typography variant="h5" sx={{ fontSize: 20 }}>
-              {props.children}
+              {props.title}
             </Typography>
-            <Typography variant="subtitle1">Var: Hökarängen</Typography>
-            <Typography variant="subtitle1">När: 29 Mars 2022 </Typography>
-            <Typography variant="subtitle1">Tid: 12:00</Typography>
+            <Typography variant="subtitle1">Var: {props.place}</Typography>
+            <Typography variant="subtitle1">När: {props.date} </Typography>
+            <Typography variant="subtitle1">Tid: {props.time}</Typography>
           </Box>
 
           <Box
@@ -156,9 +156,7 @@ function ActivityCard(props) {
                 variant="subtitle2"
                 sx={{ mr: 4, mb: -3 }}
               >
-                Kort beskrivning av vad aktiveteten handlar om och vad syftet är
-                med aktiviteten. Kort beskrivning av vad aktiveteten handlar om
-                och vad syftet är med aktiviteten.
+                {props.content}
               </Typography>
             </Box>
             <Box
