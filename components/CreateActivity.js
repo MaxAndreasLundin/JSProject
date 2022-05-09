@@ -8,8 +8,64 @@ import { Box } from "@mui/system";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Button from "@mui/material/Button";
+import { useRef, useState } from "react";
+import dashify from "dashify";
+import axios from "axios";
+import db from "../utils/db";
+import fs from "fs";
 
-export default function CreateActivity() {
+const CreateActivity = () => {
+  // const getInitialState = () => {
+  //   return {
+  //     textFieldValue: "",
+  //   };
+  // };
+
+  // const handleTextFieldChange = (e) => {
+  //   this.setState({
+  //     textFieldValue: e.target.value,
+  //   });
+  // };
+  const valueRef = useRef(""); //creating a refernce for TextField Component
+
+  const sendValue = () => {
+    return console.log(valueRef.current.value); //on clicking button accesing current value of TextField and outputing it to console
+  };
+
+  const [content, setContent] = useState({
+    title: undefined,
+    name: undefined,
+    date: undefined,
+    time: undefined,
+    place: undefined,
+    description: undefined,
+  });
+
+  const onChange = (e) => {
+    const { value, name } = e.target;
+    setContent((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const onSubmit = (event) => {
+    try {
+      db.collection("activities")
+        .add({
+          title,
+          name: "Malin",
+          date,
+          time,
+          place,
+          description,
+        })
+        .then((docRef) => {
+          console.log("Document written with ID: ", docRef.id);
+        });
+    } catch (error) {
+      console.error("Error adding document: ", error);
+    }
+    event.preventDefault();
+  };
+
   return (
     <Paper
       sx={{
@@ -29,12 +85,15 @@ export default function CreateActivity() {
               Beskriv din aktivitet med circa 1-4 ord
             </Typography>
             <TextField
-              activity="activityName"
+              id="title"
+              name="title"
+              value={content.title}
+              onChange={onChange}
               required
               fullWidth
-              id="activityName"
               autoFocus
               size="small"
+              inputRef={valueRef}
             />{" "}
             <LocationOnIcon></LocationOnIcon>
             <Typography variant="header">Plats</Typography>
@@ -42,10 +101,12 @@ export default function CreateActivity() {
               Skriv in hela addressen inkl postnummer
             </Typography>
             <TextField
-              address="address"
+              id="place"
+              name="place"
+              value={content.place}
+              onChange={onChange}
               required
               fullWidth
-              id="address"
               autoFocus
               size="small"
             />
@@ -54,13 +115,27 @@ export default function CreateActivity() {
                 <AccessTimeIcon fontSize="small"></AccessTimeIcon> Datum
               </Grid>
               <Grid item xs={3} sm={3} md={3}>
-                <TextField date="date" required id="date" autoFocus />
+                <TextField
+                  name="date"
+                  required
+                  id="date"
+                  onChange={onChange}
+                  value={content.date}
+                  autoFocus
+                />
               </Grid>
               <Grid item xs={3} sm={3} md={3}>
                 <AccessTimeIcon fontSize="small"></AccessTimeIcon> Tid
               </Grid>
               <Grid item xs={3} sm={3} md={3}>
-                <TextField time="time" required id="time" autoFocus />
+                <TextField
+                  name="time"
+                  required
+                  id="time"
+                  value={content.time}
+                  onChange={onChange}
+                  autoFocus
+                />
               </Grid>
             </Grid>
             <Grid container spacing={2}>
@@ -79,10 +154,20 @@ export default function CreateActivity() {
             </Grid>
             <Grid container spacing={2}>
               <Grid item xs={3} sm={3} md={3}>
-                <TextField name="minAge" required id="minAge" autoFocus />
+                <TextField
+                  name="minAge"
+                  // required
+                  id="minAge"
+                  autoFocus
+                />
               </Grid>
               <Grid item xs={3} sm={3} md={3}>
-                <TextField name="maxAge" required id="maxAge" autoFocus />
+                <TextField
+                  name="maxAge"
+                  // required
+                  id="maxAge"
+                  autoFocus
+                />
               </Grid>
               <Grid item xs={3} sm={3} md={3}>
                 <Checkbox
@@ -94,7 +179,7 @@ export default function CreateActivity() {
               <Grid item xs={3} sm={3} md={3}>
                 <TextField
                   name="nrOfPeople"
-                  required
+                  // required
                   id="nrOfPeople"
                   autoFocus
                   width="50%"
@@ -109,7 +194,7 @@ export default function CreateActivity() {
           </Typography>
           <TextField
             name="tags"
-            required
+            // required
             fullWidth
             id="tags"
             autoFocus
@@ -142,7 +227,10 @@ export default function CreateActivity() {
               autoComplete="off"
             >
               <TextField
-                id="outlined-multiline-static"
+                id="description"
+                name="description"
+                value={content.description}
+                onChange={onChange}
                 multiline
                 rows={7}
                 defaultValue="Alla vill som prova på att hoppa trampolin är välkomna hem till oss. Vi bjuder på fika!"
@@ -162,7 +250,12 @@ export default function CreateActivity() {
             </Grid>
             <Grid container spacing={1}>
               <Grid item xs={3} sm={2} md={3}>
-                <TextField cost="Cost" required id="cost" autoFocus />
+                <TextField
+                  cost="Cost"
+                  //required
+                  id="cost"
+                  autoFocus
+                />
               </Grid>
               <Grid item xs={3} sm={2} md={3}>
                 <Checkbox
@@ -173,6 +266,7 @@ export default function CreateActivity() {
                 ></Checkbox>
               </Grid>
               <Button
+                onClick={onSubmit}
                 variant="contained"
                 color="secondary"
                 sx={{ textTransform: "none", marginTop: -1 }}
@@ -185,4 +279,5 @@ export default function CreateActivity() {
       </Grid>
     </Paper>
   );
-}
+};
+export default CreateActivity;

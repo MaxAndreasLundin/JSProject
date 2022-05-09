@@ -16,16 +16,20 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "axios": "^0.27.2",
+    "dashify": "^2.0.0",
     "firebase": "^9.8.0",
     "firebase-admin": "^10.2.0",
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "@babel/plugin-syntax-top-level-await": "^7.14.5"
   },
   "devDependencies": {
     "eslint": "latest",
     "eslint-config-next": "latest",
-    "eslint-config-prettier": "^8.5.0"
+    "eslint-config-prettier": "^8.5.0",
+    "@babel/plugin-syntax-top-level-await": "^7.14.5"
   }
 }
