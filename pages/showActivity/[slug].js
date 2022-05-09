@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import db from "../../utils/db";
 
-const Post = (props) => {
+const showActivity = (props) => {
   const { activity } = props;
   const router = useRouter();
   if (router.isFallback) {
@@ -57,4 +57,4 @@ export const getStaticProps = async (context) => {
   }
 };
 
-export default Post;
+export default showActivity;

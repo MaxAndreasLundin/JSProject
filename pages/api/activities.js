@@ -13,10 +13,3 @@ export default async (req, res) => {
     res.status(400).end();
   }
 };
-
-// const messageRef = doc(db, "activities", "roomA", );
-
-//   res.status(200).json({ activitiesData });
-// } catch (e) {
-//   res.status(400).end();
-// }

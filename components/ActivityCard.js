@@ -58,7 +58,7 @@ function ActivityCard(props) {
       }}
     >
       <CardContent sx={{ maxHeight: 105 }}>
-        <Box display="flex" justifyContent="space-between">
+        <Box display="flex" justifycontent="space-between">
           <Box sx={{ ml: 1 }}>
             <Avatar
               src={props.avatar}
@@ -84,7 +84,7 @@ function ActivityCard(props) {
             sx={{
               ml: 3,
               display: "flex",
-              justifyContent: "flex-start",
+              justifycontent: "flex-start",
               flexDirection: "column",
               flexGrow: 2,
               flexBasis: 0,
@@ -101,7 +101,7 @@ function ActivityCard(props) {
           <Box
             sx={{
               display: "flex",
-              justifyContent: "space-between",
+              justifycontent: "space-between",
               flexDirection: "column",
               flexGrow: 1,
               flexBasis: 0,
@@ -120,7 +120,7 @@ function ActivityCard(props) {
               variant="contained"
               disableRipple
               onClick={handleClick}
-              justifyContent="flexEnd"
+              justifycontent="flexEnd"
               sx={{ maxHeight: 24, textTransform: "none", pl: 0, pr: 0 }}
             >
               {buttonText && (
@@ -197,7 +197,7 @@ function ActivityCard(props) {
         </CardContent>
       </Collapse>
 
-      <Box display="flex" justifyContent="center">
+      <Box display="flex" justifycontent="center">
         <ExpandMore
           sx={{ marginLeft: 0 }}
           expand={expanded}

@@ -5,6 +5,7 @@ import IndexCard from "../components/IndexCards";
 import Intro from "../components/Intro";
 import Button from "@mui/material/Button";
 import Image from "next/image";
+import CreateActivity from "../components/CreateActivity";
 
 export default function Index() {
   return (
@@ -19,6 +20,7 @@ export default function Index() {
         }}
       >
         <Intro></Intro>
+
         <IndexCard title="Hitta aktivitet">
           Här kan du se vilka aktiviteter som våra fina medlemmar eller
           föreningar har satt ihop.
