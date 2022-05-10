@@ -18,8 +18,7 @@ export default function UseFormControl() {
   return (
     <Container variant="flex">
       <Box component="form" noValidate autoComplete="off">
-        <Typography variant="h1" sx={{ mb: 4, mt: 4 }}>
-          {" "}
+        <Typography variant="h1" sx={{ mb: 4, mt: 4, textAlign: "center" }}>
           Skapa en egen aktivitet
         </Typography>
         <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
