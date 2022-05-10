@@ -89,7 +89,7 @@ function ActivityPage({ cards }) {
 }
 
 ActivityPage.getInitialProps = async () => {
-  const res = await fetch("http://localhost:3000/api/cards");
+  const res = await fetch(process.env.MONGODB_DB);
   const { data } = await res.json();
 
   return { cards: data };
