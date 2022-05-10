@@ -30,12 +30,12 @@ const CardSchema = new mongoose.Schema({
   },
   name: {
     type: String,
-    required: true,
+    required: false,
     maxlength: [10, "Max amount of characters is 6"],
   },
   avatar: {
     type: String,
-    required: true,
+    required: false,
     maxlength: [200, "Max amount of characters is 200"],
   },
 });
