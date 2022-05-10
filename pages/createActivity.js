@@ -8,8 +8,13 @@ import DatePicker from "../components/datePicker";
 import Chip from "@mui/material/Chip";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import CloseIcon from "@mui/icons-material/Close";
 
 export default function UseFormControl() {
+  const handleDelete = () => {
+    console.info("You clicked the delete icon.");
+  };
+
   return (
     <Container variant="flex">
       <Box component="form" noValidate autoComplete="off">
@@ -93,6 +98,8 @@ export default function UseFormControl() {
           color="error"
           label="Alla åldrar"
           size="medium"
+          onDelete={handleDelete}
+          deleteIcon={<CloseIcon />}
           sx={{ height: 37, fontSize: 14 }}
         />
         <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
@@ -124,6 +131,8 @@ export default function UseFormControl() {
           color="info"
           label="Utomhus"
           size="medium"
+          onDelete={handleDelete}
+          deleteIcon={<CloseIcon />}
           sx={{ height: 37, fontSize: 14, mr: 2 }}
         />
         <Chip
@@ -131,6 +140,8 @@ export default function UseFormControl() {
           color="info"
           label="Grillning"
           size="medium"
+          onDelete={handleDelete}
+          deleteIcon={<CloseIcon />}
           sx={{ height: 37, fontSize: 14, mr: 2 }}
         />
         <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
