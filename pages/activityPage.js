@@ -2,11 +2,10 @@ import React from "react";
 import { Box } from "@mui/system";
 import { Container, Typography, Button } from "@mui/material";
 import ActivityCard from "../components/ActivityCard";
-import fetch from "isomorphic-unfetch";
 import AddIcon from "@mui/icons-material/Add";
 import Link from "../src/Link";
-
-let dbName = process.env.MONGODB_DB;
+import dbConnect from "../utils/dbConnect";
+import Card from "../models/Card";
 
 function ActivityPage({ cards }) {
   return (
@@ -91,11 +90,26 @@ function ActivityPage({ cards }) {
   );
 }
 
-ActivityPage.getInitialProps = async () => {
-  const res = await fetch("http://localhost:3000/api/cards");
-  const { data } = await res.json();
+export async function getServerSideProps() {
+  await dbConnect();
 
-  return { cards: data };
-};
+  /* find all the data in our database */
+  const result = await Card.find({});
+  const cards = result.map((doc) => {
+    const card = doc.toObject();
+    card._id = card._id.toString();
+    return card;
+  });
+
+  return { props: { cards: cards } };
+}
+
+// ActivityPage.getInitialProps = async () => {
+//   const res = await fetch(dbName);
+
+//   const { data } = await res.json();
+
+//   return { cards: data };
+// };
 
 export default ActivityPage;
