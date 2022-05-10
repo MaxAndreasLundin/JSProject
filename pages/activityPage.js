@@ -32,10 +32,11 @@ function ActivityPage({ cards }) {
             variant="h1"
             sx={{
               color: "#FFFFFF",
-              fontSize: "16px",
+              mb: 2,
+              mt: 2,
             }}
           >
-            <h1>Joina en aktivitet!</h1>
+            Joina en aktivitet!
           </Typography>
           <Typography
             variant="subtitle1"
@@ -91,7 +92,7 @@ function ActivityPage({ cards }) {
 }
 
 ActivityPage.getInitialProps = async () => {
-  const res = await fetch(dbName);
+  const res = await fetch("http://localhost:3000/api/cards");
   const { data } = await res.json();
 
   return { cards: data };

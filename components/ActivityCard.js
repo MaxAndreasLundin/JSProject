@@ -120,7 +120,6 @@ function ActivityCard(props) {
               variant="contained"
               disableRipple
               onClick={handleClick}
-              justifyContent="flexEnd"
               sx={{ maxHeight: 24, textTransform: "none", pl: 0, pr: 0 }}
             >
               {buttonText && (
