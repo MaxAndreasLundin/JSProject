@@ -3,6 +3,8 @@ import { Box } from "@mui/system";
 import { Container, Typography, Button } from "@mui/material";
 import ActivityCard from "../components/ActivityCard";
 import fetch from "isomorphic-unfetch";
+import AddIcon from "@mui/icons-material/Add";
+import Link from "../src/Link";
 
 function ActivityPage({ cards }) {
   return (
@@ -75,9 +77,11 @@ function ActivityPage({ cards }) {
         <Button
           variant="contained"
           color="info"
+          component={Link}
+          href="/createActivity"
           sx={{ position: "fixed", bottom: 20 }}
         >
-          Skapa en aktivitet
+          <AddIcon /> Skapa en aktivitet
         </Button>
       </Container>
     </React.Fragment>
