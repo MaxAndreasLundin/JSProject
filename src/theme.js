@@ -123,6 +123,7 @@ const theme = createTheme({
   typography: {
     h1: {
       fontFamily: "Playfair Display",
+      fontstyle: "normal",
       fontSize: "2rem",
       fontWeight: 600,
     },
@@ -155,6 +156,7 @@ const theme = createTheme({
     },
     button: {
       fontFamily: "Poppins",
+      fontStyle: "normal",
       fontWeight: 500,
     },
   },

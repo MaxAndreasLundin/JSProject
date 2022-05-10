@@ -93,7 +93,6 @@ function ActivityPage({ cards }) {
 export async function getServerSideProps() {
   await dbConnect();
 
-  /* find all the data in our database */
   const result = await Card.find({});
   const cards = result.map((doc) => {
     const card = doc.toObject();
@@ -103,13 +102,5 @@ export async function getServerSideProps() {
 
   return { props: { cards: cards } };
 }
-
-// ActivityPage.getInitialProps = async () => {
-//   const res = await fetch(dbName);
-
-//   const { data } = await res.json();
-
-//   return { cards: data };
-// };
 
 export default ActivityPage;

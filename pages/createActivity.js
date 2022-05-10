@@ -138,7 +138,7 @@ export default function UseFormControl() {
           variant="contained"
           sx={{ width: "100%", fontSize: 22, mt: 2, mb: 2 }}
         >
-          DELA AKTIVITET
+          SPARA
         </Button>
       </Box>
     </Container>
