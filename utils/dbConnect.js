@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+let uri = process.env.MONGODB_URI;
 const connection = {};
 
 async function dbConnect() {
@@ -7,7 +8,7 @@ async function dbConnect() {
     return;
   }
 
-  const db = await mongoose.connect(process.env.MONGODB_URI, {
+  const db = await mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });

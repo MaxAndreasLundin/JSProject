@@ -6,6 +6,8 @@ import fetch from "isomorphic-unfetch";
 import AddIcon from "@mui/icons-material/Add";
 import Link from "../src/Link";
 
+let dbName = process.env.MONGODB_DB;
+
 function ActivityPage({ cards }) {
   return (
     <React.Fragment>
@@ -89,7 +91,7 @@ function ActivityPage({ cards }) {
 }
 
 ActivityPage.getInitialProps = async () => {
-  const res = await fetch(process.env.MONGODB_DB);
+  const res = await fetch(dbName);
   const { data } = await res.json();
 
   return { cards: data };
