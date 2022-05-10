@@ -8,6 +8,7 @@ const theme = createTheme({
         fontFamily: "Poppins",
       },
     },
+
     MuiInputBase: {
       styleOverrides: {
         input: {
@@ -25,8 +26,8 @@ const theme = createTheme({
     MuiCardHeader: {
       styleOverrides: {
         title: {
-          fontFamily: "Merriweather",
-          fontWeight: 400,
+          fontFamily: "Playfair Display",
+          fontWeight: 600,
           fontSize: "2rem",
         },
       },
@@ -58,6 +59,7 @@ const theme = createTheme({
         },
       ],
     },
+
     MuiChip: {
       variants: [
         {
@@ -99,7 +101,7 @@ const theme = createTheme({
     h1: {
       fontFamily: "Playfair Display",
       fontSize: "2rem",
-      fontWeight: 700,
+      fontWeight: 600,
     },
     subtitle1: {
       fontFamily: "Poppins",
@@ -119,7 +121,7 @@ const theme = createTheme({
     },
     signupHeader: {
       fontFamily: "Poppins",
-      fontWeight: 400,
+      fontWeight: 500,
       fontSize: "26px",
     },
     pswrdInfo: {
@@ -127,6 +129,10 @@ const theme = createTheme({
       fontWeight: 400,
       fontSize: "12px",
       color: "#3A3A3A",
+    },
+    button: {
+      fontFamily: "Poppins",
+      fontWeight: 500,
     },
   },
 });
