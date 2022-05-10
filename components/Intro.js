@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { memo } from "react";
 import Button from "@mui/material/Button";
+import Link from "../src/Link";
 
 function Intro() {
   return (
@@ -20,12 +21,12 @@ function Intro() {
             variant="h1"
             align="center"
             sx={{
-              mb: 2,
-              mt: 3,
+              mb: 4,
+              mt: 5,
               color: "#FFFFFF",
             }}
           >
-            Tänk dig ett samhälle där alla är kompisar
+            Välkommen till Join
           </Typography>
         </Box>
         <Box>
@@ -49,6 +50,8 @@ function Intro() {
             <Button
               variant="contained"
               sx={{ mr: 1, width: "9rem", fontSize: "0.9rem" }}
+              component={Link}
+              href="/createUser"
             >
               SKAPA PROFIL
             </Button>

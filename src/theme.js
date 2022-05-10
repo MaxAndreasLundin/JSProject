@@ -1,3 +1,4 @@
+import { red } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
@@ -20,13 +21,7 @@ const theme = createTheme({
       },
     },
 
-    MuiOutlinedInput: {
-      styleOverrides: {
-        input: {
-          padding: 0,
-        },
-      },
-    },
+    MuiGridItem: {},
     MuiCardHeader: {
       styleOverrides: {
         title: {
@@ -93,13 +88,16 @@ const theme = createTheme({
       main: "#FBEEED",
     },
     warning: {
-      main: "#3A3A3A",
+      main: "#000000",
+    },
+    success: {
+      main: "#FF0202",
     },
   },
 
   typography: {
     h1: {
-      fontFamily: "Merriweather",
+      fontFamily: "Playfair Display",
       fontSize: "2rem",
       fontWeight: 700,
     },
@@ -115,9 +113,20 @@ const theme = createTheme({
       lineHeight: 1.2,
     },
     h5: {
-      fontFamily: "Merriweather",
+      fontFamily: "Playfair Display",
       fontSize: "2rem",
       fontWeight: 600,
+    },
+    signupHeader: {
+      fontFamily: "Poppins",
+      fontWeight: 400,
+      fontSize: "26px",
+    },
+    pswrdInfo: {
+      fontFamily: "Roboto",
+      fontWeight: 400,
+      fontSize: "12px",
+      color: "#3A3A3A",
     },
   },
 });
