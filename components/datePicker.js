@@ -20,6 +20,7 @@ export default function MaterialUIPickers() {
           width: "100%",
           "& fieldset": {
             borderRadius: "29px",
+            borderColor: "#7D7D7D",
           },
         }}
       >

@@ -1,28 +1,13 @@
 import * as React from "react";
-import FormControl, { useFormControl } from "@mui/material/FormControl";
+import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Box from "@mui/material/Box";
-import FormHelperText from "@mui/material/FormHelperText";
 import { Container, Typography } from "@mui/material";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import DatePicker from "../components/datePicker";
 import Chip from "@mui/material/Chip";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-
-function MyFormHelperText() {
-  const { focused } = useFormControl() || {};
-
-  const helperText = React.useMemo(() => {
-    if (focused) {
-      return "This field is being focused";
-    }
-
-    return "Helper text";
-  }, [focused]);
-
-  return <FormHelperText>{helperText}</FormHelperText>;
-}
 
 export default function UseFormControl() {
   return (
@@ -40,6 +25,7 @@ export default function UseFormControl() {
             width: "100%",
             "& fieldset": {
               borderRadius: "29px",
+              borderColor: "#7D7D7D",
             },
           }}
         >
@@ -60,6 +46,7 @@ export default function UseFormControl() {
             width: "100%",
             "& fieldset": {
               borderRadius: "29px",
+              borderColor: "#7D7D7D",
             },
           }}
         >
@@ -88,6 +75,7 @@ export default function UseFormControl() {
             width: "100%",
             "& fieldset": {
               borderRadius: "29px",
+              borderColor: "#7D7D7D",
             },
           }}
         >
@@ -118,6 +106,7 @@ export default function UseFormControl() {
             width: "100%",
             "& fieldset": {
               borderRadius: "29px",
+              borderColor: "#7D7D7D",
             },
           }}
         >
@@ -156,6 +145,7 @@ export default function UseFormControl() {
             width: "100%",
             "& fieldset": {
               borderRadius: "10px",
+              borderColor: "#7D7D7D",
             },
           }}
         />
