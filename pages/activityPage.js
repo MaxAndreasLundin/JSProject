@@ -15,7 +15,15 @@ function ActivityPage({ cards }) {
           backgroundPosition: "center",
         }}
       >
-        <Box sx={{ mb: 6, ml: 1, mr: 1, maxWidth: 375 }}>
+        <Box
+          sx={{
+            mb: 6,
+            ml: 1,
+            mr: 1,
+            maxWidth: 375,
+            textAlign: "center",
+          }}
+        >
           <Typography
             variant="h1"
             sx={{
