@@ -9,6 +9,20 @@ const theme = createTheme({
       },
     },
 
+    MuiFormControl: {
+      variants: [
+        {
+          props: { variant: "outlined" },
+          style: {
+            width: "100%",
+            "& fieldset": {
+              borderRadius: "29px",
+              borderColor: "#7D7D7D",
+            },
+          },
+        },
+      ],
+    },
     MuiInputBase: {
       styleOverrides: {
         input: {
@@ -68,6 +82,15 @@ const theme = createTheme({
             fontWeight: 500,
             fontFamily: "Poppins",
             fontSize: 10,
+          },
+        },
+        {
+          props: { variant: "createActivity" },
+          style: {
+            fontWeight: 500,
+            fontFamily: "Poppins",
+            fontSize: 14,
+            height: 37,
           },
         },
       ],

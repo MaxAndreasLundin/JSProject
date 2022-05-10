@@ -25,15 +25,7 @@ export default function UseFormControl() {
         <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
           Namn på aktivitet
         </Typography>
-        <FormControl
-          sx={{
-            width: "100%",
-            "& fieldset": {
-              borderRadius: "29px",
-              borderColor: "#7D7D7D",
-            },
-          }}
-        >
+        <FormControl>
           <OutlinedInput
             placeholder="Detta blir din aktivitets rubrik, beskriv den med 1-4 ord"
             sx={{
@@ -46,15 +38,7 @@ export default function UseFormControl() {
         <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
           Plats
         </Typography>
-        <FormControl
-          sx={{
-            width: "100%",
-            "& fieldset": {
-              borderRadius: "29px",
-              borderColor: "#7D7D7D",
-            },
-          }}
-        >
+        <FormControl>
           <OutlinedInput
             placeholder="Skriv ut hela adressen inkl. postnummer"
             sx={{
@@ -75,15 +59,7 @@ export default function UseFormControl() {
         <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
           Passar ålder:
         </Typography>
-        <FormControl
-          sx={{
-            width: "100%",
-            "& fieldset": {
-              borderRadius: "29px",
-              borderColor: "#7D7D7D",
-            },
-          }}
-        >
+        <FormControl>
           <OutlinedInput
             placeholder="Vilken ålder passar din aktivitet för?"
             sx={{
@@ -94,13 +70,12 @@ export default function UseFormControl() {
           />
         </FormControl>
         <Chip
-          variant="activityCard"
+          variant="createActivity"
           color="error"
           label="Alla åldrar"
           size="medium"
           onDelete={handleDelete}
           deleteIcon={<CloseIcon />}
-          sx={{ height: 37, fontSize: 14 }}
         />
         <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
           Passar dig som gillar:
@@ -127,22 +102,22 @@ export default function UseFormControl() {
           />
         </FormControl>
         <Chip
-          variant="activityCard"
+          variant="createActivity"
           color="info"
           label="Utomhus"
           size="medium"
           onDelete={handleDelete}
           deleteIcon={<CloseIcon />}
-          sx={{ height: 37, fontSize: 14, mr: 2 }}
+          sx={{ mr: 2 }}
         />
         <Chip
-          variant="activityCard"
+          variant="createActivity"
           color="info"
           label="Grillning"
           size="medium"
           onDelete={handleDelete}
           deleteIcon={<CloseIcon />}
-          sx={{ height: 37, fontSize: 14, mr: 2 }}
+          sx={{ mr: 2 }}
         />
         <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
           Om aktiviteten
