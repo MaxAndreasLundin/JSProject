@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/system";
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Button } from "@mui/material";
 import ActivityCard from "../components/ActivityCard";
 import fetch from "isomorphic-unfetch";
 
@@ -52,6 +52,7 @@ function ActivityPage({ cards }) {
         variant="flex"
         sx={{
           backgroundColor: "#FBEEED",
+          pb: 8,
         }}
       >
         <div>
@@ -71,6 +72,13 @@ function ActivityPage({ cards }) {
             );
           })}
         </div>
+        <Button
+          variant="contained"
+          color="info"
+          sx={{ position: "fixed", bottom: 20 }}
+        >
+          Skapa en aktivitet
+        </Button>
       </Container>
     </React.Fragment>
   );
