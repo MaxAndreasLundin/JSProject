@@ -14,7 +14,15 @@ export default function MaterialUIPickers() {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <Stack spacing={3}>
+      <Stack
+        spacing={3}
+        sx={{
+          width: "100%",
+          "& fieldset": {
+            borderRadius: "29px",
+          },
+        }}
+      >
         <DateTimePicker
           value={value}
           onChange={handleChange}
