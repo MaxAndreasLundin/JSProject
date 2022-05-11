@@ -14,6 +14,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CheckIcon from "@mui/icons-material/Check";
 import Chip from "@mui/material/Chip";
+import Image from "next/image";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -61,14 +62,20 @@ function ActivityCard(props) {
         <Box display="flex" justifyContent="space-between">
           <Box sx={{ ml: 1 }}>
             <Avatar
-              src={props.avatar}
               sx={{
                 width: 55,
                 height: 55,
                 flexGrow: 1,
                 flexBasis: 0,
               }}
-            />
+            >
+              <Image
+                src={props.avatar}
+                alt="avatar"
+                layout="fill"
+                objectFit="cover"
+              />
+            </Avatar>
 
             <Typography
               variant="subtitle1"
