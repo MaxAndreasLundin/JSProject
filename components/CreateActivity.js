@@ -9,10 +9,10 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Button from "@mui/material/Button";
 import { useRef, useState } from "react";
-import dashify from "dashify";
-import axios from "axios";
-import db from "../utils/db";
-import fs from "fs";
+// import dashify from "dashify";
+// import axios from "axios";
+import { db, auth } from "../utils/db";
+// import fs from "fs";
 
 const CreateActivity = () => {
   // const getInitialState = () => {
@@ -28,9 +28,9 @@ const CreateActivity = () => {
   // };
   const valueRef = useRef(""); //creating a refernce for TextField Component
 
-  const sendValue = () => {
-    return console.log(valueRef.current.value); //on clicking button accesing current value of TextField and outputing it to console
-  };
+  // const sendValue = () => {
+  //   return console.log(valueRef.current.value); //on clicking button accesing current value of TextField and outputing it to console
+  // };
 
   const [content, setContent] = useState({
     title: undefined,
@@ -45,25 +45,40 @@ const CreateActivity = () => {
     const { value, name } = e.target;
     setContent((prevState) => ({ ...prevState, [name]: value }));
   };
+  const [values, setValues] = React.useState({
+    title: "",
+    name: "",
+    date: "",
+    time: "",
+    place: "",
+    description: "",
+  });
 
-  const onSubmit = (event) => {
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+
+    console.log(values);
+  };
+  const onSubmit = async (e) => {
     try {
       db.collection("activities")
         .add({
-          title,
-          name: "Malin",
-          date,
-          time,
-          place,
-          description,
+          values,
+          // title,
+          // name: "Malin",
+          // date,
+          // time,
+          // place,
+          // description,
         })
         .then((docRef) => {
           console.log("Document written with ID: ", docRef.id);
         });
     } catch (error) {
       console.error("Error adding document: ", error);
+      console.log(title, date, time, place, description);
     }
-    event.preventDefault();
+    e.preventDefault();
   };
 
   return (
@@ -87,8 +102,8 @@ const CreateActivity = () => {
             <TextField
               id="title"
               name="title"
-              value={content.title}
-              onChange={onChange}
+              value={values.title}
+              onChange={handleChange("title")}
               required
               fullWidth
               autoFocus
@@ -103,8 +118,8 @@ const CreateActivity = () => {
             <TextField
               id="place"
               name="place"
-              value={content.place}
-              onChange={onChange}
+              value={values.place}
+              onChange={handleChange("place")}
               required
               fullWidth
               autoFocus
@@ -119,8 +134,8 @@ const CreateActivity = () => {
                   name="date"
                   required
                   id="date"
-                  onChange={onChange}
-                  value={content.date}
+                  value={values.date}
+                  onChange={handleChange("date")}
                   autoFocus
                 />
               </Grid>
@@ -130,10 +145,10 @@ const CreateActivity = () => {
               <Grid item xs={3} sm={3} md={3}>
                 <TextField
                   name="time"
-                  required
                   id="time"
-                  value={content.time}
-                  onChange={onChange}
+                  required
+                  value={values.time}
+                  onChange={handleChange("time")}
                   autoFocus
                 />
               </Grid>
@@ -229,8 +244,8 @@ const CreateActivity = () => {
               <TextField
                 id="description"
                 name="description"
-                value={content.description}
-                onChange={onChange}
+                value={values.description}
+                onChange={handleChange("description")}
                 multiline
                 rows={7}
                 defaultValue="Alla vill som prova på att hoppa trampolin är välkomna hem till oss. Vi bjuder på fika!"

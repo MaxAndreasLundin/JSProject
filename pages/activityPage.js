@@ -2,9 +2,10 @@ import React from "react";
 import { Box } from "@mui/system";
 import { Container, Typography } from "@mui/material";
 import ActivityCard from "../components/ActivityCard";
+import CreateActivity from "../components/CreateActivity";
 
 import { useRouter } from "next/router";
-import db from "../utils/db";
+import { db, auth } from "../utils/db";
 
 // export async function getServerSideProps() {
 //   // Fetch data from external API
@@ -20,9 +21,9 @@ import db from "../utils/db";
 // }
 
 export const getStaticProps = async (context) => {
-  //  const { slug } = context.params;
   const res = await db.collection("activities").get();
   const activity = res.docs.map((activity) => activity.data());
+
   if (activity.length) {
     return {
       props: {

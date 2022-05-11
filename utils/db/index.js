@@ -1,18 +1,19 @@
-import admin from "firebase-admin";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
 
-import fs from "fs";
+const firebaseConfig = {
+  apiKey: "AIzaSyCeTtC_9YzsXww3cwaOSYw6VOm3WDvbtVI",
+  authDomain: "join-5d179.firebaseapp.com",
+  projectId: "join-5d179",
+  storageBucket: "join-5d179.appspot.com",
+  messagingSenderId: "374777855128",
+  appId: "1:374777855128:web:1622739c3612223bd0e4ed",
+};
 
-import * as firebase from "firebase/app";
-import { initializeApp } from "firebase-admin/app";
-import serviceAccount from "./serviceAccountKey.json";
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-if (!admin.apps.length) {
-  try {
-    admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
-    });
-  } catch (error) {
-    console.log("Firebase admin initialization error", error.stack);
-  }
-}
-export default admin.firestore();
+const db = firebaseApp.firestore();
+const auth = firebase.auth();
+
+export { auth, db };

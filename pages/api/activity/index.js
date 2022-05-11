@@ -2,7 +2,7 @@ import db from "../../../utils/db";
 
 export default async (req, res) => {
   try {
-    const { slug } = req.body;
+    // const { slug } = req.body;
     const activities = await db.collection("activities").get();
     const activitiesData = activities.docs.map((activity) => activity.data());
 
