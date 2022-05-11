@@ -7,19 +7,6 @@ import CreateActivity from "../components/CreateActivity";
 import { useRouter } from "next/router";
 import { db, auth } from "../utils/db";
 
-// export async function getServerSideProps() {
-//   // Fetch data from external API
-//   const res = await fetch("http://localhost:3000/api/activities");
-//   const data = await res.json();
-//   const activity = data.map((activity) => activity.data());
-//   // Pass data to the page via props
-//   return {
-//     props: {
-//       activity: activity,
-//     },
-//   };
-// }
-
 export const getStaticProps = async (context) => {
   const res = await db.collection("activities").get();
   const activity = res.docs.map((activity) => activity.data());
@@ -37,7 +24,6 @@ export const getStaticProps = async (context) => {
   }
 };
 
-// function ActivityPage(props) {
 const ActivityPage = (props) => {
   const { activity } = props;
   const router = useRouter();
