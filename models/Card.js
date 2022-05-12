@@ -4,28 +4,28 @@ const CardSchema = new mongoose.Schema({
   title: {
     type: String,
     required: [true, "Please add a title"],
-    unique: true,
+    unique: false,
     trim: true,
     maxlength: [40, "Title max amount of characters is 40"],
   },
   description: {
     type: String,
-    required: true,
+    required: false,
     maxlength: [200, "Description max amount of characters is 200"],
   },
   place: {
     type: String,
-    required: true,
+    required: false,
     maxlength: [40, "Max amount of characters is 40"],
   },
   date: {
     type: String,
-    required: true,
+    required: false,
     maxlength: [40, "Max amount of characters is 40"],
   },
   time: {
     type: String,
-    required: true,
+    required: false,
     maxlength: [6, "Max amount of characters is 6"],
   },
   name: {

@@ -136,6 +136,7 @@ export default function UseFormControl() {
         />
         <Button
           variant="contained"
+          type="submit"
           sx={{ width: "100%", fontSize: 22, mt: 2, mb: 2 }}
         >
           SPARA
