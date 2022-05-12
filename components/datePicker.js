@@ -6,11 +6,11 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 
 export default function MaterialUIPickers() {
-  // const [value, setValue] = React.useState(new Date("2014-08-18T21:11:54"));
+  const [value, setValue] = React.useState(new Date("2014-08-18T21:11:54"));
 
-  // const handleChange = (newValue) => {
-  //   setValue(newValue);
-  // };
+  const handleChange = (newValue) => {
+    setValue(newValue);
+  };
 
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -30,7 +30,7 @@ export default function MaterialUIPickers() {
       <Stack spacing={3}>
         <DateTimePicker
           value={values.date}
-          onChange={handleChange("date")}
+          onChange={handleChange}
           renderInput={(params) => <TextField {...params} />}
         />
       </Stack>

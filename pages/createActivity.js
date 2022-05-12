@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Box } from "@mui/system";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
+
 import { useRef, useState } from "react";
-import { db, auth } from "../utils/db";
+import { db } from "../utils/db";
 import FormControl from "@mui/material/FormControl";
 import { Container, Typography } from "@mui/material";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -36,9 +36,9 @@ export default function UseFormControl() {
   };
   const [values, setValues] = React.useState({
     title: "",
-    name: "Mustafa",
+    name: "",
     date: "",
-
+    time: "",
     place: "",
     description: "",
   });
@@ -104,10 +104,10 @@ export default function UseFormControl() {
           variant="subtitle1"
           sx={{ fontSize: 20, display: "flex", alignItems: "center" }}
         >
-          <AccessTimeIcon />
+          <AccessTimeIcon value={values.date} onChange={handleChange("date")} />
           Datum och tid
         </Typography>
-        <DatePicker value={values.date} onChange={handleChange("date")} />
+        <DatePicker />
         <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
           Passar ålder:
         </Typography>
@@ -179,8 +179,6 @@ export default function UseFormControl() {
         <TextField
           id="outlined-multiline-static"
           multiline
-          value={values.description}
-          onChange={handleChange("description")}
           rows={5}
           placeholder="Kort beskrivning om aktiviteten"
           sx={{
