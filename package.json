@@ -24,7 +24,8 @@
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "swr": "^1.3.0"
   },
   "devDependencies": {
     "eslint": "latest",
