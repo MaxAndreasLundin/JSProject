@@ -4,7 +4,7 @@ import { Container, Typography, Button } from "@mui/material";
 import ActivityCard from "../components/ActivityCard";
 import AddIcon from "@mui/icons-material/Add";
 import Link from "../src/Link";
-import dbConnect from "../lib/dbConnect";
+import dbConnect from "../utils/dbConnect";
 import Card from "../models/Card";
 
 function ActivityPage({ cards }) {
