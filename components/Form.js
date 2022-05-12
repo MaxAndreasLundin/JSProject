@@ -12,20 +12,18 @@ import TimePicker from "./TimePicker";
 import Chip from "@mui/material/Chip";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import CloseIcon from "@mui/icons-material/Close";
 
 const Form = ({ formId, cardForm, forNewcard = true }) => {
   const router = useRouter();
   const contentType = "application/json";
-  const [errors, setErrors] = useState({});
-  const [message, setMessage] = useState("");
+  const [setErrors] = useState({});
+  const [setMessage] = useState("");
 
   const [form, setForm] = useState({
     title: cardForm.title,
     description: cardForm.description,
   });
 
-  /* The PUT method edits an existing entry in the mongodb database. */
   const putData = async (form) => {
     const { id } = router.query;
 
@@ -39,21 +37,19 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
         body: JSON.stringify(form),
       });
 
-      // Throw error with status code in case Fetch API req failed
       if (!res.ok) {
         throw new Error(res.status);
       }
 
       const { data } = await res.json();
 
-      mutate(`/api/cards/${id}`, data, false); // Update the local data without a revalidation
+      mutate(`/api/cards/${id}`, data, false);
       router.push("/");
     } catch (error) {
       setMessage("Failed to update card");
     }
   };
 
-  /* The POST method adds a new entry in the mongodb database. */
   const postData = async (form) => {
     try {
       const res = await fetch("/api/cards", {
@@ -65,7 +61,6 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
         body: JSON.stringify(form),
       });
 
-      // Throw error with status code in case Fetch API req failed
       if (!res.ok) {
         throw new Error(res.status);
       }
@@ -98,7 +93,6 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
     }
   };
 
-  /* Makes sure pet info is filled for pet name, owner name, species, and image url*/
   const formValidate = () => {
     let err = {};
     if (!form.title) err.title = "Title is required";
@@ -136,6 +130,17 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
               placeholder="Skriv ut hela adressen inkl. postnummer"
             />
           </FormControl>
+          <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
+            Avatar
+          </Typography>
+          <FormControl>
+            <OutlinedInput
+              name="avatar"
+              value={form.avatar}
+              onChange={handleChange}
+              placeholder="Skriv ut hela adressen inkl. postnummer"
+            />
+          </FormControl>
           <Typography
             variant="subtitle1"
             sx={{ fontSize: 20, display: "flex", alignItems: "center" }}
@@ -150,10 +155,10 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
               justifyContent: "space-evenly",
             }}
           >
-            <Box sx={{ mr: 1 }}>
+            <Box sx={{ mr: 1, width: "100%" }}>
               <DatePicker />
             </Box>
-            <Box sx={{ ml: 1 }}>
+            <Box sx={{ ml: 1, width: "100%" }}>
               <TimePicker />
             </Box>
           </Box>
