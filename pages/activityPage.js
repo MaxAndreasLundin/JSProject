@@ -92,16 +92,16 @@ const ActivityPage = (props) => {
                   </div>
                 );
               })}
+              <Button
+                variant="contained"
+                color="info"
+                component={Link}
+                href="/createActivity"
+                sx={{ position: "fixed", bottom: 20 }}
+              >
+                <AddIcon /> Skapa en aktivitet
+              </Button>
             </div>
-            <Button
-              variant="contained"
-              color="info"
-              component={Link}
-              href="/createActivity"
-              sx={{ position: "fixed", bottom: 20 }}
-            >
-              <AddIcon /> Skapa en aktivitet
-            </Button>
           </Container>
         </React.Fragment>
       );
