@@ -1,8 +1,10 @@
 import React from "react";
 import { Box } from "@mui/system";
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Button } from "@mui/material";
 import ActivityCard from "../components/ActivityCard";
 import CreateActivity from "../components/CreateActivity";
+import AddIcon from "@mui/icons-material/Add";
+import Link from "../src/Link";
 
 import { useRouter } from "next/router";
 import { db, auth } from "../utils/db";
@@ -93,6 +95,15 @@ const ActivityPage = (props) => {
                 );
               })}
             </div>
+            <Button
+              variant="contained"
+              color="info"
+              component={Link}
+              href="/createActivity"
+              sx={{ position: "fixed", bottom: 20 }}
+            >
+              <AddIcon /> Skapa en aktivitet
+            </Button>
           </Container>
         </React.Fragment>
       );

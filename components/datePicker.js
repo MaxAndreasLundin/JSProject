@@ -6,18 +6,31 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 
 export default function MaterialUIPickers() {
-  const [value, setValue] = React.useState(new Date("2014-08-18T21:11:54"));
+  // const [value, setValue] = React.useState(new Date("2014-08-18T21:11:54"));
 
-  const handleChange = (newValue) => {
-    setValue(newValue);
+  // const handleChange = (newValue) => {
+  //   setValue(newValue);
+  // };
+
+  const onChange = (e) => {
+    const { value, name } = e.target;
+    setContent((prevState) => ({ ...prevState, [name]: value }));
   };
+  const [values, setValues] = React.useState({
+    title: "",
+    name: "Mustafa",
+    date: "",
+
+    place: "",
+    description: "",
+  });
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <Stack spacing={3}>
         <DateTimePicker
-          value={value}
-          onChange={handleChange}
+          value={values.date}
+          onChange={handleChange("date")}
           renderInput={(params) => <TextField {...params} />}
         />
       </Stack>

@@ -20,7 +20,6 @@ export default function Index() {
         }}
       >
         <Intro></Intro>
-        <CreateActivity></CreateActivity>
 
         <IndexCard title="Hitta aktivitet">
           Här kan du se vilka aktiviteter som våra fina medlemmar eller
