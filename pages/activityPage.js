@@ -9,25 +9,38 @@ import Link from "../src/Link";
 import { useRouter } from "next/router";
 import { db, auth } from "../utils/db";
 
-export const getStaticProps = async (context) => {
-  const res = await db.collection("activities").get();
-  const activity = res.docs.map((activity) => activity.data());
+export async function getServerSideProps(context) {
+  // const { id } = context.params;
 
-  if (activity.length) {
-    return {
-      props: {
-        activity: activity,
-      },
-    };
-  } else {
-    return {
-      props: {},
-    };
-  }
-};
+  const doc = await db.collection("activities").doc(id).get();
 
-const ActivityPage = (props) => {
-  const { activity } = props;
+  const activity = {
+    id: doc.id,
+    ...doc.data(),
+  };
+  // const snapshot = await db.collection("activities").get();
+  // const activity = snapshot.docs.map((doc) => {
+  //   return {
+  //     id: doc.id,
+  //     ...doc.data(),
+  //   };
+  // });
+
+  // if (activity.length) {
+  return {
+    props: {
+      activity: activity,
+    },
+  };
+  // } else {
+  //   return {
+  //     props: {},
+  //   };
+  // }
+}
+
+export const ActivityPage = (activity) => {
+  // const { activity } = props;
   const router = useRouter();
   if (router.isFallback) {
     return (
@@ -81,7 +94,7 @@ const ActivityPage = (props) => {
             <div>
               {activity.map((activity) => {
                 return (
-                  <div key={activity._id}>
+                  <div key={activity.id}>
                     <ActivityCard
                       title={activity.title}
                       content={activity.description}
@@ -116,5 +129,3 @@ const ActivityPage = (props) => {
     }
   }
 };
-
-export default ActivityPage;
