@@ -19,6 +19,9 @@ const theme = createTheme({
               borderRadius: "29px",
               borderColor: "#7D7D7D",
             },
+            "& input::placeholder": {
+              fontSize: "11px",
+            },
           },
         },
       ],

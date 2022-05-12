@@ -1,6 +1,18 @@
+import * as React from "react";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { mutate } from "swr";
+import FormControl from "@mui/material/FormControl";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import Box from "@mui/material/Box";
+import { Container, Typography } from "@mui/material";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import DatePicker from "./DatePicker";
+import TimePicker from "./TimePicker";
+import Chip from "@mui/material/Chip";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Form = ({ formId, cardForm, forNewcard = true }) => {
   const router = useRouter();
@@ -95,88 +107,100 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
   };
 
   return (
-    <>
-      <form id={formId} onSubmit={handleSubmit}>
-        <label>Title</label>
-        <input
-          type="text"
-          maxLength="20"
-          name="title"
-          value={form.title}
-          onChange={handleChange}
-          required
-        />
-
-        <label>Description</label>
-        <input
-          type="text"
-          maxLength="20"
-          name="description"
-          value={form.description}
-          onChange={handleChange}
-          required
-        />
-
-        <label>Place</label>
-        <input
-          type="text"
-          maxLength="20"
-          name="place"
-          value={form.place}
-          onChange={handleChange}
-          required
-        />
-
-        <label>Date</label>
-        <input
-          type="text"
-          maxLength="20"
-          name="date"
-          value={form.date}
-          onChange={handleChange}
-          required
-        />
-
-        <label>Time</label>
-        <input
-          type="text"
-          maxLength="20"
-          name="time"
-          value={form.time}
-          onChange={handleChange}
-          required
-        />
-
-        <label>name</label>
-        <input
-          type="text"
-          maxLength="20"
-          name="name"
-          value={form.name}
-          onChange={handleChange}
-          required
-        />
-
-        <label>Avatar</label>
-        <input
-          type="text"
-          maxLength="200"
-          name="avatar"
-          value={form.avatar}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit" className="btn">
-          Submit
-        </button>
-      </form>
-      <p>{message}</p>
-      <div>
-        {Object.keys(errors).map((err, index) => (
-          <li key={index}>{err}</li>
-        ))}
-      </div>
-    </>
+    <Container variant="flex">
+      <FormControl id={formId} onSubmit={handleSubmit}>
+        <Box component="form" noValidate autoComplete="off">
+          <Typography variant="h1" sx={{ mb: 4, mt: 4, textAlign: "center" }}>
+            Skapa en egen aktivitet
+          </Typography>
+          <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
+            Namn på aktivitet
+          </Typography>
+          <FormControl>
+            <OutlinedInput
+              name="title"
+              value={form.title}
+              onChange={handleChange}
+              required
+              placeholder="Detta blir din aktivitets rubrik, beskriv den med 1-4 ord"
+            />
+          </FormControl>
+          <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
+            Plats
+          </Typography>
+          <FormControl>
+            <OutlinedInput
+              name="place"
+              value={form.place}
+              onChange={handleChange}
+              placeholder="Skriv ut hela adressen inkl. postnummer"
+            />
+          </FormControl>
+          <Typography
+            variant="subtitle1"
+            sx={{ fontSize: 20, display: "flex", alignItems: "center" }}
+          >
+            <AccessTimeIcon />
+            Datum och tid
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <Box sx={{ mr: 1 }}>
+              <DatePicker />
+            </Box>
+            <Box sx={{ ml: 1 }}>
+              <TimePicker />
+            </Box>
+          </Box>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
+            Passar ålder:
+          </Typography>
+          <FormControl>
+            <OutlinedInput placeholder="Vilken ålder passar din aktivitet för?" />
+          </FormControl>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
+            Passar dig som gillar:
+          </Typography>
+          <Typography variant="subtitle1" sx={{ fontSize: 12 }}>
+            Lägg gärna till 1-3 stycken taggar för att hjälpa andra att hitta
+            rätt
+          </Typography>
+          <FormControl>
+            <OutlinedInput placeholder="Till exempel: Tv-spel, Inomhus, Grillning ..." />
+          </FormControl>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
+            Om aktiviteten
+          </Typography>
+          <TextField
+            name="description"
+            value={form.description}
+            onChange={handleChange}
+            required
+            id="outlined-multiline-static"
+            multiline
+            rows={5}
+            placeholder="Kort beskrivning om aktiviteten"
+            sx={{
+              "& fieldset": {
+                borderRadius: "10px",
+              },
+            }}
+          />
+          <Button
+            variant="contained"
+            type="submit"
+            sx={{ width: "100%", fontSize: 22, mt: 2, mb: 2 }}
+          >
+            SPARA
+          </Button>
+        </Box>
+      </FormControl>
+    </Container>
   );
 };
 

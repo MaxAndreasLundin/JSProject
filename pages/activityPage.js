@@ -80,7 +80,7 @@ function ActivityPage({ cards }) {
           variant="contained"
           color="info"
           component={Link}
-          href="/createActivity"
+          href="/newCard"
           sx={{ position: "fixed", bottom: 20 }}
         >
           <AddIcon /> Skapa en aktivitet
