@@ -9,19 +9,23 @@ import { Container, Typography } from "@mui/material";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import DatePicker from "./DatePicker";
 import TimePicker from "./TimePicker";
-import Chip from "@mui/material/Chip";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
 const Form = ({ formId, cardForm, forNewcard = true }) => {
   const router = useRouter();
   const contentType = "application/json";
-  const [setErrors] = useState({});
-  const [setMessage] = useState("");
+  const [errors, setErrors] = useState({});
+  const [message, setMessage] = useState("");
 
   const [form, setForm] = useState({
     title: cardForm.title,
     description: cardForm.description,
+    place: cardForm.place,
+    date: cardForm.date,
+    time: cardForm.time,
+    name: cardForm.name,
+    avatar: cardForm.avatar,
   });
 
   const putData = async (form) => {
@@ -138,7 +142,18 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
               name="avatar"
               value={form.avatar}
               onChange={handleChange}
-              placeholder="Skriv ut hela adressen inkl. postnummer"
+              placeholder="URL from unsplash (Test)"
+            />
+          </FormControl>
+          <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
+            Profilnamn
+          </Typography>
+          <FormControl>
+            <OutlinedInput
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="Profilnamn (Test)"
             />
           </FormControl>
           <Typography
@@ -156,10 +171,10 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
             }}
           >
             <Box sx={{ mr: 1, width: "100%" }}>
-              <DatePicker />
+              <DatePicker value={form.date} onChange={handleChange} />
             </Box>
             <Box sx={{ ml: 1, width: "100%" }}>
-              <TimePicker />
+              <TimePicker value={form.time} onChange={handleChange} />
             </Box>
           </Box>
           <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
