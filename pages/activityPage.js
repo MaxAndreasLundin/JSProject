@@ -120,3 +120,5 @@ const ActivityPage = (props) => {
 };
 
 export default ActivityPage;
+
+//Testar kommandot git switch
