@@ -1,44 +1,46 @@
 import React from "react";
 import { Box } from "@mui/system";
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Button } from "@mui/material";
 import ActivityCard from "../components/ActivityCard";
+import CreateActivity from "../components/CreateActivity";
+import AddIcon from "@mui/icons-material/Add";
+import Link from "../src/Link";
 
 import { useRouter } from "next/router";
-import db from "../utils/db";
+import { db, auth } from "../utils/db";
 
-// export async function getServerSideProps() {
-//   // Fetch data from external API
-//   const res = await fetch("http://localhost:3000/api/activities");
-//   const data = await res.json();
-//   const activity = data.map((activity) => activity.data());
-//   // Pass data to the page via props
-//   return {
-//     props: {
-//       activity: activity,
-//     },
-//   };
-// }
+export async function getServerSideProps(context) {
+  // const { id } = context.params;
 
-export const getStaticProps = async (context) => {
-  //  const { slug } = context.params;
-  const res = await db.collection("activities").get();
-  const activity = res.docs.map((activity) => activity.data());
-  if (activity.length) {
-    return {
-      props: {
-        activity: activity,
-      },
-    };
-  } else {
-    return {
-      props: {},
-    };
-  }
-};
+  const doc = await db.collection("activities").doc(id).get();
 
-// function ActivityPage(props) {
-const ActivityPage = (props) => {
-  const { activity } = props;
+  const activity = {
+    id: doc.id,
+    ...doc.data(),
+  };
+  // const snapshot = await db.collection("activities").get();
+  // const activity = snapshot.docs.map((doc) => {
+  //   return {
+  //     id: doc.id,
+  //     ...doc.data(),
+  //   };
+  // });
+
+  // if (activity.length) {
+  return {
+    props: {
+      activity: activity,
+    },
+  };
+  // } else {
+  //   return {
+  //     props: {},
+  //   };
+  // }
+}
+
+export const ActivityPage = (activity) => {
+  // const { activity } = props;
   const router = useRouter();
   if (router.isFallback) {
     return (
@@ -92,7 +94,7 @@ const ActivityPage = (props) => {
             <div>
               {activity.map((activity) => {
                 return (
-                  <div key={activity._id}>
+                  <div key={activity.id}>
                     <ActivityCard
                       title={activity.title}
                       content={activity.description}
@@ -106,6 +108,15 @@ const ActivityPage = (props) => {
                 );
               })}
             </div>
+            <Button
+              variant="contained"
+              color="info"
+              component={Link}
+              href="/createActivity"
+              sx={{ position: "fixed", bottom: 20 }}
+            >
+              <AddIcon /> Skapa en aktivitet
+            </Button>
           </Container>
         </React.Fragment>
       );
@@ -118,7 +129,3 @@ const ActivityPage = (props) => {
     }
   }
 };
-
-export default ActivityPage;
-
-//Testar kommandot git switch
