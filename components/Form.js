@@ -97,7 +97,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
   return (
     <>
       <form id={formId} onSubmit={handleSubmit}>
-        <label htmlFor="title">Title</label>
+        <label>Title</label>
         <input
           type="text"
           maxLength="20"
@@ -107,12 +107,62 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
           required
         />
 
-        <label htmlFor="description">Description</label>
+        <label>Description</label>
         <input
           type="text"
           maxLength="20"
           name="description"
           value={form.description}
+          onChange={handleChange}
+          required
+        />
+
+        <label>Place</label>
+        <input
+          type="text"
+          maxLength="20"
+          name="place"
+          value={form.place}
+          onChange={handleChange}
+          required
+        />
+
+        <label>Date</label>
+        <input
+          type="text"
+          maxLength="20"
+          name="date"
+          value={form.date}
+          onChange={handleChange}
+          required
+        />
+
+        <label>Time</label>
+        <input
+          type="text"
+          maxLength="20"
+          name="time"
+          value={form.time}
+          onChange={handleChange}
+          required
+        />
+
+        <label>name</label>
+        <input
+          type="text"
+          maxLength="20"
+          name="name"
+          value={form.name}
+          onChange={handleChange}
+          required
+        />
+
+        <label>Avatar</label>
+        <input
+          type="text"
+          maxLength="200"
+          name="avatar"
+          value={form.avatar}
           onChange={handleChange}
           required
         />
