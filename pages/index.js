@@ -5,7 +5,6 @@ import IndexCard from "../components/IndexCards";
 import Intro from "../components/Intro";
 import Button from "@mui/material/Button";
 import Image from "next/image";
-import CreateActivity from "../components/CreateActivity";
 
 export default function Index() {
   return (

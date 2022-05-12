@@ -4,7 +4,7 @@ import { Container, Typography, Button } from "@mui/material";
 import ActivityCard from "../components/ActivityCard";
 import Link from "../src/Link";
 import { useRouter } from "next/router";
-import { db, auth } from "../utils/db";
+import { db } from "../utils/db";
 import AddIcon from "@mui/icons-material/Add";
 
 export const getStaticProps = async (context) => {
