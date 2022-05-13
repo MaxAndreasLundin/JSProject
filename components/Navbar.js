@@ -43,7 +43,7 @@ function Navbar() {
           >
             <IconButton component={Link} href="/">
               <Image
-                src="/pictures/logoSmall.png"
+                src="/pictures/logoSmall.webp"
                 alt="heartlogo"
                 width={27}
                 height={32}
