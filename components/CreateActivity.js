@@ -51,11 +51,11 @@ export default function UseFormControl() {
       db.collection("activities")
         .set(
           values.title,
-         values.name,
+          values.name,
           values.date,
           values.time,
           values.place,
-          description: values.description,
+          values.description
         )
         .then((docRef) => {
           console.log("Document written with ID: ", docRef.id);
