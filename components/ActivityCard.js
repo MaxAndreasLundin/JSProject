@@ -74,7 +74,6 @@ function ActivityCard(props) {
                 alt="avatar"
                 layout="fill"
                 objectFit="cover"
-                loading="eager"
               />
             </Avatar>
 
