@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { mutate } from "swr";
 import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Box from "@mui/material/Box";
@@ -28,32 +27,6 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
     name: cardForm.name,
     avatar: cardForm.avatar,
   });
-
-  const putData = async (form) => {
-    const { id } = router.query;
-
-    try {
-      const res = await fetch(`/api/cards/${id}`, {
-        method: "PUT",
-        headers: {
-          Accept: contentType,
-          "Content-Type": contentType,
-        },
-        body: JSON.stringify(form),
-      });
-
-      if (!res.ok) {
-        throw new Error(res.status);
-      }
-
-      const { data } = await res.json();
-
-      mutate(`/api/cards/${id}`, data, false);
-      router.push("/");
-    } catch (error) {
-      setMessage("Failed to update card");
-    }
-  };
 
   const postData = async (form) => {
     try {
