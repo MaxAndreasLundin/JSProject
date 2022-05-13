@@ -6,7 +6,7 @@ const NewCard = () => {
     description: "",
   };
 
-  return <Form formId="add-card-form" cardForm={cardForm} />;
+  return <Form cardForm={cardForm} />;
 };
 
 export default NewCard;
