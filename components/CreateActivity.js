@@ -34,11 +34,11 @@ export default function UseFormControl() {
   };
   const [values, setValues] = React.useState({
     title: "",
-    name: "",
-    date: "",
-    time: "",
+    name: "Svenne",
+    date: "idag",
+    time: "12:00",
     place: "",
-    description: "",
+    description: "testing inlägg",
   });
 
   const handleChange = (prop) => (event) => {
@@ -49,9 +49,14 @@ export default function UseFormControl() {
   const onSubmit = async (e) => {
     try {
       db.collection("activities")
-        .add({
-          values,
-        })
+        .set(
+          values.title,
+         values.name,
+          values.date,
+          values.time,
+          values.place,
+          description: values.description,
+        )
         .then((docRef) => {
           console.log("Document written with ID: ", docRef.id);
         });

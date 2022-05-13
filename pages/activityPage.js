@@ -7,9 +7,10 @@ import { useRouter } from "next/router";
 import { db } from "../utils/db";
 import AddIcon from "@mui/icons-material/Add";
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const res = await db.collection("activities").get();
-  const activity = res.docs.map((activity) => activity.data());
+
+  const activity = res.docs.map((activity) => activity.data().values);
 
   if (activity.length) {
     return {
@@ -78,6 +79,7 @@ const ActivityPage = (props) => {
           >
             <div>
               {activity.map((activity) => {
+                console.log(activity);
                 return (
                   <div key={activity._id}>
                     <ActivityCard
