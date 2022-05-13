@@ -90,7 +90,7 @@ function ActivityPage({ cards }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   await dbConnect();
 
   const result = await Card.find({});
