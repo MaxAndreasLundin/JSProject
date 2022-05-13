@@ -77,10 +77,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
   };
 
   const handleChange = (e) => {
-    const target = e.target;
-    const value =
-      target.name === "poddy_trained" ? target.checked : target.value;
-    const name = target.name;
+    const { value, name } = e.target;
 
     setForm({
       ...form,
