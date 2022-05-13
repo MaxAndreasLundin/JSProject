@@ -12,7 +12,7 @@ export default function Index() {
       <Container
         variant="flex"
         sx={{
-          backgroundImage: `url(/pictures/twokids.png)`,
+          backgroundImage: `url(/pictures/twokids.webp)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           p: 0,
@@ -35,7 +35,7 @@ export default function Index() {
       <Container
         variant="flex"
         sx={{
-          backgroundImage: `url(/pictures/pink.png)`,
+          backgroundImage: `url(/pictures/pink.webp)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           p: 0,
@@ -62,7 +62,7 @@ export default function Index() {
           }}
         >
           <Image
-            src="/pictures/kids1.png"
+            src="/pictures/kids1.webp"
             alt="kids1"
             width={344}
             height={248}
@@ -75,7 +75,7 @@ export default function Index() {
           }}
         >
           <Image
-            src="/pictures/kids2.png"
+            src="/pictures/kids2.webp"
             alt="Kids2"
             width={344}
             height={248}

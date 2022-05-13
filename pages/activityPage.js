@@ -13,7 +13,7 @@ function ActivityPage({ cards }) {
       <Container
         variant="flex"
         sx={{
-          backgroundImage: `url(/pictures/kids2Filter.png)`,
+          backgroundImage: `url(/pictures/kids2Filter.webp)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
