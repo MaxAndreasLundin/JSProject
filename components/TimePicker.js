@@ -3,8 +3,9 @@ import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
+import { memo } from "react";
 
-export default function BasicTimePicker() {
+function BasicTimePicker() {
   const [value, setValue] = React.useState(null);
 
   return (
@@ -19,3 +20,5 @@ export default function BasicTimePicker() {
     </LocalizationProvider>
   );
 }
+
+export default memo(BasicTimePicker);

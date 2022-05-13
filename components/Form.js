@@ -11,6 +11,7 @@ import DatePicker from "./DatePicker";
 import TimePicker from "./TimePicker";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { memo } from "react";
 
 const Form = ({ formId, cardForm, forNewcard = true }) => {
   const router = useRouter();
@@ -224,4 +225,4 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
   );
 };
 
-export default Form;
+export default memo(Form);
