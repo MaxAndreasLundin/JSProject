@@ -100,7 +100,7 @@ export async function getStaticProps() {
     return card;
   });
 
-  return { props: { cards: cards }, revalidate: 10 };
+  return { props: { cards: cards } };
 }
 
 export default ActivityPage;
