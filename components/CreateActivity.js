@@ -19,19 +19,19 @@ export default function UseFormControl() {
 
   const valueRef = useRef("");
 
-  const [content, setContent] = useState({
-    title: undefined,
-    name: undefined,
-    date: undefined,
-    time: undefined,
-    place: undefined,
-    description: undefined,
-  });
+  // const [content, setContent] = useState({
+  //   title: undefined,
+  //   name: undefined,
+  //   date: undefined,
+  //   time: undefined,
+  //   place: undefined,
+  //   description: undefined,
+  // });
 
-  const onChange = (e) => {
-    const { value, name } = e.target;
-    setContent((prevState) => ({ ...prevState, [name]: value }));
-  };
+  // const onChange = (e) => {
+  //   const { value, name } = e.target;
+  //   setContent((prevState) => ({ ...prevState, [name]: value }));
+  // };
   const [values, setValues] = React.useState({
     title: "",
     name: "Svenne",
@@ -39,6 +39,7 @@ export default function UseFormControl() {
     time: "12:00",
     place: "",
     description: "testing inlägg",
+    age: "",
   });
 
   const handleChange = (prop) => (event) => {
@@ -55,7 +56,8 @@ export default function UseFormControl() {
           values.date,
           values.time,
           values.place,
-          values.description
+          values.description,
+          values.age
         )
         .then((docRef) => {
           console.log("Document written with ID: ", docRef.id);
@@ -122,8 +124,10 @@ export default function UseFormControl() {
                 fontSize: "11px",
               },
             }}
-            value={values.time}
-            onChange={handleChange("time")}
+            id="age"
+            name="age"
+            value={values.age}
+            onChange={handleChange("age")}
           />
         </FormControl>
         <Chip
@@ -180,6 +184,8 @@ export default function UseFormControl() {
           Om aktiviteten
         </Typography>
         <TextField
+          value={values.description}
+          onChange={handleChange("description")}
           id="outlined-multiline-static"
           multiline
           rows={5}
