@@ -29,21 +29,24 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
   });
 
   const postData = async (form) => {
-    e.preventDefault();
+    try {
+      const res = await fetch("/api/activities", {
+        method: "POST",
+        headers: {
+          Accept: contentType,
+          "Content-Type": contentType,
+        },
+        body: JSON.stringify(form),
+      });
 
-    const formData = new FormData(e.target);
-    const body = Object.fromEntries(formData.entries());
+      if (!res.ok) {
+        throw new Error(res.status);
+      }
 
-    setIsLoading(true);
-    setErrors([]);
-    axios
-      .post("/api/activities", body)
-      .then(({ data }) => {
-        e.target.reset();
-        router.push(`/${data.data.id}`);
-      })
-      .catch((err) => setErrors(err.response.data.errors))
-      .finally(() => setIsLoading(false));
+      router.push("/");
+    } catch (error) {
+      setMessage("Failed to add card");
+    }
   };
 
   const handleChange = (e) => {
@@ -69,6 +72,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
     let err = {};
     if (!form.title) err.title = "Title is required";
     if (!form.description) err.description = "Description is required";
+
     return err;
   };
 

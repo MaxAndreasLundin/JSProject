@@ -1,14 +1,15 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
+import "dotenv/config";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCeTtC_9YzsXww3cwaOSYw6VOm3WDvbtVI",
-  authDomain: "join-5d179.firebaseapp.com",
-  projectId: "join-5d179",
-  storageBucket: "join-5d179.appspot.com",
-  messagingSenderId: "374777855128",
-  appId: "1:374777855128:web:1622739c3612223bd0e4ed",
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);

@@ -10,12 +10,12 @@ import AddIcon from "@mui/icons-material/Add";
 export const getServerSideProps = async (context) => {
   const res = await db.collection("activities").get();
 
-  const activity = res.docs.map((activity) => activity.data().values);
+  const activity = res.docs.map((activity) => activity.data());
 
   if (activity.length) {
     return {
       props: {
-        activity: activity,
+        activity: JSON.parse(JSON.stringify(activity)),
       },
     };
   } else {
@@ -98,7 +98,7 @@ const ActivityPage = (props) => {
                 variant="contained"
                 color="info"
                 component={Link}
-                href="/createActivity"
+                href="/newCard"
                 sx={{ position: "fixed", bottom: 20 }}
               >
                 <AddIcon /> Skapa en aktivitet
