@@ -1,211 +1,198 @@
 import * as React from "react";
-import { Box } from "@mui/system";
-import { useRef, useState } from "react";
-import { db } from "../utils/db";
+import { useState } from "react";
+import { useRouter } from "next/router";
 import FormControl from "@mui/material/FormControl";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import Box from "@mui/material/Box";
 import { Container, Typography } from "@mui/material";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import DatePicker from "../components/datePicker";
-import Chip from "@mui/material/Chip";
+import DatePicker from "./DatePicker";
+import TimePicker from "./TimePicker";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import CloseIcon from "@mui/icons-material/Close";
-import OutlinedInput from "@mui/material/OutlinedInput";
+import { memo } from "react";
 
-export default function UseFormControl() {
-  const handleDelete = () => {
-    console.info("You clicked the delete icon.");
-  };
+const Form = ({ formId, cardForm, forNewcard = true }) => {
+  const router = useRouter();
+  const contentType = "application/json";
+  const [errors, setErrors] = useState({});
+  const [message, setMessage] = useState("");
 
-  const valueRef = useRef("");
-
-  // const [content, setContent] = useState({
-  //   title: undefined,
-  //   name: undefined,
-  //   date: undefined,
-  //   time: undefined,
-  //   place: undefined,
-  //   description: undefined,
-  // });
-
-  // const onChange = (e) => {
-  //   const { value, name } = e.target;
-  //   setContent((prevState) => ({ ...prevState, [name]: value }));
-  // };
-  const [values, setValues] = React.useState({
-    title: "",
-    name: "Svenne",
-    date: "idag",
-    time: "12:00",
-    place: "",
-    description: "testing inlägg",
-    age: "",
+  const [form, setForm] = useState({
+    title: cardForm.title,
+    description: cardForm.description,
+    place: cardForm.place,
+    date: cardForm.date,
+    time: cardForm.time,
+    name: cardForm.name,
+    avatar: cardForm.avatar,
   });
 
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-
-    console.log(values);
-  };
-  const onSubmit = async (e) => {
+  const postData = async (form) => {
     try {
-      db.collection("activities")
-        .set(
-          values.title,
-          values.name,
-          values.date,
-          values.time,
-          values.place,
-          values.description,
-          values.age
-        )
-        .then((docRef) => {
-          console.log("Document written with ID: ", docRef.id);
-        });
+      const res = await fetch("/api/cards", {
+        method: "POST",
+        headers: {
+          Accept: contentType,
+          "Content-Type": contentType,
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        throw new Error(res.status);
+      }
+
+      router.push("/");
     } catch (error) {
-      console.error("Error adding document: ", error);
-      console.log(title, date, time, place, description);
+      setMessage("Failed to add card");
     }
+  };
+
+  const handleChange = (e) => {
+    const { value, name } = e.target;
+
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
+    const errs = formValidate();
+    if (Object.keys(errs).length === 0) {
+      forNewcard ? postData(form) : putData(form);
+    } else {
+      setErrors({ errs });
+    }
+  };
+
+  const formValidate = () => {
+    let err = {};
+    if (!form.title) err.title = "Title is required";
+    if (!form.description) err.description = "Description is required";
+    return err;
   };
 
   return (
     <Container variant="flex">
-      <Box component="form" noValidate autoComplete="off">
-        <Typography variant="h1" sx={{ mb: 4, mt: 4, textAlign: "center" }}>
-          Skapa en egen aktivitet
-        </Typography>
-        <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
-          Namn på aktivitet
-        </Typography>
-        <FormControl>
-          <OutlinedInput
-            placeholder="Detta blir din aktivitets rubrik, beskriv den med 1-4 ord"
+      <FormControl id={formId} onSubmit={handleSubmit}>
+        <Box component="form" noValidate autoComplete="off">
+          <Typography variant="h1" sx={{ mb: 4, mt: 4, textAlign: "center" }}>
+            Skapa en egen aktivitet
+          </Typography>
+          <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
+            Namn på aktivitet
+          </Typography>
+          <FormControl>
+            <OutlinedInput
+              name="title"
+              value={form.title}
+              onChange={handleChange}
+              required
+              placeholder="Detta blir din aktivitets rubrik, beskriv den med 1-4 ord"
+            />
+          </FormControl>
+          <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
+            Plats
+          </Typography>
+          <FormControl>
+            <OutlinedInput
+              name="place"
+              value={form.place}
+              onChange={handleChange}
+              placeholder="Skriv ut hela adressen inkl. postnummer"
+            />
+          </FormControl>
+          <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
+            Avatar
+          </Typography>
+          <FormControl>
+            <OutlinedInput
+              name="avatar"
+              value={form.avatar}
+              onChange={handleChange}
+              placeholder="URL from unsplash (Test)"
+            />
+          </FormControl>
+          <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
+            Profilnamn
+          </Typography>
+          <FormControl>
+            <OutlinedInput
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="Profilnamn (Test)"
+            />
+          </FormControl>
+          <Typography
+            variant="subtitle1"
+            sx={{ fontSize: 20, display: "flex", alignItems: "center" }}
+          >
+            <AccessTimeIcon />
+            Datum och tid
+          </Typography>
+          <Box
             sx={{
-              "& input::placeholder": {
-                fontSize: "11px",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <Box sx={{ mr: 1, width: "100%" }}>
+              <DatePicker value={form.date} onChange={handleChange} />
+            </Box>
+            <Box sx={{ ml: 1, width: "100%" }}>
+              <TimePicker value={form.time} onChange={handleChange} />
+            </Box>
+          </Box>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
+            Passar ålder:
+          </Typography>
+          <FormControl>
+            <OutlinedInput placeholder="Vilken ålder passar din aktivitet för?" />
+          </FormControl>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
+            Passar dig som gillar:
+          </Typography>
+          <Typography variant="subtitle1" sx={{ fontSize: 12 }}>
+            Lägg gärna till 1-3 stycken taggar för att hjälpa andra att hitta
+            rätt
+          </Typography>
+          <FormControl>
+            <OutlinedInput placeholder="Till exempel: Tv-spel, Inomhus, Grillning ..." />
+          </FormControl>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
+            Om aktiviteten
+          </Typography>
+          <TextField
+            name="description"
+            value={form.description}
+            onChange={handleChange}
+            required
+            id="outlined-multiline-static"
+            multiline
+            rows={5}
+            placeholder="Kort beskrivning om aktiviteten"
+            sx={{
+              "& fieldset": {
+                borderRadius: "10px",
               },
             }}
-            value={values.title}
-            onChange={handleChange("title")}
           />
-        </FormControl>
-        <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
-          Plats
-        </Typography>
-        <FormControl>
-          <OutlinedInput
-            placeholder="Skriv ut hela adressen inkl. postnummer"
-            sx={{
-              "& input::placeholder": {
-                fontSize: "11px",
-              },
-            }}
-            value={values.place}
-            onChange={handleChange("place")}
-          />
-        </FormControl>
-        <Typography
-          variant="subtitle1"
-          sx={{ fontSize: 20, display: "flex", alignItems: "center" }}
-        >
-          <AccessTimeIcon value={values.date} onChange={handleChange("date")} />
-          Datum och tid
-        </Typography>
-        <DatePicker />
-        <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
-          Passar ålder:
-        </Typography>
-        <FormControl>
-          <OutlinedInput
-            placeholder="Vilken ålder passar din aktivitet för?"
-            sx={{
-              "& input::placeholder": {
-                fontSize: "11px",
-              },
-            }}
-            id="age"
-            name="age"
-            value={values.age}
-            onChange={handleChange("age")}
-          />
-        </FormControl>
-        <Chip
-          variant="createActivity"
-          color="error"
-          label="Alla åldrar"
-          size="medium"
-          onDelete={handleDelete}
-          deleteIcon={<CloseIcon />}
-        />
-        <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
-          Passar dig som gillar:
-        </Typography>
-        <Typography variant="subtitle1" sx={{ fontSize: 12 }}>
-          Lägg gärna till 1-3 stycken taggar för att hjälpa andra att hitta rätt
-        </Typography>
-        <FormControl
-          sx={{
-            width: "100%",
-            "& fieldset": {
-              borderRadius: "29px",
-              borderColor: "#7D7D7D",
-            },
-          }}
-        >
-          <OutlinedInput
-            placeholder="Till exempel: Tv-spel, Inomhus, Grillning ..."
-            sx={{
-              "& input::placeholder": {
-                fontSize: "11px",
-              },
-            }}
-          />
-        </FormControl>
-        <Chip
-          variant="createActivity"
-          color="info"
-          label="Utomhus"
-          size="medium"
-          onDelete={handleDelete}
-          deleteIcon={<CloseIcon />}
-          sx={{ mr: 2 }}
-        />
-        <Chip
-          variant="createActivity"
-          color="info"
-          label="Grillning"
-          size="medium"
-          onDelete={handleDelete}
-          deleteIcon={<CloseIcon />}
-          sx={{ mr: 2 }}
-        />
-        <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
-          Om aktiviteten
-        </Typography>
-        <TextField
-          value={values.description}
-          onChange={handleChange("description")}
-          id="outlined-multiline-static"
-          multiline
-          rows={5}
-          placeholder="Kort beskrivning om aktiviteten"
-          sx={{
-            width: "100%",
-            "& fieldset": {
-              borderRadius: "10px",
-              borderColor: "#7D7D7D",
-            },
-          }}
-        />
-        <Button
-          variant="contained"
-          sx={{ width: "100%", fontSize: 22, mt: 2, mb: 2 }}
-          onClick={onSubmit}
-        >
-          SPARA
-        </Button>
-      </Box>
+          <Button
+            variant="contained"
+            type="submit"
+            sx={{ width: "100%", fontSize: 22, mt: 2, mb: 2 }}
+          >
+            SPARA
+          </Button>
+        </Box>
+      </FormControl>
     </Container>
   );
-}
+};
+
+export default memo(Form);

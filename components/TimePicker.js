@@ -2,15 +2,15 @@ import * as React from "react";
 import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { memo } from "react";
 
-function BasicDatePicker() {
+function BasicTimePicker() {
   const [value, setValue] = React.useState(null);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <DatePicker
+      <TimePicker
         value={value}
         onChange={(newValue) => {
           setValue(newValue);
@@ -21,4 +21,4 @@ function BasicDatePicker() {
   );
 }
 
-export default memo(BasicDatePicker);
+export default memo(BasicTimePicker);
