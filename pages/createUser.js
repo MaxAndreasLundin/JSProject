@@ -64,7 +64,7 @@ export default function CreateUser() {
 
   const passwordValidator = () => {
     const regex =
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{16,}$/;
 
     setErrors({
       ...errors,
@@ -73,10 +73,15 @@ export default function CreateUser() {
     });
   };
 
+  var inputPassword = React.createRef();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     passwordValidator();
-
+    if (errors.passwordMatchError || errors.passwordReqError) {
+      inputPassword.current.focus();
+    }
+    console.log(inputPassword.current);
     console.log(errors.filledInputsError);
   };
 
@@ -164,6 +169,7 @@ export default function CreateUser() {
               }
               sx={{ borderRadius: "29px" }}
               label="Lösenord"
+              ref={inputPassword}
               type={values.showPassword ? "text" : "password"}
               value={values.password}
               onChange={handleChange("password")}
