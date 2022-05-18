@@ -111,9 +111,22 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
               onChange={handleChange}
               placeholder="Skriv ut hela adressen inkl. postnummer"
             />
+
+            <Typography variant="subtitle1" sx={{ fontSize: 20, ml: 1 }}>
+              Profilnamn
+            </Typography>
+            <FormControl>
+              <OutlinedInput
+                sx={{ borderRadius: "29px" }}
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                placeholder="Profilnamn"
+              />
+            </FormControl>
           </FormControl>
           <Typography variant="subtitle1" sx={{ fontSize: 20, ml: 1 }}>
-            Avatar
+            Profilbild
           </Typography>
           <FormControl>
             <OutlinedInput
@@ -124,23 +137,11 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
               placeholder="URL from unsplash"
             />
           </FormControl>
-          <Typography variant="subtitle1" sx={{ fontSize: 20, ml: 1 }}>
-            Profilnamn
-          </Typography>
-          <FormControl>
-            <OutlinedInput
-              sx={{ borderRadius: "29px" }}
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              placeholder="Profilnamn"
-            />
-          </FormControl>
           <Typography
             variant="subtitle1"
             sx={{ fontSize: 20, display: "flex", alignItems: "center" }}
           >
-            <AccessTimeIcon sx={{ ml: 1 }} />
+            <AccessTimeIcon sx={{ mx: 1 }} />
             Datum och tid
           </Typography>
           <Box

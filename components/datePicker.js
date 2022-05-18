@@ -11,6 +11,7 @@ function BasicDatePicker() {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <DatePicker
+        name="date"
         value={value}
         onChange={(newValue) => {
           setValue(newValue);

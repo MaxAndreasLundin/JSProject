@@ -106,7 +106,11 @@ export default function UseFormControl() {
           <AccessTimeIcon value={values.date} onChange={handleChange("date")} />
           Datum och tid
         </Typography>
-        <DatePicker />
+        <DatePicker
+          onChange={(newValue) => {
+            setValues(newValue);
+          }}
+        />
         <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
           Passar ålder:
         </Typography>

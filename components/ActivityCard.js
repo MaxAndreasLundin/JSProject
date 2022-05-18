@@ -200,7 +200,7 @@ function ActivityCard(props) {
 
       <Box display="flex" justifycontent="center">
         <ExpandMore
-          sx={{ marginLeft: 0 }}
+          sx={{ marginLeft: 20 }}
           expand={expanded}
           onClick={handleExpandClick}
           aria-expanded={expanded}
