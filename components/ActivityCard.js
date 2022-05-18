@@ -174,21 +174,21 @@ function ActivityCard(props) {
               <Chip
                 variant="activityCard"
                 color="info"
-                label="Korv"
+                label={props.tag1}
                 size="small"
                 sx={{ mr: 0.5, mt: 0.5 }}
               />
               <Chip
                 variant="activityCard"
                 color="info"
-                label="Utomhus"
+                label={props.tag2}
                 size="small"
                 sx={{ mr: 0.5, mt: 0.5 }}
               />
               <Chip
                 variant="activityCard"
                 color="error"
-                label="Alla åldrar"
+                label={props.age}
                 size="small"
                 sx={{ mr: 0.5, mt: 0.5 }}
               />

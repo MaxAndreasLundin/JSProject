@@ -90,6 +90,10 @@ const ActivityPage = (props) => {
                       time={activity.time}
                       name={activity.name}
                       avatar={activity.avatar}
+                      tag1={activity.tag1}
+                      tag2={activity.tag2}
+                      tag3={activity.tag3}
+                      age={activity.age}
                     ></ActivityCard>
                   </div>
                 );

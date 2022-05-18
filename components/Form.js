@@ -157,7 +157,12 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
             Passar ålder:
           </Typography>
           <FormControl>
-            <OutlinedInput placeholder="Vilken ålder passar din aktivitet för?" />
+            <OutlinedInput
+              name="age"
+              value={form.age}
+              onChange={handleChange}
+              placeholder="Vilken ålder passar din aktivitet för?"
+            />
           </FormControl>
           <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
             Passar dig som gillar:
