@@ -26,6 +26,10 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
     time: cardForm.time,
     name: cardForm.name,
     avatar: cardForm.avatar,
+    tag1: cardForm.tag1,
+    tag2: cardForm.tag2,
+    tag3: cardForm.tag3,
+    age: cardForm.age,
   });
 
   const postData = async (form) => {
@@ -162,9 +166,45 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
             Lägg gärna till 1-3 stycken taggar för att hjälpa andra att hitta
             rätt
           </Typography>
-          <FormControl>
-            <OutlinedInput placeholder="Till exempel: Tv-spel, Inomhus, Grillning ..." />
-          </FormControl>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+            }}
+          >
+            {" "}
+            <Box sx={{ mr: 1, width: "100%" }}>
+              <FormControl>
+                <OutlinedInput
+                  name="tag1"
+                  value={form.tag1}
+                  onChange={handleChange}
+                  placeholder="Till exempel: Tv-spel, Inomhus, Grillning ..."
+                />
+              </FormControl>
+            </Box>
+            <Box sx={{ mr: 1, ml: 1, width: "100%" }}>
+              <FormControl>
+                <OutlinedInput
+                  name="tag2"
+                  value={form.tag2}
+                  onChange={handleChange}
+                  placeholder="Till exempel: Tv-spel, Inomhus, Grillning ..."
+                />
+              </FormControl>
+            </Box>
+            <Box sx={{ ml: 1, width: "100%" }}>
+              <FormControl>
+                <OutlinedInput
+                  name="tag3"
+                  value={form.tag3}
+                  onChange={handleChange}
+                  placeholder="Till exempel: Tv-spel, Inomhus, Grillning ..."
+                />
+              </FormControl>
+            </Box>
+          </Box>
           <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
             Om aktiviteten
           </Typography>

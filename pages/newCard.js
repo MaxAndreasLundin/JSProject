@@ -9,6 +9,10 @@ const NewCard = () => {
     time: "",
     place: "",
     avatar: "",
+    tag1: "",
+    tag2: "",
+    tag3: "",
+    age: "",
   };
 
   return <Form cardForm={cardForm} />;
