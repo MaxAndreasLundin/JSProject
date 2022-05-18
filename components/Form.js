@@ -87,11 +87,12 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
           <Typography variant="h1" sx={{ mb: 4, mt: 4, textAlign: "center" }}>
             Skapa en egen aktivitet
           </Typography>
-          <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, ml: 1 }}>
             Namn på aktivitet
           </Typography>
           <FormControl>
             <OutlinedInput
+              sx={{ borderRadius: "29px" }}
               name="title"
               value={form.title}
               onChange={handleChange}
@@ -99,44 +100,47 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
               placeholder="Detta blir din aktivitets rubrik, beskriv den med 1-4 ord"
             />
           </FormControl>
-          <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, ml: 1 }}>
             Plats
           </Typography>
           <FormControl>
             <OutlinedInput
+              sx={{ borderRadius: "29px" }}
               name="place"
               value={form.place}
               onChange={handleChange}
               placeholder="Skriv ut hela adressen inkl. postnummer"
             />
           </FormControl>
-          <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, ml: 1 }}>
             Avatar
           </Typography>
           <FormControl>
             <OutlinedInput
+              sx={{ borderRadius: "29px" }}
               name="avatar"
               value={form.avatar}
               onChange={handleChange}
-              placeholder="URL from unsplash (Test)"
+              placeholder="URL from unsplash"
             />
           </FormControl>
-          <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, ml: 1 }}>
             Profilnamn
           </Typography>
           <FormControl>
             <OutlinedInput
+              sx={{ borderRadius: "29px" }}
               name="name"
               value={form.name}
               onChange={handleChange}
-              placeholder="Profilnamn (Test)"
+              placeholder="Profilnamn"
             />
           </FormControl>
           <Typography
             variant="subtitle1"
             sx={{ fontSize: 20, display: "flex", alignItems: "center" }}
           >
-            <AccessTimeIcon />
+            <AccessTimeIcon sx={{ ml: 1 }} />
             Datum och tid
           </Typography>
           <Box
@@ -146,28 +150,45 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
               justifyContent: "space-evenly",
             }}
           >
-            <Box sx={{ mr: 1, width: "100%" }}>
+            <Box
+              sx={{
+                mr: 1,
+                width: "100%",
+                "& fieldset": {
+                  borderRadius: "29px",
+                },
+              }}
+            >
               <DatePicker value={form.date} onChange={handleChange} />
             </Box>
-            <Box sx={{ ml: 1, width: "100%" }}>
+            <Box
+              sx={{
+                ml: 1,
+                width: "100%",
+                "& fieldset": {
+                  borderRadius: "29px",
+                },
+              }}
+            >
               <TimePicker value={form.time} onChange={handleChange} />
             </Box>
           </Box>
-          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 2, ml: 1 }}>
             Passar ålder:
           </Typography>
           <FormControl>
             <OutlinedInput
+              sx={{ borderRadius: "29px" }}
               name="age"
               value={form.age}
               onChange={handleChange}
               placeholder="Vilken ålder passar din aktivitet för?"
             />
           </FormControl>
-          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 2, ml: 1 }}>
             Passar dig som gillar:
           </Typography>
-          <Typography variant="subtitle1" sx={{ fontSize: 12 }}>
+          <Typography variant="subtitle1" sx={{ fontSize: 12, ml: 1 }}>
             Lägg gärna till 1-3 stycken taggar för att hjälpa andra att hitta
             rätt
           </Typography>
@@ -182,35 +203,35 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
             <Box sx={{ mr: 1, width: "100%" }}>
               <FormControl>
                 <OutlinedInput
+                  sx={{ borderRadius: "29px" }}
                   name="tag1"
                   value={form.tag1}
                   onChange={handleChange}
-                  placeholder="Till exempel: Tv-spel, Inomhus, Grillning ..."
                 />
               </FormControl>
             </Box>
             <Box sx={{ mr: 1, ml: 1, width: "100%" }}>
               <FormControl>
                 <OutlinedInput
+                  sx={{ borderRadius: "29px" }}
                   name="tag2"
                   value={form.tag2}
                   onChange={handleChange}
-                  placeholder="Till exempel: Tv-spel, Inomhus, Grillning ..."
                 />
               </FormControl>
             </Box>
             <Box sx={{ ml: 1, width: "100%" }}>
               <FormControl>
                 <OutlinedInput
+                  sx={{ borderRadius: "29px" }}
                   name="tag3"
                   value={form.tag3}
                   onChange={handleChange}
-                  placeholder="Till exempel: Tv-spel, Inomhus, Grillning ..."
                 />
               </FormControl>
             </Box>
           </Box>
-          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3, ml: 1 }}>
             Om aktiviteten
           </Typography>
           <TextField

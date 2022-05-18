@@ -171,6 +171,7 @@ function ActivityCard(props) {
               <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
                 Passar bäst:
               </Typography>
+
               <Chip
                 variant="activityCard"
                 color="info"
