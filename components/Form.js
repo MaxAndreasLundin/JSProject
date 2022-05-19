@@ -10,15 +10,12 @@ import DatePicker from "./DatePicker";
 import TimePicker from "./TimePicker";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { memo } from "react";
 
 const Form = ({ formId, cardForm, forNewcard = true }) => {
   const router = useRouter();
   const contentType = "application/json";
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
-
-  // const [tags, setTags] = useState([]);
   const [form, setForm] = useState({
     title: cardForm.title,
     description: cardForm.description,
@@ -66,8 +63,6 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
 
   const handleChangeTags = (e) => {
     const { value, name } = e.target;
-    // setTags([value]);
-    // console.log(tags);
     setForm({
       ...form,
       [name]: value,
@@ -77,9 +72,13 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(form.tag1, form.tag2, form.tag3);
-    // setForm([form.tag1, form.tag2, form.tag3]);
-    // console.log(tags);
-    const data = { ...form, tags: [form.tag1, form.tag2, form.tag3] };
+    const data = {
+      ...form,
+      tags: [form.tag1, form.tag2, form.tag3].filter((t) => t !== ""),
+    };
+    delete data.tag1;
+    delete data.tag2;
+    delete data.tag3;
     console.log(data);
     const errs = formValidate();
     if (Object.keys(errs).length === 0) {

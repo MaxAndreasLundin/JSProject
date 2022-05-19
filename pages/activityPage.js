@@ -91,9 +91,6 @@ const ActivityPage = (props) => {
                       name={activity.name}
                       avatar={activity.avatar}
                       tags={activity.tags}
-                      tag1={activity.tag1}
-                      tag2={activity.tag2}
-                      tag3={activity.tag3}
                       age={activity.age}
                     ></ActivityCard>
                   </div>

@@ -7,7 +7,6 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { memo } from "react";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -178,6 +177,7 @@ function ActivityCard(props) {
                 console.log(tag);
                 return (
                   <Chip
+                    key={Chip._id}
                     variant="activityCard"
                     color="info"
                     label={tag}
