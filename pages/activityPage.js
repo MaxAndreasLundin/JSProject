@@ -79,7 +79,7 @@ const ActivityPage = (props) => {
           >
             <div>
               {activity.map((activity) => {
-                console.log(activity);
+                //  console.log(activity);
                 return (
                   <div key={activity._id}>
                     <ActivityCard
@@ -90,6 +90,7 @@ const ActivityPage = (props) => {
                       time={activity.time}
                       name={activity.name}
                       avatar={activity.avatar}
+                      tags={activity.tags}
                       tag1={activity.tag1}
                       tag2={activity.tag2}
                       tag3={activity.tag3}

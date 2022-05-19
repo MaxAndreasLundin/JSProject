@@ -27,10 +27,13 @@ const ExpandMore = styled((props) => {
 }));
 
 function ActivityCard(props) {
+  const [tags, setTags] = React.useState([]);
+
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+    setTags(props.tags);
   };
 
   const [isActive, setIsActive] = React.useState(false);
@@ -171,15 +174,18 @@ function ActivityCard(props) {
               <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
                 Passar bäst:
               </Typography>
+              {tags.map((tag) => {
+                console.log(tag);
+                <Chip
+                  variant="activityCard"
+                  color="info"
+                  label={tag}
+                  size="small"
+                  sx={{ mr: 0.5, mt: 0.5 }}
+                />;
+              })}
 
-              <Chip
-                variant="activityCard"
-                color="info"
-                label={props.tag1}
-                size="small"
-                sx={{ mr: 0.5, mt: 0.5 }}
-              />
-              <Chip
+              {/* <Chip
                 variant="activityCard"
                 color="info"
                 label={props.tag2}
@@ -192,7 +198,7 @@ function ActivityCard(props) {
                 label={props.age}
                 size="small"
                 sx={{ mr: 0.5, mt: 0.5 }}
-              />
+              /> */}
             </Box>
           </Box>
         </CardContent>
@@ -213,4 +219,4 @@ function ActivityCard(props) {
   );
 }
 
-export default memo(ActivityCard);
+export default ActivityCard;

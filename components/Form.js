@@ -26,6 +26,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
     time: cardForm.time,
     name: cardForm.name,
     avatar: cardForm.avatar,
+    tags: [cardForm.tag1, cardForm.tag2, cardForm.tag3],
     tag1: cardForm.tag1,
     tag2: cardForm.tag2,
     tag3: cardForm.tag3,
@@ -263,4 +264,4 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
   );
 };
 
-export default memo(Form);
+export default Form;
