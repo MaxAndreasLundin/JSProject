@@ -18,7 +18,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
 
-  const [tags, setTags] = useState([]);
+  // const [tags, setTags] = useState([]);
   const [form, setForm] = useState({
     title: cardForm.title,
     description: cardForm.description,
@@ -27,7 +27,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
     time: cardForm.time,
     name: cardForm.name,
     avatar: cardForm.avatar,
-    tags: [],
+    tags: [cardForm.tag1, cardForm.tag2, cardForm.tag3],
     tag1: cardForm.tag1,
     tag2: cardForm.tag2,
     tag3: cardForm.tag3,
@@ -66,8 +66,8 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
 
   const handleChangeTags = (e) => {
     const { value, name } = e.target;
-    setTags(form.tags, [value]);
-    console.log(tags);
+    // setTags([value]);
+    // console.log(tags);
     setForm({
       ...form,
       [name]: value,
@@ -77,12 +77,13 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(form.tag1, form.tag2, form.tag3);
-    setTags([form.tag1, form.tag2, form.tag3]);
-    console.log(tags);
-
+    // setForm([form.tag1, form.tag2, form.tag3]);
+    // console.log(tags);
+    const data = { ...form, tags: [form.tag1, form.tag2, form.tag3] };
+    console.log(data);
     const errs = formValidate();
     if (Object.keys(errs).length === 0) {
-      forNewcard ? postData(form) : putData(form);
+      forNewcard ? postData(data) : putData(data);
     } else {
       setErrors({ errs });
     }
