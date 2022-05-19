@@ -61,14 +61,6 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
     });
   };
 
-  const handleChangeTags = (e) => {
-    const { value, name } = e.target;
-    setForm({
-      ...form,
-      [name]: value,
-    });
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(form.tag1, form.tag2, form.tag3);
@@ -223,7 +215,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
                   sx={{ borderRadius: "29px" }}
                   name="tag1"
                   value={form.tag1}
-                  onChange={handleChangeTags}
+                  onChange={handleChange}
                 />
               </FormControl>
             </Box>
@@ -233,7 +225,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
                   sx={{ borderRadius: "29px" }}
                   name="tag2"
                   value={form.tag2}
-                  onChange={handleChangeTags}
+                  onChange={handleChange}
                 />
               </FormControl>
             </Box>
@@ -243,7 +235,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
                   sx={{ borderRadius: "29px" }}
                   name="tag3"
                   value={form.tag3}
-                  onChange={handleChangeTags}
+                  onChange={handleChange}
                 />
               </FormControl>
             </Box>

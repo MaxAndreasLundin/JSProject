@@ -175,16 +175,18 @@ function ActivityCard(props) {
               </Typography>
               {tags.map((tag) => {
                 console.log(tag);
-                return (
-                  <Chip
-                    key={Chip._id}
-                    variant="activityCard"
-                    color="info"
-                    label={tag}
-                    size="small"
-                    sx={{ mr: 0.5, mt: 0.5 }}
-                  />
-                );
+                if (tag !== null) {
+                  return (
+                    <Chip
+                      key={Chip._id}
+                      variant="activityCard"
+                      color="info"
+                      label={tag}
+                      size="small"
+                      sx={{ mr: 0.5, mt: 0.5 }}
+                    />
+                  );
+                }
               })}
 
               <Chip

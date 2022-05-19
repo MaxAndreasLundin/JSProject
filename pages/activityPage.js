@@ -101,7 +101,7 @@ const ActivityPage = (props) => {
                 color="info"
                 component={Link}
                 href="/newCard"
-                sx={{ position: "fixed", bottom: 20 }}
+                sx={{ position: "fixed", bottom: 20, ml: 12 }}
               >
                 <AddIcon /> Skapa en aktivitet
               </Button>
