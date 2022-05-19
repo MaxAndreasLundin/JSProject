@@ -18,6 +18,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
 
+  const [tags, setTags] = useState([]);
   const [form, setForm] = useState({
     title: cardForm.title,
     description: cardForm.description,
@@ -26,7 +27,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
     time: cardForm.time,
     name: cardForm.name,
     avatar: cardForm.avatar,
-    tags: [cardForm.tag1, cardForm.tag2, cardForm.tag3],
+    tags: [],
     tag1: cardForm.tag1,
     tag2: cardForm.tag2,
     tag3: cardForm.tag3,
@@ -63,8 +64,22 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
     });
   };
 
+  const handleChangeTags = (e) => {
+    const { value, name } = e.target;
+    setTags(form.tags, [value]);
+    console.log(tags);
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(form.tag1, form.tag2, form.tag3);
+    setTags([form.tag1, form.tag2, form.tag3]);
+    console.log(tags);
+
     const errs = formValidate();
     if (Object.keys(errs).length === 0) {
       forNewcard ? postData(form) : putData(form);
@@ -208,7 +223,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
                   sx={{ borderRadius: "29px" }}
                   name="tag1"
                   value={form.tag1}
-                  onChange={handleChange}
+                  onChange={handleChangeTags}
                 />
               </FormControl>
             </Box>
@@ -218,7 +233,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
                   sx={{ borderRadius: "29px" }}
                   name="tag2"
                   value={form.tag2}
-                  onChange={handleChange}
+                  onChange={handleChangeTags}
                 />
               </FormControl>
             </Box>
@@ -228,7 +243,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
                   sx={{ borderRadius: "29px" }}
                   name="tag3"
                   value={form.tag3}
-                  onChange={handleChange}
+                  onChange={handleChangeTags}
                 />
               </FormControl>
             </Box>

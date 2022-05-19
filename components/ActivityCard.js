@@ -176,29 +176,24 @@ function ActivityCard(props) {
               </Typography>
               {tags.map((tag) => {
                 console.log(tag);
-                <Chip
-                  variant="activityCard"
-                  color="info"
-                  label={tag}
-                  size="small"
-                  sx={{ mr: 0.5, mt: 0.5 }}
-                />;
+                return (
+                  <Chip
+                    variant="activityCard"
+                    color="info"
+                    label={tag}
+                    size="small"
+                    sx={{ mr: 0.5, mt: 0.5 }}
+                  />
+                );
               })}
 
-              {/* <Chip
-                variant="activityCard"
-                color="info"
-                label={props.tag2}
-                size="small"
-                sx={{ mr: 0.5, mt: 0.5 }}
-              />
               <Chip
                 variant="activityCard"
                 color="error"
                 label={props.age}
                 size="small"
                 sx={{ mr: 0.5, mt: 0.5 }}
-              /> */}
+              />
             </Box>
           </Box>
         </CardContent>
