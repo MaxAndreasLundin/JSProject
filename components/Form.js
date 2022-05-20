@@ -105,7 +105,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
               value={form.title}
               onChange={handleChange}
               required
-              placeholder="Detta blir din aktivitets rubrik, beskriv den med 1-4 ord"
+              placeholder="Detta blir din aktivitets rubrik"
             />
           </FormControl>
           <Typography variant="subtitle1" sx={{ fontSize: 20, ml: 1 }}>
@@ -117,7 +117,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
               name="place"
               value={form.place}
               onChange={handleChange}
-              placeholder="Skriv ut hela adressen inkl. postnummer"
+              placeholder="Skriv ut adressen"
             />
 
             <Typography variant="subtitle1" sx={{ fontSize: 20, ml: 1 }}>
