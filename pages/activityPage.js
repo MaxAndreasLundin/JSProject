@@ -6,9 +6,13 @@ import Link from "../src/Link";
 import { useRouter } from "next/router";
 import { db } from "../utils/db";
 import AddIcon from "@mui/icons-material/Add";
+import { query, orderBy } from "firebase/firestore";
 
 export const getServerSideProps = async (context) => {
-  const res = await db.collection("activities").get();
+  const res = await db
+    .collection("activities")
+    .orderBy("createdAt", "desc")
+    .get();
 
   const activity = res.docs.map((activity) => activity.data());
 
