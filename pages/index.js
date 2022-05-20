@@ -19,6 +19,7 @@ export default function Index() {
         }}
       >
         <Intro></Intro>
+
         <IndexCard title="Hitta aktivitet">
           Här kan du se vilka aktiviteter som våra fina medlemmar eller
           föreningar har satt ihop.

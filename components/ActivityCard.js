@@ -7,7 +7,6 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { memo } from "react";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -27,10 +26,13 @@ const ExpandMore = styled((props) => {
 }));
 
 function ActivityCard(props) {
+  const [tags, setTags] = React.useState([]);
+
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+    setTags(props.tags);
   };
 
   const [isActive, setIsActive] = React.useState(false);
@@ -58,10 +60,10 @@ function ActivityCard(props) {
       }}
     >
       <CardContent sx={{ maxHeight: 105 }}>
-        <Box display="flex" justifyContent="space-between">
+        <Box display="flex" justifycontent="space-between">
           <Box sx={{ ml: 1 }}>
             <Avatar
-              src="https://mamadisrupt.com/wp-content/uploads/2019/11/jessica-rockowitz-jbiInQGY8og-unsplash-WEB-542x427.jpg"
+              src={props.avatar}
               sx={{
                 width: 55,
                 height: 55,
@@ -76,7 +78,7 @@ function ActivityCard(props) {
                 textAlign: "center",
               }}
             >
-              Malin
+              {props.name}
             </Typography>
           </Box>
 
@@ -84,25 +86,24 @@ function ActivityCard(props) {
             sx={{
               ml: 3,
               display: "flex",
-              justifyContent: "flex-start",
+              justifycontent: "flex-start",
               flexDirection: "column",
               flexGrow: 2,
               flexBasis: 0,
             }}
           >
             <Typography variant="h5" sx={{ fontSize: 20 }}>
-              {props.children}
+              {props.title}
             </Typography>
-
-            <Typography variant="subtitle1">Var: Hökarängen</Typography>
-            <Typography variant="subtitle1">När: 29 Mars 2022 </Typography>
-            <Typography variant="subtitle1">Tid: 12:00</Typography>
+            <Typography variant="subtitle1">Var: {props.place}</Typography>
+            <Typography variant="subtitle1">När: {props.date} </Typography>
+            <Typography variant="subtitle1">Tid: {props.time}</Typography>
           </Box>
 
           <Box
             sx={{
               display: "flex",
-              justifyContent: "space-between",
+              justifycontent: "space-between",
               flexDirection: "column",
               flexGrow: 1,
               flexBasis: 0,
@@ -121,7 +122,7 @@ function ActivityCard(props) {
               variant="contained"
               disableRipple
               onClick={handleClick}
-              justifyContent="flexEnd"
+              justifycontent="flexEnd"
               sx={{ maxHeight: 24, textTransform: "none", pl: 0, pr: 0 }}
             >
               {buttonText && (
@@ -157,9 +158,7 @@ function ActivityCard(props) {
                 variant="subtitle2"
                 sx={{ mr: 4, mb: -3 }}
               >
-                Kort beskrivning av vad aktiveteten handlar om och vad syftet är
-                med aktiviteten. Kort beskrivning av vad aktiveteten handlar om
-                och vad syftet är med aktiviteten.
+                {props.content}
               </Typography>
             </Box>
             <Box
@@ -174,24 +173,26 @@ function ActivityCard(props) {
               <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
                 Passar bäst:
               </Typography>
-              <Chip
-                variant="activityCard"
-                color="info"
-                label="Korv"
-                size="small"
-                sx={{ mr: 0.5, mt: 0.5 }}
-              />
-              <Chip
-                variant="activityCard"
-                color="info"
-                label="Utomhus"
-                size="small"
-                sx={{ mr: 0.5, mt: 0.5 }}
-              />
+              {tags.map((tag) => {
+                console.log(tag);
+                if (tag !== null) {
+                  return (
+                    <Chip
+                      key={Chip._id}
+                      variant="activityCard"
+                      color="info"
+                      label={tag}
+                      size="small"
+                      sx={{ mr: 0.5, mt: 0.5 }}
+                    />
+                  );
+                }
+              })}
+
               <Chip
                 variant="activityCard"
                 color="error"
-                label="Alla åldrar"
+                label={props.age}
                 size="small"
                 sx={{ mr: 0.5, mt: 0.5 }}
               />
@@ -200,9 +201,9 @@ function ActivityCard(props) {
         </CardContent>
       </Collapse>
 
-      <Box display="flex" justifyContent="center">
+      <Box display="flex" justifycontent="center">
         <ExpandMore
-          sx={{ marginLeft: 0 }}
+          sx={{ marginLeft: 20 }}
           expand={expanded}
           onClick={handleExpandClick}
           aria-expanded={expanded}
@@ -215,4 +216,4 @@ function ActivityCard(props) {
   );
 }
 
-export default memo(ActivityCard);
+export default ActivityCard;

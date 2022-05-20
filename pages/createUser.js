@@ -39,19 +39,19 @@ export default function CreateUser() {
   };
 
   const inputMissingChecker = () => {
-    if (values.name.lenght === 0) {
+    if (values.name.length === 0) {
       return true;
     }
 
-    if (values.email.lenght === 0) {
+    if (values.email.length === 0) {
       return true;
     }
 
-    if (values.password.lenght === 0) {
+    if (values.password.length === 0) {
       return true;
     }
 
-    if (values.passwordConf.lenght === 0) {
+    if (values.passwordConf.length === 0) {
       return true;
     }
 

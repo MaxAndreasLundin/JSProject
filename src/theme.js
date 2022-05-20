@@ -8,6 +8,13 @@ const theme = createTheme({
         fontFamily: "Poppins",
       },
     },
+    MuiFormControl: {
+      styleOverrides: {
+        root: {
+          width: "100%",
+        },
+      },
+    },
     MuiInputBase: {
       styleOverrides: {
         input: {

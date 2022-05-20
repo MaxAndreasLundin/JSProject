@@ -10,14 +10,12 @@ import DatePicker from "./DatePicker";
 import TimePicker from "./TimePicker";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { memo } from "react";
 
 const Form = ({ formId, cardForm, forNewcard = true }) => {
   const router = useRouter();
   const contentType = "application/json";
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
-
   const [form, setForm] = useState({
     title: cardForm.title,
     description: cardForm.description,
@@ -26,24 +24,32 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
     time: cardForm.time,
     name: cardForm.name,
     avatar: cardForm.avatar,
+    tags: [cardForm.tag1, cardForm.tag2, cardForm.tag3],
+    tag1: cardForm.tag1,
+    tag2: cardForm.tag2,
+    tag3: cardForm.tag3,
+    age: cardForm.age,
   });
 
   const postData = async (form) => {
-    e.preventDefault();
+    try {
+      const res = await fetch("/api/activities", {
+        method: "POST",
+        headers: {
+          Accept: contentType,
+          "Content-Type": contentType,
+        },
+        body: JSON.stringify(form),
+      });
 
-    const formData = new FormData(e.target);
-    const body = Object.fromEntries(formData.entries());
+      if (!res.ok) {
+        throw new Error(res.status);
+      }
 
-    setIsLoading(true);
-    setErrors([]);
-    axios
-      .post("/api/activities", body)
-      .then(({ data }) => {
-        e.target.reset();
-        router.push(`/${data.data.id}`);
-      })
-      .catch((err) => setErrors(err.response.data.errors))
-      .finally(() => setIsLoading(false));
+      router.push("/");
+    } catch (error) {
+      setMessage("Failed to add card");
+    }
   };
 
   const handleChange = (e) => {
@@ -57,9 +63,18 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(form.tag1, form.tag2, form.tag3);
+    const data = {
+      ...form,
+      tags: [form.tag1, form.tag2, form.tag3].filter((t) => t !== ""),
+    };
+    delete data.tag1;
+    delete data.tag2;
+    delete data.tag3;
+    console.log(data);
     const errs = formValidate();
     if (Object.keys(errs).length === 0) {
-      forNewcard ? postData(form) : putData(form);
+      forNewcard ? postData(data) : putData(data);
     } else {
       setErrors({ errs });
     }
@@ -69,6 +84,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
     let err = {};
     if (!form.title) err.title = "Title is required";
     if (!form.description) err.description = "Description is required";
+
     return err;
   };
 
@@ -79,11 +95,12 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
           <Typography variant="h1" sx={{ mb: 4, mt: 4, textAlign: "center" }}>
             Skapa en egen aktivitet
           </Typography>
-          <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, ml: 1 }}>
             Namn på aktivitet
           </Typography>
           <FormControl>
             <OutlinedInput
+              sx={{ borderRadius: "29px" }}
               name="title"
               value={form.title}
               onChange={handleChange}
@@ -91,44 +108,48 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
               placeholder="Detta blir din aktivitets rubrik, beskriv den med 1-4 ord"
             />
           </FormControl>
-          <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, ml: 1 }}>
             Plats
           </Typography>
           <FormControl>
             <OutlinedInput
+              sx={{ borderRadius: "29px" }}
               name="place"
               value={form.place}
               onChange={handleChange}
               placeholder="Skriv ut hela adressen inkl. postnummer"
             />
+
+            <Typography variant="subtitle1" sx={{ fontSize: 20, ml: 1 }}>
+              Profilnamn
+            </Typography>
+            <FormControl>
+              <OutlinedInput
+                sx={{ borderRadius: "29px" }}
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                placeholder="Profilnamn"
+              />
+            </FormControl>
           </FormControl>
-          <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
-            Avatar
+          <Typography variant="subtitle1" sx={{ fontSize: 20, ml: 1 }}>
+            Profilbild
           </Typography>
           <FormControl>
             <OutlinedInput
+              sx={{ borderRadius: "29px" }}
               name="avatar"
               value={form.avatar}
               onChange={handleChange}
-              placeholder="URL from unsplash (Test)"
-            />
-          </FormControl>
-          <Typography variant="subtitle1" sx={{ fontSize: 20 }}>
-            Profilnamn
-          </Typography>
-          <FormControl>
-            <OutlinedInput
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              placeholder="Profilnamn (Test)"
+              placeholder="URL from unsplash"
             />
           </FormControl>
           <Typography
             variant="subtitle1"
             sx={{ fontSize: 20, display: "flex", alignItems: "center" }}
           >
-            <AccessTimeIcon />
+            <AccessTimeIcon sx={{ mx: 1 }} />
             Datum och tid
           </Typography>
           <Box
@@ -138,30 +159,88 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
               justifyContent: "space-evenly",
             }}
           >
-            <Box sx={{ mr: 1, width: "100%" }}>
+            <Box
+              sx={{
+                mr: 1,
+                width: "100%",
+                "& fieldset": {
+                  borderRadius: "29px",
+                },
+              }}
+            >
               <DatePicker value={form.date} onChange={handleChange} />
             </Box>
-            <Box sx={{ ml: 1, width: "100%" }}>
+            <Box
+              sx={{
+                ml: 1,
+                width: "100%",
+                "& fieldset": {
+                  borderRadius: "29px",
+                },
+              }}
+            >
               <TimePicker value={form.time} onChange={handleChange} />
             </Box>
           </Box>
-          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 2, ml: 1 }}>
             Passar ålder:
           </Typography>
           <FormControl>
-            <OutlinedInput placeholder="Vilken ålder passar din aktivitet för?" />
+            <OutlinedInput
+              sx={{ borderRadius: "29px" }}
+              name="age"
+              value={form.age}
+              onChange={handleChange}
+              placeholder="Vilken ålder passar din aktivitet för?"
+            />
           </FormControl>
-          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 2, ml: 1 }}>
             Passar dig som gillar:
           </Typography>
-          <Typography variant="subtitle1" sx={{ fontSize: 12 }}>
+          <Typography variant="subtitle1" sx={{ fontSize: 12, ml: 1 }}>
             Lägg gärna till 1-3 stycken taggar för att hjälpa andra att hitta
             rätt
           </Typography>
-          <FormControl>
-            <OutlinedInput placeholder="Till exempel: Tv-spel, Inomhus, Grillning ..." />
-          </FormControl>
-          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3 }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+            }}
+          >
+            {" "}
+            <Box sx={{ mr: 1, width: "100%" }}>
+              <FormControl>
+                <OutlinedInput
+                  sx={{ borderRadius: "29px" }}
+                  name="tag1"
+                  value={form.tag1}
+                  onChange={handleChange}
+                />
+              </FormControl>
+            </Box>
+            <Box sx={{ mr: 1, ml: 1, width: "100%" }}>
+              <FormControl>
+                <OutlinedInput
+                  sx={{ borderRadius: "29px" }}
+                  name="tag2"
+                  value={form.tag2}
+                  onChange={handleChange}
+                />
+              </FormControl>
+            </Box>
+            <Box sx={{ ml: 1, width: "100%" }}>
+              <FormControl>
+                <OutlinedInput
+                  sx={{ borderRadius: "29px" }}
+                  name="tag3"
+                  value={form.tag3}
+                  onChange={handleChange}
+                />
+              </FormControl>
+            </Box>
+          </Box>
+          <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 3, ml: 1 }}>
             Om aktiviteten
           </Typography>
           <TextField
@@ -192,4 +271,4 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
   );
 };
 
-export default memo(Form);
+export default Form;
