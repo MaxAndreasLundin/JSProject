@@ -96,8 +96,12 @@ function ActivityCard(props) {
               {props.title}
             </Typography>
             <Typography variant="subtitle1">Var: {props.place}</Typography>
-            <Typography variant="subtitle1">När: {props.date} </Typography>
-            <Typography variant="subtitle1">Tid: {props.time}</Typography>
+            <Typography variant="subtitle1">
+              När: {props.date.slice(0, 10)}
+            </Typography>
+            <Typography variant="subtitle1">
+              Tid: {props.time.slice(11, 16)}
+            </Typography>
           </Box>
 
           <Box
@@ -188,8 +192,8 @@ function ActivityCard(props) {
                   );
                 }
               })}
-
               <Chip
+                key={Chip._id}
                 variant="activityCard"
                 color="error"
                 label={props.age}

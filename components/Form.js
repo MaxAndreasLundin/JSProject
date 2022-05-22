@@ -61,6 +61,20 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
     });
   };
 
+  const handleChangeDate = (date) => {
+    setForm({
+      ...form,
+      date: date,
+    });
+  };
+
+  const handleChangeTime = (time) => {
+    setForm({
+      ...form,
+      time: time,
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(form.tag1, form.tag2, form.tag3);
@@ -168,7 +182,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
                 },
               }}
             >
-              <DatePicker value={form.date} onChange={handleChange} />
+              <DatePicker value={form.date} onSelectDate={handleChangeDate} />
             </Box>
             <Box
               sx={{
@@ -179,7 +193,7 @@ const Form = ({ formId, cardForm, forNewcard = true }) => {
                 },
               }}
             >
-              <TimePicker value={form.time} onChange={handleChange} />
+              <TimePicker value={form.time} onSelectTime={handleChangeTime} />
             </Box>
           </Box>
           <Typography variant="subtitle1" sx={{ fontSize: 20, mt: 2, ml: 1 }}>

@@ -6,7 +6,6 @@ import Link from "../src/Link";
 import { useRouter } from "next/router";
 import { db } from "../utils/db";
 import AddIcon from "@mui/icons-material/Add";
-import { query, orderBy } from "firebase/firestore";
 
 export const getServerSideProps = async (context) => {
   const res = await db
