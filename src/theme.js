@@ -1,4 +1,3 @@
-import { red } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
@@ -32,8 +31,8 @@ const theme = createTheme({
     MuiCardHeader: {
       styleOverrides: {
         title: {
-          fontFamily: "Merriweather",
-          fontWeight: 400,
+          fontFamily: "Playfair Display",
+          fontWeight: 600,
           fontSize: "2rem",
         },
       },
@@ -104,9 +103,10 @@ const theme = createTheme({
 
   typography: {
     h1: {
-      fontFamily: "Merriweather",
+      fontFamily: "Playfair Display",
+      fontstyle: "normal",
       fontSize: "2rem",
-      fontWeight: 700,
+      fontWeight: 600,
     },
     subtitle1: {
       fontFamily: "Poppins",
@@ -120,7 +120,7 @@ const theme = createTheme({
       lineHeight: 1.2,
     },
     h5: {
-      fontFamily: "Merriweather",
+      fontFamily: "Playfair Display",
       fontSize: "2rem",
       fontWeight: 600,
     },
@@ -134,6 +134,11 @@ const theme = createTheme({
       fontWeight: 400,
       fontSize: "12px",
       color: "#3A3A3A",
+    },
+    button: {
+      fontFamily: "Poppins",
+      fontStyle: "normal",
+      fontWeight: 500,
     },
   },
 });
