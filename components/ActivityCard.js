@@ -130,10 +130,24 @@ function ActivityCard(props) {
               sx={{ maxHeight: 24, textTransform: "none", pl: 0, pr: 0 }}
             >
               {buttonText && (
-                <Typography sx={{ fontSize: 14 }}>Joina!</Typography>
+                <Typography
+                  sx={{
+                    fontSize: 14,
+                    fontFamily: "Poppins",
+                    fontWeight: 500,
+                  }}
+                >
+                  Joina!
+                </Typography>
               )}
               {!buttonText && (
-                <Typography sx={{ fontSize: 14 }}>
+                <Typography
+                  sx={{
+                    fontSize: 14,
+                    fontFamily: "Poppins",
+                    fontWeight: 500,
+                  }}
+                >
                   Du joinar!{" "}
                   <CheckIcon fontSize="small" sx={{ verticalAlign: "top" }} />
                 </Typography>
