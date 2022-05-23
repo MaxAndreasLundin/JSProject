@@ -95,8 +95,6 @@ export default function CreateUser() {
     if (errors.passwordMatchError || errors.passwordReqError) {
       inputPassword.current.focus();
     }
-    console.log(inputPassword.current);
-    console.log(errors.filledInputsError);
   };
 
   const handleChange = (prop) => (event) => {
@@ -178,7 +176,7 @@ export default function CreateUser() {
               }
               sx={{ borderRadius: "29px" }}
               label="Lösenord"
-              inputref={inputPassword}
+              inputRef={inputPassword}
               type={values.showPassword ? "text" : "password"}
               value={values.password}
               onChange={handleChange("password")}
