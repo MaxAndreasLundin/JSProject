@@ -64,7 +64,7 @@ export default function CreateUser() {
 
   const passwordValidator = () => {
     const regex =
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{16,}$/;
 
     setErrors({
       ...errors,
@@ -73,20 +73,32 @@ export default function CreateUser() {
     });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    passwordValidator();
+  var inputPassword = React.createRef();
 
-    console.log(errors.filledInputsError);
-  };
-
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  React.useEffect(() => {
     setErrors({
       ...errors,
       filledInputsError: inputMissingChecker(),
     });
-    console.log(values);
+  }, [
+    values.password,
+    values.passwordConf,
+    values.name,
+    values.email,
+    values.showPassword,
+    acceptTnC,
+  ]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    passwordValidator();
+    if (errors.passwordMatchError || errors.passwordReqError) {
+      inputPassword.current.focus();
+    }
+  };
+
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
   };
 
   const handleClickShowPassword = () => {
@@ -164,6 +176,7 @@ export default function CreateUser() {
               }
               sx={{ borderRadius: "29px" }}
               label="Lösenord"
+              inputRef={inputPassword}
               type={values.showPassword ? "text" : "password"}
               value={values.password}
               onChange={handleChange("password")}
@@ -226,8 +239,8 @@ export default function CreateUser() {
             </Typography>
           </Box>
           <Typography variant="pswrdInfo">
-            Använd minst åtta tecken och en kombination av bokstäver, siffror
-            och symboler
+            Använd minst 16 tecken och en kombination av bokstäver, siffror och
+            symboler
           </Typography>
         </Grid>
         <Grid item sx={{ width: 1 }}>
@@ -270,7 +283,7 @@ export default function CreateUser() {
             fullWidth
             variant="contained"
             type="submit"
-            disabled={!errors.filledInputsError}
+            disabled={errors.filledInputsError}
             sx={{ mt: 1 }}
           >
             <Typography variant="signupHeader">SKAPA KONTO</Typography>
