@@ -5,6 +5,7 @@ import IndexCard from "../components/IndexCards";
 import Intro from "../components/Intro";
 import Button from "@mui/material/Button";
 import Image from "next/image";
+import Link from "../src/Link";
 
 export default function Index() {
   return (
@@ -98,6 +99,8 @@ export default function Index() {
           <Button
             variant="contained"
             sx={{ width: "100%", fontSize: "0.9rem", mt: "1rem" }}
+            component={Link}
+            href="/createUser"
           >
             JOIN US NOW!
           </Button>
