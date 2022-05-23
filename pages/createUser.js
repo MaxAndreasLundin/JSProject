@@ -39,19 +39,19 @@ export default function CreateUser() {
   };
 
   const inputMissingChecker = () => {
-    if (values.name.lenght === 0) {
+    if (values.name.length === 0) {
       return true;
     }
 
-    if (values.email.lenght === 0) {
+    if (values.email.length === 0) {
       return true;
     }
 
-    if (values.password.lenght === 0) {
+    if (values.password.length === 0) {
       return true;
     }
 
-    if (values.passwordConf.lenght === 0) {
+    if (values.passwordConf.length === 0) {
       return true;
     }
 
@@ -75,6 +75,20 @@ export default function CreateUser() {
 
   var inputPassword = React.createRef();
 
+  React.useEffect(() => {
+    setErrors({
+      ...errors,
+      filledInputsError: inputMissingChecker(),
+    });
+  }, [
+    values.password,
+    values.passwordConf,
+    values.name,
+    values.email,
+    values.showPassword,
+    acceptTnC,
+  ]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     passwordValidator();
@@ -87,11 +101,6 @@ export default function CreateUser() {
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
-    setErrors({
-      ...errors,
-      filledInputsError: inputMissingChecker(),
-    });
-    console.log(values);
   };
 
   const handleClickShowPassword = () => {
@@ -169,7 +178,7 @@ export default function CreateUser() {
               }
               sx={{ borderRadius: "29px" }}
               label="Lösenord"
-              ref={inputPassword}
+              inputref={inputPassword}
               type={values.showPassword ? "text" : "password"}
               value={values.password}
               onChange={handleChange("password")}
@@ -232,8 +241,8 @@ export default function CreateUser() {
             </Typography>
           </Box>
           <Typography variant="pswrdInfo">
-            Använd minst åtta tecken och en kombination av bokstäver, siffror
-            och symboler
+            Använd minst 16 tecken och en kombination av bokstäver, siffror och
+            symboler
           </Typography>
         </Grid>
         <Grid item sx={{ width: 1 }}>
@@ -276,7 +285,7 @@ export default function CreateUser() {
             fullWidth
             variant="contained"
             type="submit"
-            disabled={!errors.filledInputsError}
+            disabled={errors.filledInputsError}
             sx={{ mt: 1 }}
           >
             <Typography variant="signupHeader">SKAPA KONTO</Typography>
