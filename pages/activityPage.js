@@ -47,6 +47,7 @@ const ActivityPage = (props) => {
               backgroundImage: `url(/pictures/kids2Filter.png)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
+              textAlign: "center",
             }}
           >
             <Box sx={{ mb: 6, ml: 1, mr: 1, maxWidth: 375 }}>
@@ -54,10 +55,11 @@ const ActivityPage = (props) => {
                 variant="h1"
                 sx={{
                   color: "#FFFFFF",
-                  fontSize: "16px",
+                  mb: 2,
+                  mt: 2,
                 }}
               >
-                <h1>Joina en aktivitet!</h1>
+                Joina en aktivitet!
               </Typography>
               <Typography
                 variant="subtitle1"
